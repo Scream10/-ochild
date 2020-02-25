@@ -4,8 +4,16 @@ class Parent::UsersController < Parent::ApplicationController
     @tasks = Task.all
 
     # DISPLAY GOAL ON DASHBOARD
-    @family = current_user.family
-    @child = User.where(family_id: @family, adult: false)
-    @goal = Goal.where(user_id: @child, done: false).first
+
+    @goal = current_user.family
+                        .users
+                        .where(adult: false)
+                        .first
+                        .goals
+                        .find_by(done: false)
+
+    # @family = current_user.family
+    # @child = User.where(family: current_user.family, adult: false)
+    # @goal = Goal.where(user: @child, done: false).first
   end
 end
