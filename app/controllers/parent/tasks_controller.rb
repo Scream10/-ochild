@@ -1,3 +1,3 @@
-class Parent::TasksController < Parent::BaseController
+class Parent::TasksController < Parent::ApplicationController
 
 end
