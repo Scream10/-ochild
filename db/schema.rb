@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 2020_02_25_141202) do
 
   create_table "achievements", force: :cascade do |t|
     t.date "due_at"
-    t.boolean "achieve"
-    t.boolean "done"
+    t.boolean "achieve", default: false
+    t.boolean "done", default: false
     t.bigint "task_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_141202) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "type"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -83,10 +83,8 @@ ActiveRecord::Schema.define(version: 2020_02_25_141202) do
     t.boolean "adult"
     t.date "date_of_birth"
     t.bigint "family_id"
-    t.bigint "goal_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["family_id"], name: "index_users_on_family_id"
-    t.index ["goal_id"], name: "index_users_on_goal_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -97,5 +95,4 @@ ActiveRecord::Schema.define(version: 2020_02_25_141202) do
   add_foreign_key "proportions", "goals"
   add_foreign_key "tasks", "categories"
   add_foreign_key "users", "families"
-  add_foreign_key "users", "goals"
 end

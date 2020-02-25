@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :adult, presence: true
+  # validates :adult, presence: true
+  # we need to include true or false
   validates :date_of_birth, presence: true
 end
