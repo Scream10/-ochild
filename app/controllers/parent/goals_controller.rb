@@ -1,3 +1,3 @@
-class Parent::GoalsController < Parent::BaseController
+class Parent::GoalsController < Parent::ApplicationController
 
 end
