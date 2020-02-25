@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_111103) do
+ActiveRecord::Schema.define(version: 2020_02_25_112219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(version: 2020_02_25_111103) do
     t.boolean "done"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
   create_table "proportions", force: :cascade do |t|
@@ -82,6 +84,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_111103) do
 
   add_foreign_key "achievements", "tasks"
   add_foreign_key "achievements", "users"
+  add_foreign_key "goals", "users"
   add_foreign_key "proportions", "categories"
   add_foreign_key "proportions", "goals"
   add_foreign_key "tasks", "categories"
