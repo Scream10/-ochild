@@ -1,14 +1,16 @@
-
-
-
-
-
-
-
-
-
-
-
+<h1>Child dashboard</h1>
+<hr>
+<% @goal.each do |goal| %>
+  <h2>Goal: <%= goal.title %></h2>
+  <p><em><%= goal.end_date %></em></p>
+  <strong><%= goal.total_points %> pts</strong>
+  <% if goal.done == false %>
+    <p>Goal is not achieve yet... :(</p>
+  <% else %>
+    <p>Goal achieved !!! :)</p>
+  <% end %>
+<% end %>
+<%= link_to "Create an achievement",  %>
 
 <%-# Achievement -%>
 <h2>All achievements</h2>

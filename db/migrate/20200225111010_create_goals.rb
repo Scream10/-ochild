@@ -4,7 +4,7 @@ class CreateGoals < ActiveRecord::Migration[5.2]
       t.string :title
       t.date :end_date
       t.integer :total_points
-      t.boolean :done
+      t.boolean :done, default: false
 
       t.timestamps
     end
