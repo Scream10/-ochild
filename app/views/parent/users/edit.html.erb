@@ -1,0 +1,14 @@
+<h1>_MARK ACHIEVEMENT AS ACHIEVE</h1>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      <%= simple_form_for @achievement do |f| %>
+        <%= f.input :points %>
+        <%= f.input :achieve, as: :radio_buttons %>
+        <%= f.submit "Add", class:'btn btn-primary' %>
+
+    </div>
+  </div>
+
+</div>
