@@ -1,3 +1,3 @@
-class Parent::AchievementsController < Parent::BaseController
+class Parent::AchievementsController < Parent::ApplicationController
 
 end
