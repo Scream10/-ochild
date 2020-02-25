@@ -1,0 +1,33 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<%-# Achievement -%>
+<h2>All achievements</h2>
+<ul>
+<% @achievements.each do |achievement| %>
+  <h3><%= achievement.task.name %></h3>
+  <p><strong><%= achievement.due_at %></strong> - <%= achievement.done %></p>
+  <input type="checkbox" name="done" value='<%= achievement.done %>' <%= 'checked' if achievement.done %>> Done?
+<% end %>
+</ul>
+<br>
+
+<%-# Toutes les taches -%>
+
+<h2>All tasks</h2>
+<ul>
+<% @tasks.each do |task| %>
+  <h3><%= task.category.name %></h3>
+  <p><strong><%= task.name %></strong> - <%= task.description %></p>
+<% end %>
+</ul>
+<br>
