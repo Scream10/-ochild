@@ -10,9 +10,12 @@
     <p>Goal achieved !!! :)</p>
   <% end %>
 <% end %>
-<%= link_to "Create an achievement",  %>
+<%= link_to "Create an achievement", "#" %>
+<br>
+
 
 <%-# Achievement -%>
+
 <h2>All achievements</h2>
 <ul>
 <% @achievements.each do |achievement| %>
@@ -23,6 +26,7 @@
 </ul>
 <br>
 
+
 <%-# Toutes les taches -%>
 
 <h2>All tasks</h2>
@@ -32,4 +36,4 @@
   <p><strong><%= task.name %></strong> - <%= task.description %></p>
 <% end %>
 </ul>
-<br>
+<%= link_to "Create a task", new_child_achievement_task_path(@achievements) %>
