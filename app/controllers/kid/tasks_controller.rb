@@ -1,4 +1,4 @@
-class Child::TasksController < Child::ApplicationController
+class Kid::TasksController < Kid::ApplicationController
   def new
 
   end
