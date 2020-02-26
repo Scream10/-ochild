@@ -1,7 +1,6 @@
 class Adult::GoalsController < ApplicationController
 
   def new
-    raise
     @goal = Goal.new
   end
 
