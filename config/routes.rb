@@ -3,19 +3,15 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   namespace :kid do
-    resources :users, only: [ :show ], shallow: true do
-      resources :achievements, only: [ :new, :create, :edit, :update, :destroy ], shallow: true do
-        resources :tasks, only: [ :new, :create ]
-      end
-    end
+    resources :achievements, only: [ :new, :create, :edit, :update, :destroy ]
+    resources :tasks, only: [ :new, :create ]
+    resources :users, only: [ :show ]
   end
 
   namespace :adult do
-    resources :users, only: [ :show ], shallow: true do
-      resources :goal, only: [ :create, :new ]
-      resources :achievements, only: [ :new, :create, :edit, :update, :destroy ], shallow: true do
-        resources :tasks, only: [ :new, :create ]
-      end
-    end
+    resources :achievements, only: [ :new, :create, :edit, :update, :destroy ]
+    resources :tasks, only: [ :new, :create ]
+    resources :users, only: [ :show ]
+    resources :goal, only: [ :create, :new ]
   end
 end

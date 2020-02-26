@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_152625) do
+ActiveRecord::Schema.define(version: 2020_02_25_172541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_152625) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "points"
     t.index ["task_id"], name: "index_achievements_on_task_id"
     t.index ["user_id"], name: "index_achievements_on_user_id"
   end
@@ -84,7 +85,6 @@ ActiveRecord::Schema.define(version: 2020_02_25_152625) do
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.integer "points"
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
