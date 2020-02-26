@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>_CREATE A TASK</h1>
+
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      <%= simple_form_for @task, url: kid_tasks_path, method: :post do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.association :category %>
+        <%= f.submit "Add", class:'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>

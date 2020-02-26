@@ -20,3 +20,4 @@
 <% @tasks.each do |task| %>
   <p><strong><%= task.name %></strong>: <%= task.description %></p>
 <% end %>
+<%= link_to "Create a task", new_adult_task_path, class: "btn btn-primary" %>
