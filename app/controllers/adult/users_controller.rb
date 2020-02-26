@@ -11,15 +11,30 @@ class Adult::UsersController < ApplicationController
     # @child = User.where(family: current_user.family, adult: false)
     # @goal = Goal.where(user: @child, done: false).first
 
-      # DISPLAY ALL SUGGESTED TASKS
-      @tasks = Task.all
+    # DISPLAY ALL SUGGESTED TASKS
+    @tasks = Task.all
 
-      # DISPLAY ALL ACHIEVEMENTS DONE:TRUE
-      @achievements = current_user.family
-                                  .users
-                                  .where(adult: false)
-                                  .first
-                                  .achievements
-                                  .where(done: true, achieve: false)
+    # DISPLAY ALL ACHIEVEMENTS DONE:TRUE
+    @achievements = current_user.family
+                                .users
+                                .where(adult: false)
+                                .first
+                                .achievements
+                                .where(done: true, achieve: false)
+
+    @pourcent_goal_achieve = count_achievements
+  end
+
+  private
+
+  def count_achievements
+    total_achievements = 0
+
+    @achievements.each do |achievement|
+      total_achievements += achievement.points
+    end
+
+    result = total_achievements * 100 / @goal.total_points
+    return result
   end
 end
