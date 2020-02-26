@@ -1,4 +1,4 @@
-class Parent::UsersController < Parent::ApplicationController
+class Adult::UsersController < Adult::ApplicationController
   def show
     # DISPLAY ALL TASKS
     @tasks = Task.all
