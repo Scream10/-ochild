@@ -1,26 +1,36 @@
-<h1><%= @goal.title.upcase %> - <%= @goal.total_points %>pts</h1>
+<div class="container">
+  <h1><%= @goal.title.upcase %> - <%= @goal.total_points %>pts</h1>
 
-<% @goal.proportions.each do |proportion| %>
-  <p> <strong><%= proportion.category.name %></strong>: <%= proportion.percent %>%</p>
-<% end %>
+  <% @goal.proportions.each do |proportion| %>
+    <p> <strong><%= proportion.category.name %></strong>: <%= proportion.percent %>%</p>
+  <% end %>
 
-<br>
+  <br>
+  <hr>
+  <h3>_PENDING ACHIEVEMENTS</h3>
 
-<h3>_PENDING ACHIEVEMENTS</h3>
+  <% @achievements.each do |achievement| %>
+    <p><strong><%= achievement.task.name %></strong>: <%= achievement.task.description %></p>
+    <%= link_to 'pending', edit_adult_achievement_path(achievement) ,class: "btn btn-primary" %>
+  <% end %>
 
-<% @achievements.each do |achievement| %>
-  <p><strong><%= achievement.task.name %></strong>: <%= achievement.task.description %></p>
-  <%= link_to 'pending', edit_adult_achievement_path(achievement) ,class: "btn btn-primary" %>
-<% end %>
+  <br>
+  <br>
+  <%= link_to 'new achievement', new_adult_achievement_path ,class: "btn btn-primary" %>
+  <br>
+  <hr>
+  <h3>_SUGGESTIONS</h3>
 
-<br>
-<%= link_to 'new achievement', new_adult_achievement_path ,class: "btn btn-primary" %>
-<br>
-
-<h3>_SUGGESTIONS</h3>
-
-<% @tasks.each do |task| %>
-  <%= image_tag(task.photo) if task.photo.attached? %>
-  <p><strong><%= task.name %></strong>: <%= task.description %></p>
-<% end %>
-<%= link_to "Create a task", new_adult_task_path, class: "btn btn-primary" %>
+  <% @tasks.each do |task| %>
+    <p><strong><%= task.name %></strong>: <%= task.description %></p>
+  <% end %>
+  <%= link_to "Create a task", new_adult_task_path, class: "btn btn-primary" %>
+  <hr>
+  <h3>_PROGRESSION OF MY CHILD</h3>
+  <hr>
+  <p>Total points = <strong><%= @goal.total_points %> pts</strong></p>
+  <% @achievements.each do |achievement| %>
+    <p>Total achievement points = <strong><%= achievement.points %> pts</strong></p>
+    <p>Progression of my child = <strong><%= @pourcent_goal_achieve %> %</strong></p>
+  <% end %>
+</div>
