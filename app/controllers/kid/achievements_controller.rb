@@ -8,6 +8,18 @@ class Kid::AchievementsController < ApplicationController
     @achievement = Achievement.new(achievement_params)
   end
 
+  def edit
+    @achievement = Achievement.find(params[:id])
+  end
+
+  def update
+    @achievement = Achievement.find(params[:id])
+    @kid = @achievement.user
+    @achievement.update(achievement_params)
+
+    redirect_to kid_user_path(current_user)
+  end
+
   private
 
   def achievement_params
