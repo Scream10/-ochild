@@ -12,7 +12,11 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Dashboard", kid_user_path(current_user), class: "nav-link" %>
+          <% if current_user.adult == false %>
+            <%= link_to "Dashboard", kid_user_path(current_user), class: "nav-link" %>
+          <% else %>
+            <%= link_to "Dashboard", adult_user_path(current_user), class: "nav-link" %>
+          <% end %>
         </li>
         <li class="nav-item">
           <%= link_to "Messages", "#", class: "nav-link" %>
