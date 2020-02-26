@@ -1,9 +1,19 @@
 class Adult::AchievementsController < ApplicationController
-  # def new
-  # end
+  def new
+    @achievement = Achievement.new
+  end
 
-  # def create
-  # end
+  def create
+    @child = current_user.family.users.where(adult: false).first
+    @achievement = Achievement.new(achievement_params)
+    @achievement.user = @child
+    if @achievement.save
+      redirect_to adult_user_path(current_user)
+    else
+      render :new
+    end
+
+  end
 
   def edit
     @achievement = Achievement.find(params[:id])
