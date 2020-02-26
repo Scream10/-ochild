@@ -1,5 +1,6 @@
 class Adult::TasksController < ApplicationController
-def new
+
+  def new
     @task = Task.new()
   end
 
@@ -14,7 +15,7 @@ def new
 
 private
 
-def task_params
-  params.require(:task).permit(:name, :description, :photo, :category_id)
-end
+  def task_params
+    params.require(:task).permit(:name, :description, :photo, :category_id)
+  end
 end

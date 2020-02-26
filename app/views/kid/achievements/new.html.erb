@@ -1,5 +1,11 @@
-<%= simple_form_for @achievement, url: new_kid_achievement_path, method: :get do |f| %>
-  <%= f.association :task, as: radio_buttons %>
-  <%= f.input :due_at %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+  <div class="col-sm-4 offset-sm-4">
+    <h2 class="my-5">Create an achievement</h2>
+    <%= simple_form_for @achievement, url: kid_achievements_path, method: :post do |f| %>
+      <%= f.association :task %>
+      <%= f.input :points, :input_html => { :type => "number" } %>
+      <%= f.input :due_at %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
