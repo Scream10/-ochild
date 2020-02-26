@@ -3,7 +3,7 @@
 
   <div class="row justify-content-center">
     <div class="col-12 col-md-8">
-      <%= simple_form_for @task, url: kid_tasks_path, method: :post do |f| %>
+      <%= simple_form_for @task, url: adult_tasks_path, method: :post do |f| %>
         <%= f.input :name %>
         <%= f.input :description %>
         <%= f.association :category %>
