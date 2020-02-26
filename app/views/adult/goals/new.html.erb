@@ -1,13 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h4> Add a goal </h4>
-   <%= simple_form_form @goal do |f| %>
-   <%= f.input :title, placeholder: "Name of the goal" %>
-   <%= f.input :end_date as: :date, html5: true, placeholder: "When is it due ?" %>
-   <%=f.input :total_point, as: :integer, placeholder: "How many points are necessary ?" %>
-   <%= f.submit "Create Goal" ><i class="fas fa-bullseye"></i>%>
-   <% end %>
+      <h4>Add a goal</h4>
+      <%= simple_form_for @goal, url: adult_goals_path, method: :post do |f| %>
+       <%= f.input :title, placeholder: "Name of the goal" %>
+       <%= f.input :end_date, as: :date, html5: true, placeholder: "When is it due ?" %>
+       <%= f.input :total_points, as: :integer, placeholder: "How many points are necessary ?" %>
+       <%= f.association :user, collection: @kids, label_method: :first_name, value_method: :id %>
+       <%= f.submit "Create Goal" %> <!-- <i class="fas fa-bullseye"></i> %><%# end %> -->
+      <% end %>
     </div>
   </div>
 </div>

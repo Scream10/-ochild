@@ -12,6 +12,6 @@ Rails.application.routes.draw do
     resources :achievements, only: [ :new, :create, :edit, :update, :destroy ]
     resources :tasks, only: [ :new, :create ]
     resources :users, only: [ :show ]
-    resources :goal, only: [ :create, :new ]
+    resources :goals, only: [ :create, :new ]
   end
 end
