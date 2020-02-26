@@ -1,4 +1,4 @@
-class Adult::UsersController < Adult::ApplicationController
+class Adult::UsersController < ApplicationController
   def show
     # DISPLAY GOAL ON DASHBOARD
     @goal = current_user.family

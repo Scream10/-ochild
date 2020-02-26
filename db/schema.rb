@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_172541) do
     t.string "title"
     t.date "end_date"
     t.integer "total_points"
-    t.boolean "done", default: false
+    t.boolean "done"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
