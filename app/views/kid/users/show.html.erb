@@ -24,6 +24,7 @@
     <h3><%= achievement.task.name %></h3>
     <p><strong><%= achievement.due_at %></strong> - <%= achievement.done %></p>
     <input type="checkbox" name="done" value='<%= achievement.done %>' <%= 'checked' if achievement.done %>> Done?
+    <%= link_to 'Update', edit_kid_achievement_path ,class: "btn btn-primary" %>
   <% end %>
   </ul>
   <%= link_to "Create an achievement", new_kid_achievement_path, class: "btn btn-primary" %>
