@@ -1,3 +1,3 @@
-class Adult::GoalsController < Adult::ApplicationController
+class Adult::GoalsController < ApplicationController
 
 end

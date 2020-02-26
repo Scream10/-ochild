@@ -12,7 +12,7 @@
     <% end %>
   <% end %>
 
-  <%= link_to "Create an achievement", new_child_user_achievement_path(current_user) %>
+  <%= link_to "Create an achievement", new_kid_achievement_path %>
 
   <%-# Achievement -%>
   <h2>All achievements</h2>
@@ -35,6 +35,6 @@
   <% end %>
   </ul>
   <br>
-  <%= link_to "Create a task", new_child_achievement_task_path(@achievements) %>
+  <%= link_to "Create a task", new_kid_task_path %>
 
 </div>

@@ -1,4 +1,4 @@
-class Adult::AchievementsController < Adult::ApplicationController
+class Adult::AchievementsController < ApplicationController
   # def new
   # end
 
