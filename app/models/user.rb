@@ -13,4 +13,12 @@ class User < ApplicationRecord
   # validates :adult, presence: true
   # we need to include true or false
   validates :date_of_birth, presence: true
+
+  def kids
+    family.users.where(adult: false)
+  end
+
+  def adult
+    family.users.where(adult: true)
+  end
 end
