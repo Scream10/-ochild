@@ -1,6 +1,8 @@
 <div class="container">
   <h1 class="my-5">Child dashboard</h1>
   <hr>
+  <h2>_MY GOAL</h2>
+  <hr>
   <% @goal.each do |goal| %>
     <h2>Goal: <%= goal.title %></h2>
     <p><em><%= goal.end_date %></em></p>
@@ -14,8 +16,9 @@
 
   <%= link_to "Create an achievement", new_kid_achievement_path %>
 
-  <%-# Achievement -%>
-  <h2>All achievements</h2>
+  <hr>
+  <h2>_ALL ACHIEVEMENTS</h2>
+  <hr>
   <ul>
   <% @achievements.each do |achievement| %>
     <h3><%= achievement.task.name %></h3>
@@ -23,18 +26,17 @@
     <input type="checkbox" name="done" value='<%= achievement.done %>' <%= 'checked' if achievement.done %>> Done?
   <% end %>
   </ul>
+  <%= link_to "Create an achievement", new_kid_achievement_path, class: "btn btn-primary" %>
   <br>
 
-  <%-# Toutes les taches -%>
-
-  <h2>All tasks</h2>
+  <hr>
+  <h2>_ALL TASKS</h2>
+  <hr>
   <ul>
   <% @tasks.each do |task| %>
     <h3><%= task.category.name %></h3>
     <p><strong><%= task.name %></strong> - <%= task.description %></p>
   <% end %>
   </ul>
-  <br>
-  <%= link_to "Create a task", new_kid_task_path %>
-
+  <%= link_to "Create a task", new_kid_task_path, class: "btn btn-primary" %>
 </div>

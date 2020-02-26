@@ -1,9 +1,18 @@
 class Adult::AchievementsController < ApplicationController
-  # def new
-  # end
+  def new
+    @achievement = Achievement.new
+  end
 
-  # def create
-  # end
+  def create
+    @child = current_user.family.users.where(adult: false).first
+    @achievement = Achievement.new(achievement_params)
+    @achievement.user = @child
+    if @achievement.save
+      redirect_to adult_user_path(current_user)
+    else
+      render :new
+    end
+  end
 
   def edit
     @achievement = Achievement.find(params[:id])
@@ -11,9 +20,10 @@ class Adult::AchievementsController < ApplicationController
 
   def update
     @achievement = Achievement.find(params[:id])
+    @kid = @achievement.user
     @achievement.update(achievement_params)
 
-    redirect_to parent_users_path(current_user)
+    redirect_to adult_user_path(current_user)
   end
 
 
@@ -23,3 +33,4 @@ class Adult::AchievementsController < ApplicationController
     params.require(:achievement).permit(:due_date, :achieve, :done ,:points, :task_id, :user_id)
   end
 end
+
