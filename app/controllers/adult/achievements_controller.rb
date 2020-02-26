@@ -11,10 +11,10 @@ class Adult::AchievementsController < Adult::ApplicationController
 
   def update
     @achievement = Achievement.find(params[:id])
-    @child = @achievement.user
+    @kid = @achievement.user
     @achievement.update(achievement_params)
 
-    redirect_to parent_users_path(current_user)
+    redirect_to adult_user_path(current_user)
   end
 
 
