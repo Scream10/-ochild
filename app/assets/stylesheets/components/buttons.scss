@@ -1,18 +1,18 @@
 .btn-plain {
+  text-decoration: none;
   color: white;
-  background-color: orange;
+  background-color: $tangerine;
   border: 1px solid $tangerine;
   border-radius: 50px;
-  padding: 13px 25px;
-  font-weight: lighter;
-  opacity: 0.6;
+  padding: 9px 28px;
+  font-weight: 600;
+  font-family: poppins;
 
   &:hover,:focus {
-
+text-decoration: none;
+background-color: white;
+color: $tangerine;
 
   }
 }
 
-
-
-.btn-
