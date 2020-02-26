@@ -1,4 +1,4 @@
-class Kid::AchievementsController < Kid::ApplicationController
+class Kid::AchievementsController < ApplicationController
   def new
     @achievement = Achievement.new()
     @user = User.find(params[:user_id])
