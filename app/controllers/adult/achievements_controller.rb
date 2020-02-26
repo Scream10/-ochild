@@ -11,9 +11,10 @@ class Adult::AchievementsController < Adult::ApplicationController
 
   def update
     @achievement = Achievement.find(params[:id])
+    @kid = @achievement.user
     @achievement.update(achievement_params)
 
-    redirect_to parent_users_path(current_user)
+    redirect_to adult_user_path(current_user)
   end
 
 
@@ -23,3 +24,4 @@ class Adult::AchievementsController < Adult::ApplicationController
     params.require(:achievement).permit(:due_date, :achieve, :done ,:points, :task_id, :user_id)
   end
 end
+

@@ -10,7 +10,7 @@
 
 <% @achievements.each do |achievement| %>
   <p><strong><%= achievement.task.name %></strong>: <%= achievement.task.description %></p>
-  <%= link_to 'pending', edit_parent_achievement_path(achievement) ,class: "btn btn-primary" %>
+  <%= link_to 'pending', edit_adult_achievement_path(achievement) ,class: "btn btn-primary" %>
 <% end %>
 
 <br>
