@@ -15,6 +15,6 @@ def new
 private
 
 def task_params
-  params.require(:task).permit(:name, :description, :points, :photo)
+  params.require(:task).permit(:name, :description, :photo, :category_id)
 end
 end
