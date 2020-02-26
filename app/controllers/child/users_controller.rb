@@ -4,6 +4,5 @@ class Child::UsersController < Child::ApplicationController
     @goal = Goal.where(params[user: @user])
     @tasks = Task.all
     @achievements = Achievement.all
-    @achievement = Achievement.find()
   end
 end

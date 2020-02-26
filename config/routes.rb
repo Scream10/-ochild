@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   namespace :child do
     resources :users, only: [ :show ], shallow: true do
       resources :achievements, only: [ :new, :create, :edit, :update, :destroy ], shallow: true do
-        resources :tasks, only: [ :new, :create ]
+      resources :tasks, only: [ :new, :create ]
       end
     end
   end
