@@ -20,6 +20,7 @@
 <h3>_SUGGESTIONS</h3>
 
 <% @tasks.each do |task| %>
+  <%= image_tag(task.photo) if task.photo.attached? %>
   <p><strong><%= task.name %></strong>: <%= task.description %></p>
 <% end %>
 <%= link_to "Create a task", new_adult_task_path, class: "btn btn-primary" %>
