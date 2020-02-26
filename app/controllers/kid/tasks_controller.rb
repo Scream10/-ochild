@@ -1,4 +1,4 @@
-class child::TasksController < Child::ApplicationController
+class Kid::TasksController < Kid::ApplicationController
   def new
     @task = Task.new
   end

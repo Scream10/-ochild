@@ -1,4 +1,4 @@
-class Parent::TasksController < Parent::ApplicationController
+class Adult::TasksController < Adult::ApplicationController
 
 
 private
