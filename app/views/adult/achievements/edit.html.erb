@@ -3,13 +3,12 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 col-md-8">
-      <%= simple_form_for ([@users, @achievement]) do |f| %>
-        <%= f.input :due_at, as: :date %>
-        <%= f.input :points %>
+      <%= simple_form_for @achievement, url: adult_achievement_path, method: :patch do |f| %>
+
+
+        <%= f.input :points, as: :integer %>
         <%= f.input :achieve, as: :radio_buttons %>
-        <%= f.input :done, as: :radio_buttons %>
-        <%= f.input :task_id, as: :radio_buttons %>
-        <%= f.input :user_id, as: :radio_buttons %>
+
         <%= f.submit "Add", class:'btn btn-primary' %>
         <% end %>
     </div>
