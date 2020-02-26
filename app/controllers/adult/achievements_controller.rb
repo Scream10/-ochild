@@ -1,4 +1,4 @@
-class Parent::AchievementsController < Parent::ApplicationController
+class Adult::AchievementsController < Adult::ApplicationController
   # def new
   # end
 
@@ -22,5 +22,4 @@ class Parent::AchievementsController < Parent::ApplicationController
   def achievement_params
     params.require(:achievement).permit(:due_date, :achieve, :done ,:points, :task_id, :user_id)
   end
-
 end

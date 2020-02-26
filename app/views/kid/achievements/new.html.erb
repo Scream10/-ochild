@@ -1,0 +1,5 @@
+<%= simple_form_for @achievement, url: new_kid_achievement_path, method: :get do |f| %>
+  <%= f.association :task, as: radio_buttons %>
+  <%= f.input :due_at %>
+  <%= f.button :submit %>
+<% end %>
