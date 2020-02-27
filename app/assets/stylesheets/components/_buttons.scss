@@ -1,0 +1,71 @@
+.btn-plain-tangerine {
+  text-decoration: none;
+  color: white;
+  background-color: $tangerine;
+  border: 1px solid $tangerine;
+  border-radius: 50px;
+  padding: 9px 28px;
+  font-weight: 500;
+  font-family: Poppins;
+
+  &:hover,:focus {
+text-decoration: none;
+background-color: white;
+color: $tangerine;
+
+  }
+}
+
+.btn-outlined-tangerine {
+  text-decoration: none;
+  color: $tangerine;
+  background-color: white;
+  border: 1px solid $tangerine;
+  border-radius: 50px;
+  padding: 9px 28px;
+  font-weight: 500;
+  font-family: Poppins;
+
+  &:hover,:focus {
+text-decoration: none;
+background-color: $tangerine;
+color: $tangerine;
+
+  }
+}
+
+.btn-plain-sand {
+  text-decoration: none;
+  color: white;
+  background-color: $sand;
+  border: 1px solid $sand;
+  border-radius: 50px;
+  padding: 9px 28px;
+  font-weight: 500;
+  font-family: Poppins;
+
+  &:hover,:focus {
+text-decoration: none;
+background-color: white;
+color: $sand;
+
+  }
+}
+
+.btn-outlined-sand {
+  text-decoration: none;
+  color: $sand;
+  background-color: white;
+  border: 1px solid $sand;
+  border-radius: 50px;
+  padding: 9px 28px;
+  font-weight: 500;
+  font-family: Poppins;
+
+  &:hover,:focus {
+text-decoration: none;
+background-color: $sand;
+color: white;
+
+ }
+}
