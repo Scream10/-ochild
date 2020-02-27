@@ -26,13 +26,13 @@
     </div>
     <div class="achivement-done bd-highlight justify-content-between">
       <p>Add a new task</p>
-      
-      <div class="link-todo-btn", "data-toggle" => "modal", "data-target" => "#exampleModal">
-        <%= link_to new_kid_achievement_path do %>
+
+      <div class="link-todo-btn">
+        <%= link_to new_kid_achievement_path, "data-toggle" => "modal", "data-target" => "#exampleModal" do %>
           <%= image_tag "plus_btn.svg" %>
         <% end %>
       </div>
-      
+
     </div>
     <% @achievements.each do |achievement| %>
       <div class="achivement-done bd-highlight justify-content-between">
@@ -70,7 +70,8 @@
               <%= f.submit "Create", class: "btn-tangerine" %>
             </div>
             <div class="d-flex justify-content-center mt-2">
-              <%= link_to "Create a new task", new_kid_task_path, class: "btn-tangerine" %>
+              <p>You didn't find a task?</p>
+              <%= link_to "Create a new task", new_kid_task_path, class: "btn-square-sand ml-2" %>
             </div>
           <% end %>
 
