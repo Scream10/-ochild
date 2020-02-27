@@ -13,6 +13,7 @@ class Adult::UsersController < ApplicationController
 
     # DISPLAY ALL SUGGESTED TASKS
     @tasks = Task.all
+    @achievement = Achievement.new
 
     # DISPLAY ALL ACHIEVEMENTS DONE:TRUE
     @achievements = current_user.family
