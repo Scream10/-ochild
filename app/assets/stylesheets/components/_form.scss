@@ -1,0 +1,22 @@
+.form-create {
+
+  & h1 {
+    color: $black-purple !important;
+  }
+}
+
+.select {
+  color: $stormy-grey !important;
+}
+
+.integer {
+  color: $stormy-grey !important;
+}
+
+.date {
+  color: $stormy-grey !important;
+}
+
+.form-control {
+  border-radius: 5px;
+}
