@@ -14,26 +14,45 @@
     <% end %>
   <% end %>
 
-  <%= link_to "Create an achievement", new_kid_achievement_path %>
+<hr>
 
-  <hr>
-  <h2>_ALL ACHIEVEMENTS</h2>
-  <hr>
-  <ul>
-  <% @achievements.each do |achievement| %>
-    <h3><%= achievement.task.name %></h3>
-    <p><strong><%= achievement.due_at %></strong> - <%= achievement.done %></p>
-    <input type="checkbox" name="done" value='<%= achievement.done %>' <%= 'checked' if achievement.done %>> Done?
-    <%= link_to 'Update', edit_kid_achievement_path ,class: "btn btn-primary" %>
-  <% end %>
-  </ul>
-  <%= link_to "Create an achievement", new_kid_achievement_path, class: "btn btn-primary" %>
-  <br>
+<br>
+<br>
+
+  <div class="container">
+  <div class="card-achievement-todo d-flex align-items-start flex-column bd-highlight mb-3 justify-content-between">
+    <div class="achievements-todo-title mb-auto p-2 bd-highlight">
+      <h3>To do</h3>
+    </div>
+    <div class="achivement-done bd-highlight justify-content-between">
+      <p>Add a new task</p>
+      <div class="link-todo-btn">
+        <%= link_to new_kid_achievement_path do %>
+          <%= image_tag "plus_btn.svg" %>
+        <% end %>
+      </div>
+    </div>
+    <% @achievements.each do |achievement| %>
+      <div class="achivement-done bd-highlight justify-content-between">
+        <div class="achievement-checkbox d-inline-flex">
+          <label class="container-checkbox"><%= achievement.task.description.capitalize %>
+            <input type="checkbox" name="done" value='<%= achievement.done %>' <%= 'checked' if achievement.done %>>
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        <div class="link-todo">
+          <%= link_to achievement.due_at, edit_kid_achievement_path ,class: "btn-square-turquoise" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<br>
 
   <hr>
   <h2>_ALL TASKS</h2>
   <hr>
-  <ul>
   <% @tasks.each do |task| %>
     <h3><%= task.category.name %></h3>
     <p><strong><%= task.name %></strong> - <%= task.description %></p>
