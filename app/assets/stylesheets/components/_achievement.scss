@@ -1,0 +1,45 @@
+.card-achievement-pending {
+  border: 1px solid #DFE0EB;
+  box-sizing: border-box;
+  border-radius: 8px;
+  width: 600px;
+  min-height: 280px;
+}
+
+.achivement-done {
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  letter-spacing: 0.2px;
+  display: flex;
+  overflow: hidden;
+  height: 75px;
+  font-family: Raleway;
+  font-size: 12px !important;
+  border-top: 1px solid #DFE0EB;
+  margin-bottom: 0px;
+}
+
+.achievement-checkbox {
+  align-items: center;
+}
+
+.link-pending {
+  display: flex;
+  align-items: center;
+}
+
+.achievements-pending-title {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.achievements-pending-title h3 {
+  letter-spacing: 0.4px;
+  color: $black-purple;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 30px;
+}
