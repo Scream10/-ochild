@@ -48,15 +48,3 @@ body {
   0% { left: -30%; opacity: 0.3;}
   100%{ left: 0%; opacity: 1;}
 }
-
-.position-absolute {
-  position: absolute;
-  top: 65%;
-  left: -15%;
-  opacity: .5;
-}
-
-.position-absolute img {
-  height: 80vh;
-  width: 100%;
-}
