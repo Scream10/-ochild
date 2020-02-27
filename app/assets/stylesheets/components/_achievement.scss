@@ -1,3 +1,4 @@
+// DASHBOARD PARENT
 .card-achievement-pending {
   border: 1px solid #DFE0EB;
   box-sizing: border-box;
@@ -42,4 +43,70 @@
   font-weight: bold;
   font-size: 22px;
   line-height: 30px;
+}
+
+// DASHBOARD KID
+.card-achievement-todo {
+  border: 1px solid #DFE0EB;
+  box-sizing: border-box;
+  border-radius: 8px;
+  width: 600px;
+  min-height: 280px;
+}
+
+.achivement-done {
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  letter-spacing: 0.2px;
+  display: flex;
+  overflow: hidden;
+  height: 75px;
+  font-family: Raleway;
+  font-size: 12px !important;
+  border-top: 1px solid #DFE0EB;
+  margin-bottom: 0px;
+}
+
+.achievement-checkbox {
+  align-items: center;
+}
+
+.link-todo {
+  display: flex;
+  align-items: center;
+}
+
+.link-todo-btn {
+  display: flex;
+  align-items: center;
+  margin-right: 36px;
+}
+
+.achievements-todo-title {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.achievements-todo-title h3 {
+  letter-spacing: 0.4px;
+  color: $black-purple;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 30px;
+  margin-bottom: 50px;
+}
+
+.achivement-done p {
+  letter-spacing: 0.2px;
+  height: 75px;
+  font-family: Raleway;
+  font-size: 16px !important;
+  margin: 0px;
+  color: #C5C7CD;
+  font-weight: 500;
+  margin-top: 24px;
+  margin-left: 6px;
 }
