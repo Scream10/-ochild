@@ -1,20 +1,33 @@
-<div class="container">
-  <div class="form-create col-sm-8 offset-sm-2">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  <%= link_to 'Create an achievement', new_kid_achievement_path, class: "btn btn-primary" %>
+</button>
 
-    <h1 class="my-5 d-flex justify-content-center text-center">Create an achievement</h1>
-
-    <%= simple_form_for @achievement, url: kid_achievements_path, method: :post do |f| %>
-      <%= f.association :task, collection: @tasks, label_method: :name_of_method, value_method: :id %>
-      <%= f.input :points, :input_html => { :type => "number" } %>
-      <%= f.input :due_at %>
-      <div class="d-flex justify-content-center mt-5 mb-3">
-        <%= f.submit "Create", class: "btn-tangerine" %>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLongTitle"> Create an achievement </h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
       </div>
-    <% end %>
 
-    <div class="d-flex justify-content-center mt-2">
-      <%= link_to "Create a new task", new_kid_task_path, class: "btn-tangerine" %>
+      <div class="modal-body">
+        <%= simple_form_for @achievement, url: kid_achievements_path, method: :post do |f| %>
+          <%= f.association :task, collection: @tasks, label_method: :name_of_method, value_method: :id %>
+          <%= f.input :points, :input_html => { :type => "number" } %>
+          <%= f.input :due_at %>
+          <div class="d-flex justify-content-center mt-5 mb-3">
+            <%= f.submit "Create", class: "btn-tangerine" %>
+          </div>
+          <div class="d-flex justify-content-center mt-2">
+            <%= link_to "Create a new task", new_kid_task_path, class: "btn-tangerine" %>
+          </div>
+        <% end %>
+
+      </div>
     </div>
-
   </div>
 </div>
