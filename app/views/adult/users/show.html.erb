@@ -19,12 +19,25 @@
   <%= link_to 'new achievement', new_adult_achievement_path ,class: "btn btn-primary" %>
   <br>
   <hr>
-  <h3>_SUGGESTIONS</h3>
+  <div class="container ">
 
-  <% @tasks.each do |task| %>
-    <p><strong><%= task.name %></strong>: <%= task.description %></p>
-  <% end %>
-  <%= link_to "Create a task", new_adult_task_path, class: "btn btn-primary" %>
+    <h3>_SUGGESTIONS</h3>
+
+    <% @tasks.each do |task| %>
+    <div class="card-task-suggested">
+      <div class="img-task">
+        <%= image_tag task.photo, class: 'img-icon' %>
+      </div>
+      <div class="task-detail">
+        <p><strong><%= task.name %></strong>: <%= task.description %></p>
+        <% end %>
+
+      </div>
+        <%= link_to "Create a task", new_adult_task_path, class:'btn btn-primary' %>
+    </div>
+  </div>
+
+
   <hr>
   <h3>_PROGRESSION OF MY CHILD</h3>
   <hr>
