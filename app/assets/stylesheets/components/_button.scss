@@ -1,0 +1,97 @@
+.btn-tangerine {
+  text-decoration: none;
+  color: white;
+  background-color: $tangerine;
+  border: 1px solid $tangerine;
+  border-radius: 50px;
+  padding: 9px 28px;
+  font-weight: 500;
+  font-family: Poppins;
+  &:hover,:focus {
+    text-decoration: none;
+    background-color: white;
+    color: $tangerine;
+  }
+}
+
+.btn-outline-tangerine {
+  text-decoration: none;
+  color: $tangerine;
+  background-color: white;
+  border: 1px solid $tangerine;
+  border-radius: 50px;
+  padding: 9px 28px;
+  font-weight: 500;
+  font-family: Poppins;
+  &:hover,:focus {
+    text-decoration: none;
+    background-color: $tangerine;
+    color: $tangerine;
+  }
+}
+
+.btn-sand {
+  text-decoration: none;
+  color: white;
+  background-color: $sand;
+  border: 1px solid $sand;
+  border-radius: 50px;
+  padding: 9px 28px;
+  font-weight: 500;
+  font-family: Poppins;
+  &:hover,:focus {
+    text-decoration: none;
+    background-color: white;
+    color: $sand;
+  }
+}
+
+.btn-outline-sand {
+  text-decoration: none;
+  color: $sand;
+  background-color: white;
+  border: 1px solid $sand;
+  border-radius: 50px;
+  padding: 9px 28px;
+  font-weight: 500;
+  font-family: Poppins;
+  &:hover,:focus {
+    text-decoration: none;
+    background-color: $sand;
+    color: white;
+ }
+}
+
+.btn-square-sand {
+  border-radius: 8px;
+  height: 24px;
+  background-color: $sand;
+  border: 1px solid $sand;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 16px;
+  padding: 3px 11px;
+  letter-spacing: 1px;
+  &:hover,:focus {
+    text-decoration: none;
+    background-color: white;
+    color: $sand;
+  }
+}
+.btn-square-sand a {
+  position: absolute;
+  height: 14px;
+  left: 10px;
+  right: 10px;
+  top: calc(50% - 14px/2);
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+
+
+
