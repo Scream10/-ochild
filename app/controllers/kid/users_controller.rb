@@ -7,7 +7,7 @@ class Kid::UsersController < ApplicationController
     @tasks = Task.all
     @achievement = Achievement.new()
     @achievements = Achievement.all
-    @count_achievement_done_true = current_user.achievements.where(done: true, achieve: false)
+    @count_achievement_done_true = current_user.achievements.where(done: true, achieve: true)
     @count_achievement_done_false = current_user.achievements.where(done: false, achieve: false)
     @pourcent_goal_achieve = count_achievements
   end
