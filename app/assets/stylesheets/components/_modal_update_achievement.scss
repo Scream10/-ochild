@@ -5,7 +5,8 @@
 
 div.form-check {
   display: inline-block;
-  padding-right: 30px;
+  padding-right: 32px;
+  padding-left:63px;
 }
 
 .numeric {
@@ -21,7 +22,15 @@ div.form {
 
 }
 
-p {
+p.text-center {
   color: $sand;
   font-family: Poppins
+}
+
+.container {
+  width: 50%
+}
+
+span.achievement-name {
+  color: $tangerine
 }
