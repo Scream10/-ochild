@@ -1,5 +1,23 @@
 <div class="container">
 
+  <h1 class="my-5">Child dashboard</h1>
+  <hr>
+  <h2>_MY GOAL</h2>
+  <hr>
+  <% @goal.each do |goal| %>
+    <h2>Goal: <%= goal.title %></h2>
+    <p><em><%= goal.end_date %></em></p>
+    <strong><%= goal.total_points %> pts</strong>
+    <% if goal.done == false %>
+      <p>Goal is not achieve yet... :(</p>
+    <% else %>
+      <p>Goal achieved !!! :)</p>
+    <% end %>
+  <% end %>
+<hr>
+<br>
+<br>
+
   <!-- SPINNING WHEEL -->
   <div class="flex-wrapper">
     <div class="single-chart">
@@ -56,6 +74,7 @@
     </div>
   </div>
 
+
 <!-- KID TASKS -->
   <div class="container">
   <div class="row my-5 d-flex justify-content-center">
@@ -73,14 +92,20 @@
       </div>
 
     </div>
+
     <% @achievements.each do |achievement| %>
       <div class="achivement-done bd-highlight justify-content-between">
         <div class="achievement-checkbox d-inline-flex">
+
           <label class="container-checkbox"><%= achievement.task.description.capitalize %>
-            <input type="checkbox" name="done" value='<%= achievement.done %>' <%= 'checked' if achievement.done %>>
-            <span class="checkmark"></span>
+
+          <input id='achievement-id' type="checkbox" name="done" value= '<%= achievement.done %>' data-achievement-id=<%= achievement.id %> <%= 'checked' if achievement.done %>>
+           <span class="checkmark"></span>
+
           </label>
+
         </div>
+
         <div class="link-todo">
           <%= link_to achievement.due_at, edit_kid_achievement_path ,class: "btn-square-turquoise" %>
         </div>
@@ -89,7 +114,9 @@
   </div>
 </div>
 
-  <!-- MODAL CREATE ACHIEVEMENT -->
+  <!-- MODAL NEW ACHIEVEMENT -->
+
+
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
