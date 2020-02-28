@@ -1,6 +1,5 @@
 <div class="container d-flex justify-content-center flex-column">
 
-
   <div class="container">
     <h1><%= @goal.title.upcase %> - <%= @goal.total_points %>pts</h1>
 
@@ -9,12 +8,34 @@
     <% end %>
   </div>
 
-  <br>
-  <br>
+  <!-- CARDS ACCOMPLISHED / TODO -->
+  <div class="container">
+    <div class="row my-5 d-flex justify-content-center">
+      <div class="col-sm-4">
+        <div class="card-info-show my-3 justify-content-center">
+          <div class="card-info-home-text text-center">
+            <h4 class="font-weight-bold">Accomplished</h4>
+              <p><strong><%= @count_achievement_accomplished.count %></strong></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card-info-show my-3 justify-content-center">
+          <div class="card-info-home-text text-center">
+            <h4 class="font-weight-bold">New Achievement</h4>
+            <p><strong><%= @count_new_achievement.count %></strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Button trigger modal -->
   <div class="create-achievement">
       <%= link_to 'Create an achievement', new_adult_achievement_path, class: "btn btn-lg btn-primary", "data-toggle" => "modal", "data-target" => "#exampleModal" %>
   </div>
+
+<br>
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -39,21 +60,14 @@
               <%= f.submit "Create", class: "btn-tangerine" %>
             </div>
           <% end %>
-
         </div>
       </div>
     </div>
   </div>
 
-  <br>
-  <hr>
-  <div class="container ">
-
-<br>
-<br>
-
+<!-- List of achievements -->
   <div class="container">
-    <div class="card-achievement-pending d-flex align-items-start flex-column bd-highlight mb-3 justify-content-between">
+    <div class="card-achievement-pending d-flex align-items-start flex-column bd-highlight mb-3 justify-content-center">
       <div class="achievements-pending-title mb-auto p-2 bd-highlight">
         <h3>Tasks</h3>
       </div>
@@ -71,14 +85,13 @@
         </div>
       <% end %>
     </div>
-  </div>
 
-<br>
-
-  <div class="container">
-    <h3>_SUGGESTIONS</h3>
-    <div class="d-flex justify-content-center flex-column">
-      <% @tasks.each do |task| %>
+    <div class="container">
+      <div class="row my-5 d-flex justify-content-center">
+        <h3>_SUGGESTIONS</h3>
+      </div>
+      <div class="d-flex align-items-center flex-column">
+        <% @tasks.each do |task| %>
         <div class="card-task-suggested">
           <div class="img-icon">
             <%= image_tag task.photo %>
@@ -88,11 +101,10 @@
             <p><%= task.description %></p>
           </div>
         </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-
-    <%= link_to "Create a task", new_adult_task_path, class:'btn btn-primary' %>
 
   <div class="container">
     <hr>
