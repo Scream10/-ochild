@@ -14,15 +14,34 @@
     <% end %>
   <% end %>
 
-<hr>
-
-<br>
-<br>
-
+<!-- CARDS ACCOMPLISHED / TODO -->
   <div class="container">
+    <div class="row my-5 d-flex justify-content-center">
+      <div class="col-sm-4">
+        <div class="card-info-show my-3 justify-content-center">
+          <div class="card-info-home-text text-center">
+            <h4 class="font-weight-bold">Accomplished</h4>
+              <p><strong><%= @count_achievement_done_true.count %></strong></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card-info-show my-3 justify-content-center">
+          <div class="card-info-home-text text-center">
+            <h4 class="font-weight-bold">To Do</h4>
+            <p><strong><%= @count_achievement_done_false.count %></strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- KID TASKS -->
+  <div class="container">
+  <div class="row my-5 d-flex justify-content-center">
   <div class="card-achievement-todo d-flex align-items-start flex-column bd-highlight mb-3 justify-content-between">
     <div class="achievements-todo-title mb-auto p-2 bd-highlight">
-      <h3>To do</h3>
+      <h3>Tasks</h3>
     </div>
     <div class="achivement-done bd-highlight justify-content-between">
       <p>Add a new task</p>
@@ -50,7 +69,7 @@
   </div>
 </div>
 
-  <!-- Modal -->
+  <!-- MODAL CREATE ACHIEVEMENT -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -81,6 +100,7 @@
     </div>
   </div>
 
+<!-- TASKS SUGGESTION-->
   <hr>
   <h2>_ALL TASKS</h2>
   <hr>
@@ -89,5 +109,4 @@
     <p><strong><%= task.name %></strong> - <%= task.description %></p>
   <% end %>
   </ul>
-  <%= link_to "Create a task", new_kid_task_path, class: "btn btn-primary" %>
 </div>
