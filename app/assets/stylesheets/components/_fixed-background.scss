@@ -35,3 +35,25 @@
   height: 80vh;
   width: 100%;
 }
+
+#position-absolute-plant {
+  position: absolute;
+  bottom: 3.6%;
+  width: 100%;
+}
+
+#position-absolute-plant img {
+  width: 210px;
+}
+
+#position-absolute-standing {
+  position: absolute;
+  bottom: 3.6%;
+  left: 70%;
+  width: 100%;
+}
+
+#position-absolute-standing img {
+  width: 250px;
+  opacity: .8;
+}
