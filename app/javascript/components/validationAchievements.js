@@ -6,4 +6,4 @@ const validationAchievement = (achievementElement) => {
     });
   }
 
-export {validationAchievement}
+export { validationAchievement };
