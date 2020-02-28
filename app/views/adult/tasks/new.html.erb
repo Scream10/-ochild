@@ -1,13 +1,18 @@
-<div class="container">
-  <h1>_CREATE A TASK</h1>
+<div id="position-absolute-3">
+  <%= image_tag("tasks.svg") %>
+</div>
 
+<div class="container">
   <div class="row justify-content-center">
-    <div class="col-12 col-md-8">
+    <div class="create-new-task col-12 col-md-8 p-5 mt-5 m-3">
+      <h1 class="mb-5">Create a new task</h1>
       <%= simple_form_for @task, url: adult_tasks_path, method: :post do |f| %>
         <%= f.input :name %>
         <%= f.input :description %>
         <%= f.association :category %>
-        <%= f.submit "Add", class:'btn btn-primary' %>
+        <div class="d-flex justify-content-center mt-4">
+          <%= f.submit "Add", class:'btn-tangerine' %>
+        </div>
       <% end %>
     </div>
   </div>

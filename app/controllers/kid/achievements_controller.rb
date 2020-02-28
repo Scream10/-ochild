@@ -1,6 +1,8 @@
 class Kid::AchievementsController < ApplicationController
+
   def new
     @achievement = Achievement.new()
+    @tasks = Task.all
   end
 
   def create
@@ -9,6 +11,7 @@ class Kid::AchievementsController < ApplicationController
     if @achievement.save
       redirect_to kid_user_path(current_user)
     else
+      @tasks = Task.all
       render :new
     end
   end
@@ -19,7 +22,7 @@ class Kid::AchievementsController < ApplicationController
 
   def update
     @achievement = Achievement.find(params[:id])
-    @kid = @achievement.user
+    # @kid = @achievement.user
     @achievement.update(achievement_params)
 
     redirect_to kid_user_path(current_user)
