@@ -1,0 +1,23 @@
+.tab-menu {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 33px;
+  text-align: center;
+  color: #C5C7CD;
+  &:hover {
+    color: #2B2842;
+  }
+}
+
+.tab-menu.active {
+  color: #2B2842;
+}
+
+.line-grey {
+  width: 100%;
+  height: 2px;
+  background-color: #C5C7CD;
+}
+
