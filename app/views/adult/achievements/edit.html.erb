@@ -1,6 +1,6 @@
 
 <div class="container">
-  <h1 class= "modal-design mb-3" >Was <%= @achievement.user.first_name%> a good kid ?</h1>
+  <h1 class= "modal-design mb-3" >Was <span class= "achievement-name"><%= @achievement.user.first_name %></span> a good kid ?</h1>
   <div class="card">
     <div class="card-header">
     <h5 class = "text-center"><%= @achievement.task.name %></h5>
@@ -14,7 +14,7 @@
           <%= f.input :points, label: false  %>
           <%= f.input :achieve , as: :hidden, input_html: { value: true } %>
           <div class = "text-center">
-            <%= f.submit "Validate", class:'btn-plain-tangerine my-3' %>
+            <%= f.submit "Validate", class:'btn-tangerine my-3' %>
            </div>
           <% end %>
       </div>
@@ -24,7 +24,7 @@
 
 
 
-<!-- <button type="button" class="btn-plain-tangerine" data-toggle="modal" data-target="#exampleModal">
+<!-- <button type="button" class="btn-tangerine" data-toggle="modal" data-target="#exampleModal">
   Update Achievement
 </button>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -46,7 +46,7 @@
           <%#= f.input :points, label: false  %>
           <%#= f.input :achieve , as: :hidden, input_html: { value: true } %>
           <div class="text-center">
-            <%#= f.submit "Validate", class:'btn-plain-tangerine mt-3' %>
+            <%#= f.submit "Validate", class:'btn-tangerine mt-3' %>
       </div>
       <%# end %>
     </div>
