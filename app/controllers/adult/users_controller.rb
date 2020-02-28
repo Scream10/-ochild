@@ -24,6 +24,9 @@ class Adult::UsersController < ApplicationController
                                 .where(done: true, achieve: false)
 
     @pourcent_goal_achieve = count_achievements
+
+    @count_achievement_accomplished = current_user.achievements.where(done: true, achieve: true)
+    @count_new_achievement = current_user.achievements.where(done: true, achieve: false)
   end
 
   private
