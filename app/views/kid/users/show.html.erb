@@ -24,52 +24,78 @@
   </div>
   <!-- END SPINNING WHEEL -->
 
-  <div class="text-center">
+  <div class="text-center mb-5">
     <% @goal.each do |goal| %>
-      <h2>Goal: <%= goal.title %></h2>
+      <h2>Goal: <%= goal.title %> - <strong><%= goal.total_points %> pts</strong></h2>
       <p><em><%= goal.end_date %></em></p>
-      <strong><%= goal.total_points %> pts</strong>
-      <% if goal.done == false %>
-        <p>Goal is not achieve yet... :(</p>
-      <% else %>
-        <p>Goal achieved !!! :)</p>
-      <% end %>
     <% end %>
   </div>
 
-<!-- CARDS ACCOMPLISHED / TODO -->
-  <div class="container">
-    <div class="row my-5 d-flex justify-content-center">
-      <div class="col-sm-4">
-        <div class="card-info-show my-3 justify-content-center">
-          <div class="card-info-home-text text-center">
-            <h4 class="font-weight-bold">Accomplished</h4>
-              <p><strong><%= @count_achievement_done_true.count %></strong></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="card-info-show my-3 justify-content-center">
-          <div class="card-info-home-text text-center">
-            <h4 class="font-weight-bold">To Do</h4>
-            <p><strong><%= @count_achievement_done_false.count %></strong></p>
-          </div>
-        </div>
-      </div>
+  <nav>
+    <div id="nav-menu" class="nav justify-content-around" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link tab-menu" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Suggestions</a>
+      <a class="nav-item nav-link tab-menu active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Tasks</a>
     </div>
-  </div>
+    <div class="line-grey">
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
 
-
-<!-- KID TASKS TO DO -->
-  <div class="container">
-    <div class="row my-5 d-flex justify-content-center">
-      <div class="card-achievement-todo d-flex align-items-start flex-column bd-highlight mb-3 justify-content-between">
-        <div class="achievements-todo-title mb-auto p-2 bd-highlight">
-          <h3>Tasks</h3>
+    <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+       <!-- TASKS SUGGESTION-->
+      <div class="container">
+        <div class="row my-5 d-flex justify-content-center">
+          <h3>_SUGGESTIONS</h3>
         </div>
+        <div class="d-flex align-items-center flex-column">
+          <% @tasks.each do |task| %>
+          <div class="card-task-suggested">
+            <div class="img-icon">
+              <%= image_tag task.photo %>
+            </div>
+            <div class="card-task-infos">
+              <h2><%= task.name %></h2>
+              <p><%= task.description %></p>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
 
-        <div class="achivement-done bd-highlight justify-content-between">
-          <p>Add a new task</p>
+    </div>
+
+    <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+      <!-- CARDS ACCOMPLISHED / TODO -->
+      <div class="container">
+        <div class="row my-5 d-flex justify-content-center">
+          <div class="col-sm-4">
+            <div class="card-info-show my-3 justify-content-center">
+              <div class="card-info-home-text text-center">
+                <h4 class="font-weight-bold">Accomplished</h4>
+                  <p><strong><%= @count_achievement_done_true.count %></strong></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card-info-show my-3 justify-content-center">
+              <div class="card-info-home-text text-center">
+                <h4 class="font-weight-bold">To Do</h4>
+                <p><strong><%= @count_achievement_done_false.count %></strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- KID TASKS TO DO -->
+    <div class="container">
+      <div class="row my-5 d-flex justify-content-center">
+        <div class="card-achievement-todo d-flex align-items-start flex-column bd-highlight mb-3 justify-content-between">
+          <div class="achievements-todo-title mb-auto p-2 bd-highlight">
+            <h3>Tasks</h3>
+          </div>
+          <div class="achivement-done bd-highlight justify-content-between">
+            <p>Add a new task</p>
 
           <!-- BUTTON TRIGGER MODAL -->
           <div class="link-todo-btn">
@@ -110,10 +136,11 @@
               </div>
               <% end %>
           <% end %>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+
+
 
   <!-- MODAL NEW ACHIEVEMENT -->
 
@@ -128,43 +155,25 @@
             </button>
         </div>
 
-        <div class="modal-body">
-          <%= simple_form_for @achievement, url: kid_achievements_path, method: :post do |f| %>
-            <%= f.association :task, collection: @tasks, label_method: :name_of_method, value_method: :id %>
-            <div class="find-task d-flex mt-1">
-              <p><em>You didn't find a task? <%= link_to "Create a new task", new_kid_task_path %> </em></p>
+
+            <div class="modal-body">
+              <%= simple_form_for @achievement, url: kid_achievements_path, method: :post do |f| %>
+                <%= f.association :task, collection: @tasks, label_method: :name_of_method, value_method: :id %>
+                <div class="find-task d-flex mt-1">
+                  <p><em>You didn't find a task? <%= link_to "Create a new task", new_kid_task_path %> </em></p>
+                </div>
+                <%= f.input :points, :input_html => { :type => "number" } %>
+                <%= f.input :due_at %>
+                <div class="d-flex justify-content-center mt-5 mb-3">
+                  <%= f.submit "Create", class: "btn-tangerine" %>
+                </div>
+                <div class="find-task d-flex justify-content-center mt-4">
+                </div>
+              <% end %>
             </div>
-            <%= f.input :points, :input_html => { :type => "number" } %>
-            <%= f.input :due_at %>
-            <div class="d-flex justify-content-center mt-5 mb-3">
-              <%= f.submit "Create", class: "btn-tangerine" %>
-            </div>
-            <div class="find-task d-flex justify-content-center mt-4">
-            </div>
-          <% end %>
+
         </div>
       </div>
     </div>
   </div>
 
-  <!-- TASKS SUGGESTION-->
-    <div class="container">
-      <div class="row my-5 d-flex justify-content-center">
-        <h3>_SUGGESTIONS</h3>
-      </div>
-      <div class="d-flex align-items-center flex-column">
-        <% @tasks.each do |task| %>
-        <div class="card-task-suggested">
-          <div class="img-icon">
-            <%= image_tag task.photo %>
-          </div>
-          <div class="card-task-infos">
-            <h2><%= task.name %></h2>
-            <p><%= task.description %></p>
-          </div>
-        </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
