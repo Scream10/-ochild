@@ -9,7 +9,45 @@
     <% end %>
   </div>
 
-    <%= link_to 'new achievement', new_adult_achievement_path ,class: "btn btn-primary" %>
+  <br>
+  <br>
+  <!-- Button trigger modal -->
+  <div class="create-achievement">
+      <%= link_to 'Create an achievement', new_adult_achievement_path, class: "btn btn-lg btn-primary", "data-toggle" => "modal", "data-target" => "#exampleModal" %>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLongTitle"> Assign a new achievement </h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="modal-body">
+          <%= simple_form_for @achievement, url: adult_achievements_path, method: :post do |f| %>
+            <%= f.association :task, collection: @tasks, label_method: :name_of_method, value_method: :id %>
+            <div class="find-task d-flex mt-1">
+              <p><em>You didn't find a task? <%= link_to "Create a new task", new_adult_task_path %> </em></p>
+            </div>
+            <%= f.input :points, as: :integer %>
+            <%= f.input :due_at, as: :date %>
+            <div class="d-flex justify-content-center mt-5 mb-3">
+              <%= f.submit "Create", class: "btn-tangerine" %>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <hr>
+  <div class="container ">
 
 <br>
 <br>
@@ -68,6 +106,3 @@
   </div>
 
 </div>
-
-
-

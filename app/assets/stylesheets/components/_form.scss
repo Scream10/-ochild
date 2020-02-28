@@ -1,0 +1,54 @@
+/* CREATE ACHIEVEMENT CSS */
+.modal-title {
+  color: $black-purple !important;
+}
+.close {
+  color: $black-purple !important;
+}
+.select {
+  color: $stormy-grey !important;
+}
+.integer {
+  color: $stormy-grey !important;
+}
+.date {
+  color: $stormy-grey !important;
+}
+.form-control {
+  border-radius: 5px;
+}
+.modal-body {
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+.modal-content {
+  border-radius: 8px;
+  border: 0;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+.find-task {
+  font-size: 11px;
+  color: $stormy-grey !important;
+}
+.find-task a {
+  color: $tangerine;
+}
+
+/* CREATE TASK CSS */
+.create-new-task {
+  border-radius: 8px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    & h1 {
+  color: #2B2842;
+  font-size: 1.5rem;
+  border-bottom: 1px solid $light-grey;
+  }
+}
+.string {
+  color: $stormy-grey !important;
+}
+.optional {
+  color: $stormy-grey !important;
+}
+

@@ -70,30 +70,99 @@
     <% end %>
   <% end %>
 
-  <%= link_to "Create an achievement", new_kid_achievement_path %>
+<!-- CARDS ACCOMPLISHED / TODO -->
+  <div class="container">
+    <div class="row my-5 d-flex justify-content-center">
+      <div class="col-sm-4">
+        <div class="card-info-show my-3 justify-content-center">
+          <div class="card-info-home-text text-center">
+            <h4 class="font-weight-bold">Accomplished</h4>
+              <p><strong><%= @count_achievement_done_true.count %></strong></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card-info-show my-3 justify-content-center">
+          <div class="card-info-home-text text-center">
+            <h4 class="font-weight-bold">To Do</h4>
+            <p><strong><%= @count_achievement_done_false.count %></strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <hr>
-  <h2>_ALL ACHIEVEMENTS</h2>
-  <hr>
-  <ul>
-  <% @achievements.each do |achievement| %>
-    <h3><%= achievement.task.name %></h3>
-    <p><strong><%= achievement.due_at %></strong> - <%= achievement.done %></p>
-    <input type="checkbox" name="done" value='<%= achievement.done %>' <%= 'checked' if achievement.done %>> Done?
-    <%= link_to 'Update', edit_kid_achievement_path ,class: "btn btn-primary" %>
-  <% end %>
-  </ul>
-  <%= link_to "Create an achievement", new_kid_achievement_path, class: "btn btn-primary" %>
-  <br>
+<!-- KID TASKS -->
+  <div class="container">
+  <div class="row my-5 d-flex justify-content-center">
+  <div class="card-achievement-todo d-flex align-items-start flex-column bd-highlight mb-3 justify-content-between">
+    <div class="achievements-todo-title mb-auto p-2 bd-highlight">
+      <h3>Tasks</h3>
+    </div>
+    <div class="achivement-done bd-highlight justify-content-between">
+      <p>Add a new task</p>
 
+      <div class="link-todo-btn">
+        <%= link_to new_kid_achievement_path, "data-toggle" => "modal", "data-target" => "#exampleModal" do %>
+          <%= image_tag "plus_btn.svg" %>
+        <% end %>
+      </div>
+
+    </div>
+    <% @achievements.each do |achievement| %>
+      <div class="achivement-done bd-highlight justify-content-between">
+        <div class="achievement-checkbox d-inline-flex">
+          <label class="container-checkbox"><%= achievement.task.description.capitalize %>
+            <input type="checkbox" name="done" value='<%= achievement.done %>' <%= 'checked' if achievement.done %>>
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        <div class="link-todo">
+          <%= link_to achievement.due_at, edit_kid_achievement_path ,class: "btn-square-turquoise" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+  <!-- MODAL CREATE ACHIEVEMENT -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLongTitle"> Create an achievement </h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="modal-body">
+          <%= simple_form_for @achievement, url: kid_achievements_path, method: :post do |f| %>
+            <%= f.association :task, collection: @tasks, label_method: :name_of_method, value_method: :id %>
+            <div class="find-task d-flex mt-1">
+              <p><em>You didn't find a task? <%= link_to "Create a new task", new_kid_task_path %> </em></p>
+            </div>
+            <%= f.input :points, :input_html => { :type => "number" } %>
+            <%= f.input :due_at %>
+            <div class="d-flex justify-content-center mt-5 mb-3">
+              <%= f.submit "Create", class: "btn-tangerine" %>
+            </div>
+            <div class="find-task d-flex justify-content-center mt-4">
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- TASKS SUGGESTION-->
   <hr>
   <h2>_ALL TASKS</h2>
   <hr>
-  <ul>
   <% @tasks.each do |task| %>
     <h3><%= task.category.name %></h3>
     <p><strong><%= task.name %></strong> - <%= task.description %></p>
   <% end %>
   </ul>
-  <%= link_to "Create a task", new_kid_task_path, class: "btn btn-primary" %>
 </div>

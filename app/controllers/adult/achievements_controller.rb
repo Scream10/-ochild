@@ -1,6 +1,7 @@
 class Adult::AchievementsController < ApplicationController
   def new
     @achievement = Achievement.new
+    @tasks = Task.all
   end
 
   def create
@@ -10,6 +11,7 @@ class Adult::AchievementsController < ApplicationController
     if @achievement.save
       redirect_to adult_user_path(current_user)
     else
+      @tasks = Task.all
       render :new
     end
   end
