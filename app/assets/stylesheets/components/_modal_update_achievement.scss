@@ -8,14 +8,6 @@ div.form-check {
   padding-right: 30px;
 }
 
-// div.form-group {
-//   text-align: center;
-// }
-
-// .simple_form {
-//   vertical-align: middle
-// }
-
 .numeric {
 width: 100px;
  margin:auto
@@ -27,4 +19,9 @@ div.numeric {
 div.form {
   text-align: center
 
+}
+
+p {
+  color: $sand;
+  font-family: Poppins
 }

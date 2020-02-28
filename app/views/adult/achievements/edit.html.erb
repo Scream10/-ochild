@@ -1,21 +1,54 @@
 
 <div class="container">
-  <h1 class= "modal-design" >MARK ACHIEVEMENT AS ACHIEVE</h1>
-  <div class="row justify-content-center">
-    <div class="col-12 col-md-8 mt-5">
-      <h3 class= "modal-design"><%= @achievement.task.name %></h3>
-      <h2 class="modal-design"><%= @achievement.points %></h2>
-      <%= simple_form_for @achievement, url: adult_achievement_path, method: :patch, defaults: { input_html: { class: 'modal-design' } } do |f| %>
-        <p class = "text-center">Are you satisfied with this ?</p>
-
-          <%= f.input :points, placeholder: "100", label: false  %>
-
-        <h3><%= f.input :achieve, as: :radio_buttons %></h3>
-
-        <div class = "text-center">
-          <%= f.submit "Click Me", class:'btn-plain-tangerine' %>
-        </div>
-        <% end %>
+  <h1 class= "modal-design mb-3" >Was <%= @achievement.user.first_name%> a good kid ?</h1>
+  <div class="card">
+    <div class="card-header">
+    <h5 class = "text-center"><%= @achievement.task.name %></h5>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 mt-3">
+        <h3 class= "modal-design"></h3>
+        <h2 class="modal-design"><%= @achievement.points %></h2>
+          <%= simple_form_for @achievement, url: adult_achievement_path, method: :patch, defaults: { input_html: { class: 'modal-design' } } do |f| %>
+          <p class = "text-center">Are you satisfied with this ?</p>
+          <%= f.input :points, label: false  %>
+          <%= f.input :achieve , as: :hidden, input_html: { value: true } %>
+          <div class = "text-center">
+            <%= f.submit "Validate", class:'btn-plain-tangerine my-3' %>
+           </div>
+          <% end %>
+      </div>
     </div>
   </div>
 </div>
+
+
+
+<!-- <button type="button" class="btn-plain-tangerine" data-toggle="modal" data-target="#exampleModal">
+  Update Achievement
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content text-center">
+      <div class="modal-header text-center">
+        <div >
+        <h5 class="modal-title d-flex justify-content-center" id="exampleModalLabel"><%= @achievement.task.name %></h5>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <h2 class="modal-design mt-3"><%= @achievement.points %></h2>
+      <div class="modal-body">
+        <%#= simple_form_for @achievement, url: adult_achievement_path, method: :patch, defaults: { input_html: { class: 'modal-design' } } do |f| %>
+        <p class = "text-center">Are you satisfied with this ?</p>
+
+          <%#= f.input :points, label: false  %>
+          <%#= f.input :achieve , as: :hidden, input_html: { value: true } %>
+          <div class="text-center">
+            <%#= f.submit "Validate", class:'btn-plain-tangerine mt-3' %>
+      </div>
+      <%# end %>
+    </div>
+  </div>
+</div> -->
