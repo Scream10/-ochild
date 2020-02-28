@@ -8,6 +8,28 @@
     <% end %>
   </div>
 
+  <!-- CARDS ACCOMPLISHED / TODO -->
+  <div class="container">
+    <div class="row my-5 d-flex justify-content-center">
+      <div class="col-sm-4">
+        <div class="card-info-show my-3 justify-content-center">
+          <div class="card-info-home-text text-center">
+            <h4 class="font-weight-bold">Accomplished</h4>
+              <p><strong><%= @count_achievement_accomplished.count %></strong></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card-info-show my-3 justify-content-center">
+          <div class="card-info-home-text text-center">
+            <h4 class="font-weight-bold">New Achievement</h4>
+            <p><strong><%= @count_new_achievement.count %></strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Button trigger modal -->
   <div class="create-achievement">
       <%= link_to 'Create an achievement', new_adult_achievement_path, class: "btn btn-lg btn-primary", "data-toggle" => "modal", "data-target" => "#exampleModal" %>
