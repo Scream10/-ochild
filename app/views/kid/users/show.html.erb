@@ -13,9 +13,7 @@
       <p>Goal achieved !!! :)</p>
     <% end %>
   <% end %>
-
 <hr>
-
 <br>
 <br>
 
@@ -34,14 +32,20 @@
       </div>
 
     </div>
+
     <% @achievements.each do |achievement| %>
       <div class="achivement-done bd-highlight justify-content-between">
         <div class="achievement-checkbox d-inline-flex">
+
           <label class="container-checkbox"><%= achievement.task.description.capitalize %>
-            <input type="checkbox" name="done" value='<%= achievement.done %>' <%= 'checked' if achievement.done %>>
-            <span class="checkmark"></span>
+
+          <input id='achievement-id' type="checkbox" name="done" value= '<%= achievement.done %>' data-achievement-id=<%= achievement.id %> <%= 'checked' if achievement.done %>>
+           <span class="checkmark"></span>
+
           </label>
+
         </div>
+
         <div class="link-todo">
           <%= link_to achievement.due_at, edit_kid_achievement_path ,class: "btn-square-turquoise" %>
         </div>
@@ -50,7 +54,7 @@
   </div>
 </div>
 
-  <!-- Modal -->
+  <!-- MODAL NEW ACHEVEMENT -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
