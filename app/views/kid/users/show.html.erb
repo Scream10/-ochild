@@ -80,19 +80,35 @@
         </div>
 
           <% @achievements.each do |achievement| %>
-
-            <div class="achivement-done bd-highlight justify-content-between">
-              <div class="achievement-checkbox d-inline-flex">
-                <label class="container-checkbox"><%= achievement.task.description.capitalize %>
-                  <input id='achievement-id' type="checkbox" name="done" value= '<%= achievement.done %>' data-achievement-id=<%= achievement.id %> <%= 'checked' if achievement.done %>>
-                  <span class="checkmark"></span>
-                </label>
+            <% unless achievement.done %>
+              <div class="achivement-done bd-highlight justify-content-between">
+                <div class="achievement-checkbox d-inline-flex">
+                  <label class="container-checkbox"><%= achievement.task.description.capitalize %>
+                    <input class='achievement-id' type="checkbox" name="done" value= '<%= achievement.done %>' data-achievement-id=<%= achievement.id %> <%= 'checked' if achievement.done %>>
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <div class="link-todo">
+                  <%= link_to achievement.due_at, edit_kid_achievement_path ,class: "btn-square-turquoise" %>
+                </div>
               </div>
-              <div class="link-todo">
-                <%= link_to achievement.due_at, edit_kid_achievement_path ,class: "btn-square-turquoise" %>
-              </div>
-            </div>
+              <% end %>
+          <% end %>
 
+          <% @achievements.each do |achievement| %>
+            <% if achievement.done && !achievement.achieve %>
+              <div class="achivement-done bd-highlight justify-content-between">
+                <div class="achievement-checkbox d-inline-flex">
+                  <label class="container-checkbox"><%= achievement.task.description.capitalize %>
+                    <input class='achievement-id' type="checkbox" name="done" value= '<%= achievement.done %>' data-achievement-id=<%= achievement.id %> <%= 'checked' if achievement.done %>>
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <div class="link-todo">
+                  <%= link_to achievement.due_at, edit_kid_achievement_path ,class: "btn-square-turquoise" %>
+                </div>
+              </div>
+              <% end %>
           <% end %>
       </div>
     </div>
