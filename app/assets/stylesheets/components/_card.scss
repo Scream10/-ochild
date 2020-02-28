@@ -104,10 +104,10 @@
   margin: auto;
   border-radius: 8px;
   border: 1px solid $light-grey;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
   transition: .3s ease;
   &:hover {
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.15);
     bottom: 5px;
   };
   & h4 {
