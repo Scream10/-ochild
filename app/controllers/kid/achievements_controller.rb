@@ -1,4 +1,5 @@
 class Kid::AchievementsController < ApplicationController
+
   def new
     @achievement = Achievement.new()
     @tasks = Task.all
