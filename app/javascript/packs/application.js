@@ -13,8 +13,17 @@ if (achievementElements) {
 };
 
 // TEST MODAL NEW ACHIEVEMENT WITH TASK SUGGESTED
-
 const taskElements = document.querySelectorAll('.btn-modal');
+const taskInput = document.getElementById('achievement_task_id_2');
+const taskName = document.getElementById("task-name");
+
+taskElements.forEach(taskElement => {
+  taskElement.addEventListener('click', (event) => {
+    taskInput.value = taskElement.dataset.taskId;
+
+  })
+});
+
 const overlay = document.getElementById('overlay');
 const modal = document.getElementById('modal-task');
 

@@ -46,11 +46,12 @@
 
           <% @tasks.each do |task| %>
             <%#= link_to new_adult_achievement_path do %>
-            <button class="btn-modal">
+            <button class="btn-modal task-id" data-task-id=<%= task.id %>>
               <div class="card-task-suggested">
                 <div class="img-icon">
                   <%= image_tag task.photo %>
                 </div>
+
                 <div class="card-task-infos">
                   <h2><%= task.name %></h2>
                   <p><%= task.description %></p>
@@ -67,17 +68,18 @@
 
           <div class="modal-new-achievement-with-task-id" id="modal-task">
             <button class="modal-close-btn" id="close-btn">X</button>
+              <h3 id='task-name'></h3>
 
               <%= simple_form_for @achievement, url: adult_achievements_path, html: { method: :post, id: :new_achievement_2 } do |f| %>
-                <%= f.association :task, collection: @tasks, label_method: :name_of_method, value_method: :id, input_html: { id:"achievement_task_id_2" } %>
+                <%= f.input :task_id, input_html: { id: 'achievement_task_id_2' }  %>
                 <%= f.input :points, as: :integer, input_html: { id: 'achievement_points_2' } %>
                 <%#= f.input :due_at, as: :date, input_html: { id: 'achievement_due_at_1i_2' } %>
                 <div class="d-flex justify-content-center mt-5 mb-3">
                   <%= f.submit "Create", class: "btn-tangerine" %>
                 </div>
               <% end %>
-
           </div>
+
         </div>
       </div>
     </div>
