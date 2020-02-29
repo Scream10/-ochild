@@ -78,8 +78,15 @@
       <div class="col-sm-4">
         <div class="card-info-show my-3 justify-content-center">
           <div class="card-info-home-text text-center">
-            <h4 class="font-weight-bold">New Achievement</h4>
-            <p><strong><%= @count_new_achievement.count %></strong></p>
+            <h4 class="font-weight-bold">Assign a new task</h4>
+
+              <!-- Button trigger modal -->
+              <div class="link-todo-btn-adult">
+                  <%= link_to new_adult_achievement_path, "data-toggle" => "modal", "data-target" => "#exampleModal" do %>
+                  <%= image_tag "plus_btn.svg" %>
+                  <% end %>
+              </div>
+
           </div>
         </div>
       </div>
@@ -93,16 +100,9 @@
         <div class="achievements-pending-title mb-auto p-2 bd-highlight">
           <h3>Tasks</h3>
         </div>
-        <div class="achivement-done bd-highlight justify-content-between">
-            <p>Add a new task</p>
-
-  <!-- Button trigger modal -->
-        <div class="link-todo-btn">
-            <%= link_to new_adult_achievement_path, "data-toggle" => "modal", "data-target" => "#exampleModal" do %>
-            <%= image_tag "plus_btn.svg" %>
-            <% end %>
+        <div class="achivement-done bd-highlight justify-content-end">
+            <p>Pending: <%= @count_new_achievement.count %> </p>
         </div>
-      </div>
 
   <!-- List of achievements -->
       <% @achievements.each do |achievement| %>
