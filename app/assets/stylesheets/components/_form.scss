@@ -10,6 +10,8 @@
 }
 .integer {
   color: $stormy-grey !important;
+  display: flex;
+  justify-content: center;
 }
 .date {
   color: $stormy-grey !important;
@@ -33,6 +35,11 @@
 }
 .find-task a {
   color: $tangerine;
+}
+
+button.close {
+  text-decoration: none;
+  outline: none;
 }
 
 /* CREATE TASK CSS */
