@@ -21,3 +21,15 @@
   background-color: #C5C7CD;
 }
 
+#nav-menu a {
+  &:focus{
+  border-bottom: 2px solid #2B2842 !important;
+  top: 1.5px;
+  position: relative;
+  }
+
+.container-suggestion {
+  width: 100%;
+  height: 408px;
+  overflow-y: scroll;
+}

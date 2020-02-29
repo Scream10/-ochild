@@ -39,7 +39,7 @@
 #position-absolute-plant {
   position: absolute;
   bottom: 3.6%;
-  width: 100%;
+  z-index: -10;
 }
 
 #position-absolute-plant img {
@@ -49,11 +49,30 @@
 #position-absolute-standing {
   position: absolute;
   bottom: 3.6%;
-  left: 70%;
-  width: 100%;
+  left: 74%;
+  z-index: -10;
 }
 
 #position-absolute-standing img {
-  width: 250px;
+  width: 220px;
   opacity: .8;
+}
+
+#position-absolute-standing-8 {
+  position: absolute;
+  bottom: 3.6%;
+  left: -3%;
+  z-index: -10;
+}
+
+#position-absolute-standing-8 img {
+  width: 180px;
+  opacity: .8;
+}
+
+#position-absolute-sitting {
+  position: absolute;
+  left: 77%;
+  top: 33%;
+  z-index: 0;
 }
