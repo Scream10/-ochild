@@ -40,6 +40,7 @@
   position: absolute;
   bottom: 3.6%;
   width: 100%;
+  z-index: -10;
 }
 
 #position-absolute-plant img {
@@ -51,6 +52,7 @@
   bottom: 3.6%;
   left: 70%;
   width: 100%;
+  z-index: -10;
 }
 
 #position-absolute-standing img {
