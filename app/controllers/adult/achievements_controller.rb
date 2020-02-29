@@ -21,7 +21,6 @@ class Adult::AchievementsController < ApplicationController
   end
 
   def update
-    raise
     @achievement = Achievement.find(params[:id])
     @kid = @achievement.user
     @achievement.update(achievement_params)
