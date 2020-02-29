@@ -44,6 +44,7 @@
         </div>
         <div class="d-flex align-items-center flex-column">
           <% @tasks.each do |task| %>
+
           <div class="card-task-suggested">
             <div class="img-icon">
               <%= image_tag task.photo %>
@@ -51,6 +52,9 @@
             <div class="card-task-infos">
               <h2><%= task.name %></h2>
               <p><%= task.description %></p>
+            </div>
+            <div class="chevron ml-auto mr-4">
+                <%= image_tag "chevron.svg" %>
             </div>
           </div>
           <% end %>
