@@ -17,6 +17,7 @@
     <div class="line-grey">
     </div>
   </nav>
+
   <div class="tab-content" id="nav-tabContent">
 
     <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
@@ -49,6 +50,7 @@
           </div>
         </div>
       </div>
+
       <!-- TASKS SUGGESTION-->
       <div class="container-suggestion">
         <div class="container">
@@ -120,8 +122,9 @@
               <%= image_tag "plus_btn.svg" %>
             <% end %>
           </div>
-        </div>
+         </div>
 
+          <!-- List of achievements -->
           <% @achievements.each do |achievement| %>
             <% unless achievement.done %>
               <div class="achivement-done bd-highlight justify-content-between">
@@ -132,7 +135,7 @@
                   </label>
                 </div>
                 <div class="link-todo">
-                  <%= link_to achievement.due_at, edit_kid_achievement_path ,class: "btn-square-turquoise" %>
+                  <%= link_to achievement.due_at, edit_kid_achievement_path, class: "btn-square-turquoise" %>
                 </div>
               </div>
               <% end %>
@@ -148,7 +151,7 @@
                   </label>
                 </div>
                 <div class="link-todo">
-                  <%= link_to achievement.due_at, edit_kid_achievement_path ,class: "btn-square-turquoise" %>
+                  <%= link_to achievement.due_at, edit_kid_achievement_path, class: "btn-square-turquoise" %>
                 </div>
               </div>
               <% end %>

@@ -34,16 +34,43 @@
     <div class="line-grey">
     </div>
   </nav>
+
   <div class="tab-content" id="nav-tabContent">
 
     <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-       <!-- TASKS SUGGESTION-->
-      <div class="container">
-        <div class="row my-5 d-flex justify-content-center">
-          <h3>List of tasks</h3>
-        </div>
-        <div class="d-flex align-items-center flex-column">
 
+    <!-- CARDS ACCOMPLISHED / TODO -->
+    <div class="container">
+      <div class="row my-5 d-flex justify-content-center">
+        <div class="col-sm-4">
+          <div class="card-info-show my-3 justify-content-center">
+            <div class="card-info-home-text text-center">
+              <h4 class="font-weight-bold">Accomplished</h4>
+                <p><strong><%= @count_achievement_accomplished.count %></strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card-info-show my-3 justify-content-center">
+            <div class="card-info-home-text text-center">
+              <h4 class="font-weight-bold">Assign a new task</h4>
+
+              <!-- Button trigger modal -->
+              <div class="link-todo-btn-adult">
+                  <%= link_to new_adult_achievement_path, "data-toggle" => "modal", "data-target" => "#exampleModal" do %>
+                  <%= image_tag "plus_btn.svg" %>
+                  <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TASKS SUGGESTION-->
+    <div class="container-suggestion">
+      <div class="container">
+        <div class="d-flex align-items-center flex-column">
           <% @tasks.each do |task| %>
             <%#= link_to new_adult_achievement_path do %>
             <button class="btn-modal task-id" data-task-id=<%= task.id %>>
@@ -64,88 +91,118 @@
             </button>
               <%# end %>
           <% end %>
+
           <div class="overlay" id="overlay"></div>
 
           <div class="modal-new-achievement-with-task-id" id="modal-task">
-            <button class="modal-close-btn" id="close-btn">X</button>
-              <h3 id='task-name'></h3>
+            <button class="modal-close-btn" id="close-btn">
+              X
+            </button>
+            <h3 id='task-name'></h3>
 
-              <%= simple_form_for @achievement, url: adult_achievements_path, html: { method: :post, id: :new_achievement_2 } do |f| %>
-                <%= f.input :task_id, input_html: { id: 'achievement_task_id_2' }  %>
-                <%= f.input :points, as: :integer, input_html: { id: 'achievement_points_2' } %>
-                <%#= f.input :due_at, as: :date, input_html: { id: 'achievement_due_at_1i_2' } %>
-                <div class="d-flex justify-content-center mt-5 mb-3">
-                  <%= f.submit "Create", class: "btn-tangerine" %>
+            <%= simple_form_for @achievement, url: adult_achievements_path, html: { method: :post, id: :new_achievement_2 } do |f| %>
+              <%= f.input :task_id, input_html: { id: 'achievement_task_id_2' }  %>
+              <%= f.input :points, as: :integer, input_html: { id: 'achievement_points_2' } %>
+              <%#= f.input :due_at, as: :date, input_html: { id: 'achievement_due_at_1i_2' } %>
+              <div class="d-flex justify-content-center mt-5 mb-3">
+                <%= f.submit "Create", class: "btn-tangerine" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+      <!-- CARDS ACCOMPLISHED / TODO -->
+      <div class="container">
+        <div class="row my-5 d-flex justify-content-center">
+          <div class="col-sm-4">
+            <div class="card-info-show my-3 justify-content-center">
+              <div class="card-info-home-text text-center">
+                <h4 class="font-weight-bold">Accomplished</h4>
+                  <p><strong><%= @count_achievement_accomplished.count %></strong></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card-info-show my-3 justify-content-center">
+              <div class="card-info-home-text text-center">
+                <h4 class="font-weight-bold">Assign a new task</h4>
+
+                <!-- Button trigger modal -->
+                <div class="link-todo-btn-adult">
+                    <%= link_to new_adult_achievement_path, "data-toggle" => "modal", "data-target" => "#exampleModal" do %>
+                    <%= image_tag "plus_btn.svg" %>
+                    <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADULT TASKS TO DO -->
+      <div class="container">
+        <div class="row my-5 d-flex justify-content-center">
+          <div class="card-achievement-pending d-flex align-items-start flex-column bd-highlight mb-3 justify-content-between">
+            <div class="achievements-pending-title mb-auto p-2 bd-highlight">
+              <h3>Tasks</h3>
+            </div>
+            <div class="achivement-done bd-highlight justify-content-end">
+                <p>Pending: <%= @count_new_achievement.count %> </p>
+            </div>
+
+        <!-- List of achievements -->
+        <% @achievements.each do |achievement| %>
+          <div class="achivement-done bd-highlight justify-content-between">
+            <div class="achievement-checkbox d-inline-flex">
+              <label class="container-checkbox"><%= achievement.task.description.capitalize %>
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <!-- Modal button Update Achievement -->
+            <div class="link-pending">
+              <button type="button" class="btn-square-sand" data-toggle="modal" data-target="#exampleModal">
+                Update
+              </button>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- Modal Update Achievement -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content text-center">
+            <div class="modal-header text-center">
+              <div >
+              <h5 class="modal-title d-flex justify-content-center" id="exampleModalLabel"><%= @achievement.task.name %></h5>
+              </div>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <h2 class="modal-design mt-3"><%= @achievement.points %></h2>
+            <div class="modal-body">
+              <%= simple_form_for @achievement, url: adult_achievement_path, method: :patch, defaults: { input_html: { class: 'modal-design' } } do |f| %>
+              <p class = "text-center">Are you satisfied with this ?</p>
+
+                <%= f.input :points, label: false  %>
+                <%= f.input :achieve , as: :hidden, input_html: { value: true } %>
+                <div class="text-center">
+                  <%= f.submit "Validate", class:'btn-tangerine mt-3' %>
                 </div>
               <% end %>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-  <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-  <!-- CARDS ACCOMPLISHED / TODO -->
-  <div class="container">
-    <div class="row my-5 d-flex justify-content-center">
-      <div class="col-sm-4">
-        <div class="card-info-show my-3 justify-content-center">
-          <div class="card-info-home-text text-center">
-            <h4 class="font-weight-bold">Accomplished</h4>
-              <p><strong><%= @count_achievement_accomplished.count %></strong></p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-sm-4">
-        <div class="card-info-show my-3 justify-content-center">
-          <div class="card-info-home-text text-center">
-            <h4 class="font-weight-bold">Assign a new task</h4>
 
-              <!-- Button trigger modal -->
-              <div class="link-todo-btn-adult">
-                  <%= link_to new_adult_achievement_path, "data-toggle" => "modal", "data-target" => "#exampleModal" do %>
-                  <%= image_tag "plus_btn.svg" %>
-                  <% end %>
-              </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ADULT TASKS TO DO -->
-  <div class="container">
-    <div class="row my-5 d-flex justify-content-center">
-      <div class="card-achievement-pending d-flex align-items-start flex-column bd-highlight mb-3 justify-content-center">
-        <div class="achievements-pending-title mb-auto p-2 bd-highlight">
-          <h3>Tasks</h3>
-        </div>
-        <div class="achivement-done bd-highlight justify-content-end">
-            <p>Pending: <%= @count_new_achievement.count %> </p>
-        </div>
-
-  <!-- List of achievements -->
-      <% @achievements.each do |achievement| %>
-        <div class="achivement-done bd-highlight justify-content-between">
-          <div class="achievement-checkbox d-inline-flex">
-            <label class="container-checkbox"><%= achievement.task.description.capitalize %>
-              <input type="checkbox" checked="checked">
-              <span class="checkmark"></span>
-            </label>
-          </div>
-          <div class="link-pending">
-            <%= link_to 'PENDING', edit_adult_achievement_path(achievement) ,class: "btn-square-sand" %>
-          </div>
-        </div>
-      <% end %>
-  </div>
-
-  <!-- Modal New Achievement -->
+    <!-- Modal New Achievement -->
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
