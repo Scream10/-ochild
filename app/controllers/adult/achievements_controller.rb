@@ -32,7 +32,7 @@ class Adult::AchievementsController < ApplicationController
   private
 
   def achievement_params
-    params.require(:achievement).permit(:due_date, :achieve, :done ,:points, :task_id, :user_id)
+    params.require(:achievement).permit(:due_at, :achieve, :done ,:points, :task_id, :user_id)
   end
 end
 
