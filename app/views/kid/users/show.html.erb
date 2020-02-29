@@ -9,13 +9,6 @@
     <% end %>
   </div>
 
-  <div id="position-absolute-plant">
-    <%= image_tag("plant-right.svg") %>
-  </div>
-  <div id="position-absolute-standing">
-    <%= image_tag("standing1.svg") %>
-  </div>
-
   <nav>
     <div id="nav-menu" class="nav justify-content-around" id="nav-tab" role="tablist">
       <a class="nav-item nav-link tab-menu" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Suggestions</a>
@@ -28,10 +21,35 @@
 
     <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
-      <!-- TASKS SUGGESTION-->
-      <div class="row my-5 d-flex justify-content-center">
-        <h3>Suggestions list</h3>
+      <div id="position-absolute-standing-8">
+        <%= image_tag("standing8.svg") %>
       </div>
+      <div id="position-absolute-sitting">
+        <%= image_tag("sitting1.svg") %>
+      </div>
+
+      <!-- CARDS ACCOMPLISHED / TODO -->
+      <div class="container">
+        <div class="row my-5 d-flex justify-content-center">
+          <div class="col-sm-4">
+            <div class="card-info-show my-3 justify-content-center">
+              <div class="card-info-home-text text-center">
+                <h4 class="font-weight-bold">Accomplished</h4>
+                  <p><strong><%= @count_achievement_done_true.count %></strong></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="card-info-show my-3 justify-content-center">
+              <div class="card-info-home-text text-center">
+                <h4 class="font-weight-bold">To Do</h4>
+                <p><strong><%= @count_achievement_done_false.count %></strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- TASKS SUGGESTION-->
       <div class="container-suggestion">
         <div class="container">
           <div class="d-flex align-items-center flex-column">
@@ -56,6 +74,14 @@
     </div>
 
     <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+      <div id="position-absolute-plant">
+        <%= image_tag("plant-right.svg") %>
+      </div>
+      <div id="position-absolute-standing">
+        <%= image_tag("standing1.svg") %>
+      </div>
+
       <!-- CARDS ACCOMPLISHED / TODO -->
       <div class="container">
         <div class="row my-5 d-flex justify-content-center">
