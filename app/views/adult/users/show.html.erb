@@ -38,7 +38,7 @@
 
     <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
        <!-- TASKS SUGGESTION-->
-      <div class="container">
+      <div class="container-suggestion">
         <div class="row my-5 d-flex justify-content-center">
           <h3>List of tasks</h3>
         </div>
@@ -71,9 +71,9 @@
               <h3 id='task-name'></h3>
 
               <%= simple_form_for @achievement, url: adult_achievements_path, html: { method: :post, id: :new_achievement_2 } do |f| %>
-                <%= f.input :task_id, input_html: { id: 'achievement_task_id_2' }  %>
+                <%= f.association :task, collection: @tasks, input_html: { id: 'achievement_task_id_2' }  %>
                 <%= f.input :points, as: :integer, input_html: { id: 'achievement_points_2' } %>
-                <%#= f.input :due_at, as: :date, input_html: { id: 'achievement_due_at_1i_2' } %>
+                <%= f.input :due_at, as: :date, input_html: { id: 'achievement_due_at_id_2' } %>
                 <div class="d-flex justify-content-center mt-5 mb-3">
                   <%= f.submit "Create", class: "btn-tangerine" %>
                 </div>
@@ -83,7 +83,7 @@
         </div>
       </div>
     </div>
-  </div>
+
 
 
 
