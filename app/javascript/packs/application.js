@@ -1,5 +1,5 @@
-import "bootstrap";
 // A BOUGER DANS LE BON FICHIER MAIS JE SAIS PAS LEQUEL...
+import "bootstrap";
 
 // CHECKBOX ACHIEVEMENTS
 import { validationAchievement } from '../components/validationAchievements.js';
@@ -19,7 +19,7 @@ raiseCount(points);
 downCount(points);
 
 
-// TEST MODAL NEW ACHIEVEMENT WITH TASK SUGGESTED
+// MODAL NEW ACHIEVEMENT WITH TASK SUGGESTED
 const taskElements = document.querySelectorAll('.btn-modal');
 const taskInput = document.getElementById('achievement_task_id_2');
 const taskName = document.getElementById("task-name");
