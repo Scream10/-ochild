@@ -27,6 +27,8 @@ class Adult::UsersController < ApplicationController
 
     @count_achievement_accomplished = current_user.achievements.where(done: true, achieve: true)
     @count_new_achievement = current_user.achievements.where(done: true, achieve: false)
+
+    @achievement = Achievement.find(params[:id])
   end
 
   private

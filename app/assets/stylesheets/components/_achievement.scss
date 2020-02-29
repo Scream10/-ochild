@@ -31,6 +31,10 @@
 .link-pending {
   display: flex;
   align-items: center;
+  & button {
+    text-decoration: none;
+    outline: none;
+  }
 }
 
 .achievements-pending-title {

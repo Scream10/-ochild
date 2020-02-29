@@ -28,8 +28,12 @@
   border-radius: 8px;
   border: 0;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    & p {
+      font-size: 1rem;
+      color: #524F61 !important;
+    }
 }
-.find-task {
+.find-task p {
   font-size: 11px;
   color: $stormy-grey !important;
 }
