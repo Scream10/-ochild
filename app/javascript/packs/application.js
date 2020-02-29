@@ -12,6 +12,13 @@ if (achievementElements) {
   })
 };
 
+// MODAL UPDATE ACHIEVEMENT + | -
+import { raiseCount, downCount } from '../components/plusMinus.js';
+let points = document.querySelector('#points');
+raiseCount(points);
+downCount(points);
+
+
 // TEST MODAL NEW ACHIEVEMENT WITH TASK SUGGESTED
 const taskElements = document.querySelectorAll('.btn-modal');
 const taskInput = document.getElementById('achievement_task_id_2');
