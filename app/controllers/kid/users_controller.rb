@@ -18,7 +18,7 @@ class Kid::UsersController < ApplicationController
     total_achievements = 0
 
     @goal.each do |goal|
-      @achievements.each do |achievement|
+      @count_achievement_done_true.each do |achievement|
         total_achievements += achievement.points
       end
 
