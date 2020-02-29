@@ -3,8 +3,10 @@ import "bootstrap";
 
 import { validationAchievement } from '../components/validationAchievements.js';
 
-const achievementElement = document.querySelector('.achievement-id');
+const achievementElements = document.querySelectorAll('.achievement-id');
 
-if (achievementElement) {
-  validationAchievement(achievementElement);
+if (achievementElements) {
+  achievementElements.forEach(achievementElement => {
+    validationAchievement(achievementElement);
+  })
 };
