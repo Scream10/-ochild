@@ -37,8 +37,9 @@
   color: $tangerine;
 }
 
-.close {
-  text-decoration:underline;
+button.close {
+  text-decoration: none;
+  outline: none;
 }
 
 /* CREATE TASK CSS */
