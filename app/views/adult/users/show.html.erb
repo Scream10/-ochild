@@ -167,7 +167,8 @@
               </div>
               <!-- Button Modal Update Achievement -->
               <div class="link-pending">
-                <button type="button" class="btn-square-sand" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn-square-sand btn-modal-update-adult achievement-update-id" data-achievement-update-id=<%= achievement.id %>>
+<!--                 <button type="button" class="btn-square-sand" data-toggle="modal" data-target="#exampleModal"> -->
                   UPDATE
                 </button>
               </div>
@@ -214,37 +215,27 @@
         <!-- End Modal New Achievement -->
 
         <!-- Modal Update Achievement -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h4 class="modal-title" id="exampleModalLongTitle"> Achieve <%= @achievement.task.name %> </h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+        <div class="container">
+          <div class="overlay" id="overlay-update-adult">
+          </div>
+          <div class="modal-update-achievement-with-id-adult" id="modal-update-adult">
+            <button class="modal-close-btn" id="close-btn-update">
+              x
+            </button>
+            <h3 id="achievement-update-title"></h3>
+            <h2><%#= achievement.points %> points </h2>
+            <%= simple_form_for @achievement, url: adult_achievement_path, method: :patch do |f| %>
+              <%#= f.input :points, label: false  %>
+              <div class="qty mt-5">
+                <span class="minus bg-dark" id= "minus-upate-adult">-</span>
+                <input type="number" class="count" name=achievement[points] id='points-update-adult' value=<%= @achievement.points %>>
+                <span class="plus bg-dark" id= "plus-update-adult">+</span>
               </div>
-              <div class="modal-body">
-                <h2 class="modal-design"><%= @achievement.points %> points </h2>
-                <%= simple_form_for @achievement, url: adult_achievement_path, method: :patch do |f| %>
-                <p class = "text-center mt-3">Are you satisfied with this ?</p>
-                <%#= f.input :points, label: false  %>
-                <div class="qty mt-5">
-                  <span class="minus bg-dark" id= "minus">-</span>
-                  <input type="number" class="count" name=achievement[points] id='points' value=<%= @achievement.points %>>
-                  <span class="plus bg-dark" id= "plus">+</span>
-                </div>
-                <!-- <div id="input_div">
-                  <input type="button" value="-" id="moins" onclick="minus()">
-                  <input type="text" name = achievement[points] size="25" value="1" id="count">
-                  <input type="button" value="+" id="plus" onclick="plus()">
-                </div> -->
-                <%= f.input :achieve , as: :hidden, input_html: { value: true } %>
-                <div class="d-flex justify-content-center mb-3">
-                  <%= f.submit "Achieve", class: "btn-tangerine mt-3" %>
-                </div>
-                <% end %>
+              <%= f.input :achieve , as: :hidden, input_html: { value: true } %>
+              <div class="d-flex justify-content-center mb-3">
+                <%= f.submit "Valid", class: "btn-tangerine mt-3" %>
               </div>
-            </div>
+            <% end %>
           </div>
         </div>
         <!-- End Modal Update Achievement -->
