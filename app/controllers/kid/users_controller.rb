@@ -6,6 +6,7 @@ class Kid::UsersController < ApplicationController
     @goal = Goal.where(params[user: @user])
     @tasks = Task.all
     @achievement = Achievement.new()
+    @achievement = Achievement.find(params[:id])
     @achievements = Achievement.all
     @count_achievement_done_true = current_user.achievements.where(done: true, achieve: true)
     @count_achievement_done_false = current_user.achievements.where(done: false, achieve: false)

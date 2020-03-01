@@ -14,6 +14,7 @@ class Adult::UsersController < ApplicationController
     # DISPLAY ALL SUGGESTED TASKS
     @tasks = Task.all
     @achievement = Achievement.new
+    @achievement = Achievement.find(params[:id])
     # @achievement = Achievement.find(params[:id])
 
     # DISPLAY ALL ACHIEVEMENTS DONE:TRUE
@@ -28,8 +29,6 @@ class Adult::UsersController < ApplicationController
 
     @count_achievement_accomplished = current_user.achievements.where(done: true, achieve: true)
     @count_new_achievement = current_user.achievements.where(done: true, achieve: false)
-
-    @achievement_find = Achievement.find(params[:id])
   end
 
   private
