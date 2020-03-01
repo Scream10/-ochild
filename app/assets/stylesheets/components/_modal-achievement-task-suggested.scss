@@ -4,7 +4,7 @@
   opacity: 0;
   transition: opacity 0.3s;
   position: absolute;
-  top: 10px;
+  top: 250px;
   left: 0;
   right: 0;
   max-width: 400px;
@@ -13,6 +13,17 @@
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+.modal-new-achievement-with-task-id h3 {
+  font-family: Poppins;
+  color: $black-purple;
+  letter-spacing: 0.4px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.modal-new-achievement-with-task-id label {
+  font-family: Raleway;
 }
 
 .modal-close-btn {
