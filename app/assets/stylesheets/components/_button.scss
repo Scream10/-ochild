@@ -7,10 +7,14 @@
   padding: 9px 28px;
   font-weight: 500;
   font-family: Poppins;
+  text-decoration: none;
+  outline: none;
   &:hover,:focus {
     text-decoration: none;
     background-color: white;
     color: $tangerine;
+    text-decoration: none;
+    outline: none;
   }
 }
 

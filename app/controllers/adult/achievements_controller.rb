@@ -22,7 +22,7 @@ class Adult::AchievementsController < ApplicationController
 
   def update
     @achievement = Achievement.find(params[:id])
-    #@kid = @achievement.user
+    @kid = @achievement.user
 
     if @achievement.update(achievement_params)
       redirect_to adult_user_path(current_user)
