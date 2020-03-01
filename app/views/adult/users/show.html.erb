@@ -84,12 +84,12 @@
         </div>
         <div class="modal-new-achievement-with-task-id" id="modal-task">
           <button class="modal-close-btn" id="close-btn">
-            X
+            x
           </button>
           <h3 id='task-name'></h3>
           <%= simple_form_for @achievement, url: adult_achievements_path, html: { method: :post, id: :new_achievement_2 } do |f| %>
             <%= f.association :task, input_html: { id: 'achievement_task_id_2' }  %>
-            <%= f.input :points, as: :integer, input_html: { id: 'achievement_points_2' } %>
+            <%= f.input :points, as: :integer, input_html: { id: 'achievement_points_id_2' } %>
             <%= f.input :due_at, as: :date, input_html: { id: 'achievement_due_at_id_2' } %>
             <div class="d-flex justify-content-center mt-5 mb-3">
               <%= f.submit "Create", class: "btn-tangerine" %>
@@ -188,7 +188,7 @@
             </div>
 
             <div class="modal-body">
-              <%= simple_form_for @achievement, url: adult_achievements_path, method: :post do |f| %>
+              <%= simple_form_for @achievement_find, url: adult_achievements_path, method: :post do |f| %>
                 <%= f.association :task, collection: @tasks, label_method: :name_of_method, value_method: :id %>
                 <div class="find-task d-flex mt-1">
                   <p><em>You didn't find a task? <%= link_to "Create a new task", new_adult_task_path %> </em></p>
