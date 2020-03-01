@@ -14,15 +14,24 @@
   border-radius: 8px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.3);
 }
+
 .modal-close-btn {
   position: absolute;
   right: 10px;
   top: 10px;
   font-size: 20px;
   border: none;
-    & button {
-      border: none;
-    }
+}
+
+button.modal-close-btn{
+  border: none;
+  outline: none;
+}
+
+button.btn-modal {
+  border: none;
+  text-decoration: none;
+  outline: none;
 }
 
 /** Overlay */
