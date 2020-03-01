@@ -8,6 +8,6 @@ class Task < ApplicationRecord
   validates :description, length: { maximum: 80 }
 
   def name_of_method
-  "#{name} - #{description}"
+  "#{name.capitalize} - #{description.capitalize}"
   end
 end

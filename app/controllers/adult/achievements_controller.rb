@@ -22,17 +22,20 @@ class Adult::AchievementsController < ApplicationController
 
   def update
     @achievement = Achievement.find(params[:id])
-    @kid = @achievement.user
-    @achievement.update(achievement_params)
+    #@kid = @achievement.user
 
-    redirect_to adult_user_path(current_user)
+    if @achievement.update(achievement_params)
+      redirect_to adult_user_path(current_user)
+    else
+      render :edit
+    end
   end
 
 
   private
 
   def achievement_params
-    params.require(:achievement).permit(:due_at, :achieve, :done ,:points, :task_id, :user_id)
+    params.require(:achievement).permit(:due_at, :achieve, :done , :points, :task_id, :user_id)
   end
 end
 
