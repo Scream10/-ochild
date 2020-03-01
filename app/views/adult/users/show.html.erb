@@ -87,7 +87,7 @@
               x
             </button>
             <h3 id='task-name'></h3>
-            <%= simple_form_for @achievement, url: adult_achievements_path, html: { method: :post, id: :new_achievement_2 } do |f| %>
+            <%= simple_form_for @achievement_new, url: adult_achievements_path, html: { method: :post, id: :new_achievement_2 } do |f| %>
               <%= f.association :task, input_html: { id: 'achievement_task_id_2' }  %>
               <%= f.input :points, as: :integer, input_html: { id: 'achievement_points_id_2' } %>
               <%= f.input :due_at, as: :date, input_html: { id: 'achievement_due_at_id_2' } %>
