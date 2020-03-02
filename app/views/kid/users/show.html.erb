@@ -6,7 +6,7 @@
 
   <!-- GOAL -->
   <div class="text-center mb-5">
-    <% @goal.each do |goal| %>
+    <% @goals.each do |goal| %>
       <h2>Goal: <%= goal.title %> - <strong><%= goal.total_points %> pts</strong></h2>
       <p><em><%= goal.end_date %></em></p>
     <% end %>
@@ -44,7 +44,7 @@
             <div class="card-info-show my-3 justify-content-center">
               <div class="card-info-home-text text-center">
                 <h4 class="font-weight-bold">Accomplished</h4>
-                  <p><strong><%= @count_achievement_done_true.count %></strong></p>
+                  <p><strong><%= current_user.achieved_achievements.count %></strong></p>
               </div>
             </div>
           </div>
@@ -52,7 +52,7 @@
             <div class="card-info-show my-3 justify-content-center">
               <div class="card-info-home-text text-center">
                 <h4 class="font-weight-bold">To Do</h4>
-                <p><strong><%= @count_achievement_done_false.count %></strong></p>
+                <p><strong><%= current_user.no_done_achievements.count %></strong></p>
               </div>
             </div>
           </div>
@@ -107,7 +107,7 @@
             <div class="card-info-show my-3 justify-content-center">
               <div class="card-info-home-text text-center">
                 <h4 class="font-weight-bold">Accomplished</h4>
-                  <p><strong><%= @count_achievement_done_true.count %></strong></p>
+                  <p><strong><%= current_user.achieved_achievements.count %></strong></p>
               </div>
             </div>
           </div>
@@ -115,7 +115,7 @@
             <div class="card-info-show my-3 justify-content-center">
               <div class="card-info-home-text text-center">
                 <h4 class="font-weight-bold">To Do</h4>
-                <p><strong><%= @count_achievement_done_false.count %></strong></p>
+                <p><strong><%= current_user.no_done_achievements.count %></strong></p>
               </div>
             </div>
           </div>

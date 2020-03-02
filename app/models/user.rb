@@ -21,4 +21,22 @@ class User < ApplicationRecord
   def adult
     family.users.where(adult: true)
   end
+
+
+  def achieved_achievements
+    achievements.where(done: true, achieve: true)
+  end
+
+  def no_done_achievements
+    achievements.where(done: false, achieve: false)
+  end
+
+  def total_goals_points
+    goals.map(&:total_points).sum
+  end
+
+  def total_score
+    achieved_achievements.map(&:points).sum * 100.0 / total_goals_points
+  end
+
 end
