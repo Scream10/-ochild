@@ -4,14 +4,15 @@
     <%= image_tag("BackgroundGreyShape.svg") %>
   </div>
 
-  <div class="">
+  <div class="d-flex align-items-center my-5">
     <!-- SPINNER -->
     <%= render 'shared/spinning' %>
     <!-- END SPINNER -->
     <!-- GOAL -->
-    <div class="text-center mb-5">
+    <div>
       <% @goals.each do |goal| %>
-        <h2>Goal: <%= goal.title %> - <strong><%= goal.total_points %> pts</strong></h2>
+        <h2>Goal: <%= goal.title %></h2>
+        <h3><strong><%= goal.total_points %> pts</strong></h3>
         <p><em><%= goal.end_date %></em></p>
       <% end %>
     </div>
@@ -20,7 +21,7 @@
 
   <!-- ONGLETS SUGGESTIONS / TASKS -->
   <nav>
-    <div id="nav-menu" class="nav justify-content-around" id="nav-tab" role="tablist">
+    <div id="nav-menu" class="nav justify-content-around mt-5" id="nav-tab" role="tablist">
       <a class="nav-item nav-link tab-menu" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Suggestions</a>
       <a class="nav-item nav-link tab-menu active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Tasks</a>
     </div>
