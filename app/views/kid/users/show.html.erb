@@ -28,10 +28,11 @@
     <div class="d-flex justify-content-center align-items-center">
       <div class="card-goal-succed my-5 text-center d-flex justify-content-center align-items-center flex-column">
          <% @goals.each do |goal| %>
-          <h2 class="text-capitalize"><%= goal.title %></h2>
+          <h2 class="text-capitalize" style="color: #2B2842"><%= goal.title %></h2>
           <div class="card-goal-succed-img">
             <%= image_tag "goalsuccess.svg" %>
           </div>
+          <%= link_to "Start new goal", "#" ,class: "btn-tangerine mt-3" %>
         <% end %>
       </div>
     </div>
