@@ -10,3 +10,29 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.nav-link {
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 12px;
+  color: $black-purple !important;
+  line-height: 16px;
+  padding: 3px 11px;
+  letter-spacing: 1px;
+  margin-right: 10px;
+}
+
+.dropdown-menu {
+  color: $black-purple;
+  min-width: 100px !important;
+  border-radius: 4px;
+}
+.dropdown-item {
+  font-family: Poppins;
+  font-weight: 200;
+  font-size: 12px;
+  color: $black-purple;
+  line-height: 10px;
+  letter-spacing: 1px;
+  padding: 0.25rem 1.5rem;
+}
