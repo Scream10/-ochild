@@ -14,9 +14,12 @@ if (achievementElements) {
 
 // ADULT :: MODAL UPDATE ACHIEVEMENT + | -
 import { raiseCount, downCount } from '../components/plusMinus.js';
-let points = document.querySelector('#points-update-adult');
-raiseCount(points);
-downCount(points);
+// let points = document.querySelectorAll('.points-update-adult');
+
+  raiseCount();
+  downCount();
+
+
 
 // ADULT :: MODAL NEW ACHIEVEMENT WITH TASK SUGGESTED
 import { modalNewAchievementAdult } from '../components/modalNewAchievementAdult.js';

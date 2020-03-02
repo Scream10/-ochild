@@ -34,64 +34,75 @@ span.achievement-name {
   color: $tangerine;
 }
 
+.qty {
+  text-align: center;
+}
+.qty span {
+  background: none;
+  color: none;
+}
+input.count {
+  text-align: center;
+  font-size: 22px;
+  border: 1px solid #F0F1F7;
+  width: 12%;
+  height: 55px;
+  border-radius: 10px;
+  margin: 0 13px;
+}
+
 // PLUS-MINUS-DESIGN
 
-.qty .count {
-    color: #000;
-    display: inline-block;
-    vertical-align: top;
-    font-size: 25px;
-    font-weight: 700;
-    line-height: 30px;
-    padding: 0 2px;
-    min-width: 35px;
-    text-align: center;
-}
-.qty .plus {
-    cursor: pointer;
-    display: inline-block;
-    vertical-align: top;
-    background-color: $sand !important;
-    color: white;
-    width: 30px;
-    height: 30px;
-    font: 30px/1 Arial,sans-serif;
-    text-align: center;
-    border-radius: 50%;
-    }
-.qty .minus {
-    cursor: pointer;
-    background-color: $sand !important;
-    display: inline-block;
-    vertical-align: top;
-    color: white;
-    width: 30px;
-    height: 30px;
-    font: 30px/1 Arial,sans-serif;
-    text-align: center;
-    border-radius: 50%;
-    background-clip: padding-box;
-}
-div.qty {
-    text-align: center;
-}
-.minus:hover{
-    background-color: $tangerine !important;
-}
-.plus:hover{
-    background-color: $tangerine !important;
-}
+// .qty .count {
+//     color: #000;
+//     display: inline-block;
+//     vertical-align: top;
+//     font-size: 25px;
+//     font-weight: 700;
+//     line-height: 30px;
+//     padding: 0 2px;
+//     min-width: 35px;
+//     text-align: center;
+// }
+// .qty .plus {
+//     cursor: pointer;
+//     display: inline-block;
+//     vertical-align: top;
+//     background-color: $sand !important;
+//     color: white;
+//     width: 30px;
+//     height: 30px;
+//     font: 30px/1 Arial,sans-serif;
+//     text-align: center;
+//     border-radius: 50%;
+//     }
+// .qty .minus {
+//     cursor: pointer;
+//     background-color: $sand !important;
+//     display: inline-block;
+//     vertical-align: top;
+//     color: white;
+//     width: 30px;
+//     height: 30px;
+//     font: 30px/1 Arial,sans-serif;
+//     text-align: center;
+//     border-radius: 50%;
+//     background-clip: padding-box;
+// }
+// div.qty {
+//     text-align: center;
+// }
+// .minus:hover{
+//     background-color: $tangerine !important;
+// }
+// .plus:hover{
+//     background-color: $tangerine !important;
+// }
 /*Prevent text selection*/
 span{
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-}
-input.count{
-    border: 1px solid $sand;
-    width: 17%;
-    border-radius: 10px;
-    margin: 0 13px;
 }
 
 Input::-webkit-outer-spin-button,

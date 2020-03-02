@@ -1,7 +1,7 @@
 const modalUpdateAchievementAdult = () => {
 
   const updateElements = document.querySelectorAll('.btn-modal-update-adult');
-  // const taskInput = document.getElementById('achievement_task_id_2');
+  // const updateInput = document.getElementById('achievement-update-id');
   const updateName = document.getElementById("achievement-update-title");
 
   updateElements.forEach(updateElement => {

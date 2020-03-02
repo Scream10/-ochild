@@ -25,6 +25,7 @@ class Adult::AchievementsController < ApplicationController
     @kid = @achievement.user
 
     if @achievement.update(achievement_params)
+
       redirect_to adult_user_path(current_user)
     else
       render :edit

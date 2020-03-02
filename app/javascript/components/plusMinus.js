@@ -1,23 +1,28 @@
-const plusUpdateAdult = document.querySelector('#plus-update-adult');
-const raiseCount = (points) => {
-  plusUpdateAdult.addEventListener('click',(event) => {
-    points.valueAsNumber += 1;
-    // let total = points.value;
-    // let totalPoints = parseInt(total, 10);
-    // totalPoints += 1;
-    // points.value = totalPoints;
-  });
+const raiseCount = () => {
+  const plusUpdateAdult = document.querySelectorAll('.plus-update-adult');
+  plusUpdateAdult.forEach((plus) => {
+    plus.addEventListener('click',(event) => {
+
+      event.currentTarget.offsetParent.querySelector('.points-update-adult').valueAsNumber += 1;
+      // let total = points.value;
+      // let totalPoints = parseInt(total, 10);
+      // totalPoints += 1;
+      // points.value = totalPoints;
+    });
+  })
 };
 
-const minusUpdateAdult = document.querySelector('#minus-upate-adult');
-const downCount = (points) => {
-  minusUpdateAdult.addEventListener('click',(event) => {
-    points.valueAsNumber -= 1;
-    // let total = points.value;
-    // let totalPoints = parseInt(total, 10);
-    // totalPoints -= 1;
-    // points.value = totalPoints;
-  });
+const downCount = () => {
+  const minusUpdateAdult = document.querySelectorAll('.minus-upate-adult');
+  minusUpdateAdult.forEach((minus) => {
+    minus.addEventListener('click',(event) => {
+      event.currentTarget.offsetParent.querySelector('.points-update-adult').valueAsNumber -= 1;
+      // let total = points.value;
+      // let totalPoints = parseInt(total, 10);
+      // totalPoints -= 1;
+      // points.value = totalPoints;
+    });
+  })
 };
 
 export { raiseCount, downCount };
