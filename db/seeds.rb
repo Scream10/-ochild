@@ -26,6 +26,18 @@ task_one = Task.new(name: "Dishes", description: "wash the dishes", category: ch
 task_one.photo.attach(io: File.open('./app/assets/images/dishes.png'), filename: 'dishes.png')
 task_one.save!
 
+task = Task.new(name: "Cleaning", description: "tidy your room", category: chores)
+task.photo.attach(io: File.open('./app/assets/images/cleaning_desk.png'), filename: 'cleaning_desk.png')
+task.save!
+
+task = Task.new(name: "Laundry", description: "hangs the washing up", category: chores)
+task.photo.attach(io: File.open('./app/assets/images/setting_laundry.png'), filename: 'setting_laundry.png')
+task.save!
+
+task = Task.new(name: "Gardening", description: "water the plants", category: chores)
+task.photo.attach(io: File.open('./app/assets/images/water_can.png'), filename: 'water_can.png')
+task.save!
+
 task_two = Task.new(name: "Car Wash", description: "clean the car", category: chores)
 task_two.photo.attach(io: File.open('./app/assets/images/car_wash.png'), filename: 'car_wash.png')
 task_two.save!
@@ -58,14 +70,6 @@ task = Task.new(name: "Trash", description: "take the bins out", category: chore
 task.photo.attach(io: File.open('./app/assets/images/trash.png'), filename: 'trash.png')
 task.save!
 
-task = Task.new(name: "Laundry", description: "hangs the washing up", category: chores)
-task.photo.attach(io: File.open('./app/assets/images/setting_laundry.png'), filename: 'setting_laundry.png')
-task.save!
-
-task = Task.new(name: "Gardening", description: "water the plants", category: chores)
-task.photo.attach(io: File.open('./app/assets/images/water_can.png'), filename: 'water_can.png')
-task.save!
-
 task = Task.new(name: "Cleaning", description: "clean the bathroom", category: chores)
 task.photo.attach(io: File.open('./app/assets/images/sink.png'), filename: 'sink.png')
 task.save!
@@ -88,10 +92,6 @@ task.save!
 
 task = Task.new(name: "Cleaning", description: "clean the kitchen", category: chores)
 task.photo.attach(io: File.open('./app/assets/images/cleaning_set.png'), filename: 'cleaning_set.png')
-task.save!
-
-task = Task.new(name: "Cleaning", description: "tidy your room", category: chores)
-task.photo.attach(io: File.open('./app/assets/images/cleaning_desk.png'), filename: 'cleaning_desk.png')
 task.save!
 
 task = Task.new(name: "Cleaning", description: "clean the house", category: chores)
@@ -126,8 +126,11 @@ task.save!
 puts "Creating everything else..."
 
 child = User.new(first_name: "nini", last_name: "dupont", adult: false, date_of_birth: "2010-12-01", family: family, email: "test@test.com", password: "azerty")
+child.photo.attach(io: File.open('./app/assets/images/avatarKid.png'), filename: 'avatarKid.png.png')
 
 parent = User.new(first_name: "nono", last_name: "dupont", adult: true, date_of_birth: "1987-12-01", family: family, email: "test2@test.com", password: "azerty")
+parent.photo.attach(io: File.open('./app/assets/images/avatarAdult.png'), filename: 'avatarAdult.png')
+
 
 goal = Goal.new(title: "anniversaire Camille", end_date: "2020-03-03", total_points: 500, done: false, user: child)
 
