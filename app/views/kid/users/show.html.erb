@@ -62,25 +62,42 @@
 
       <!-- LIST OF TASKS-->
       <div class="container-suggestion">
-        <div class="row my-5 d-flex justify-content-center">
-          <h3>List of tasks</h3>
-        </div>
         <div class="container">
           <div class="d-flex align-items-center flex-column">
             <% @tasks.each do |task| %>
-            <div class="card-task-suggested">
-              <div class="img-icon">
-                <%= image_tag task.photo %>
-              </div>
-              <div class="card-task-infos">
-                <h2><%= task.name %></h2>
-                <p><%= task.description %></p>
-              </div>
-              <div class="chevron ml-auto mr-4">
-                <%= image_tag "chevron.svg" %>
+              <button class="btn-modal task-id" data-task-id=<%= task.id %>>
+                <div class="card-task-suggested">
+                  <div class="img-icon">
+                    <%= image_tag task.photo %>
+                  </div>
+                  <div class="card-task-infos">
+                    <h2><%= task.name %></h2>
+                    <p><%= task.description %></p>
+                  </div>
+                  <div class="chevron ml-auto mr-4">
+                    <%= image_tag "chevron.svg" %>
+                  </div>
+                </div>
+              </button>
+            <% end %>
+            <div class="container">
+              <div class="overlay" id="overlay"></div>
+                <div class="modal-new-achievement-with-task-id" id="modal-task">
+                  <button class="modal-close-btn" id="close-btn">
+                    x
+                  </button>
+                  <h3>New achievement</h3>
+                  <%= simple_form_for @achievement, url: kid_achievements_path, html: { method: :post, id: :new_achievement_3 } do |f| %>
+                    <%= f.association :task, input_html: { id: 'achievement_task_id_3' }, label: false  %>
+                    <%= f.input :points, as: :integer, input_html: { id: 'achievement_points_id_3' }, label: false, placeholder: "Points" %>
+                    <%= f.input :due_at, as: :date, input_html: { id: 'achievement_due_at_id_3' } %>
+                    <div class="d-flex justify-content-center mt-5 mb-3">
+                      <%= f.submit "Create", class: "btn-tangerine" %>
+                    </div>
+                  <% end %>
+                </div>
               </div>
             </div>
-            <% end %>
           </div>
         </div>
       </div>

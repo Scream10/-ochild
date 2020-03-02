@@ -20,3 +20,7 @@ downCount();
 // ADULT :: MODAL NEW ACHIEVEMENT WITH TASK SUGGESTED
 import { modalNewAchievementAdult } from '../components/modalNewAchievementAdult.js';
 modalNewAchievementAdult();
+
+// KID :: MODAL NEW ACHIEVEMENT WITH TASK SUGGESTED
+import { modalNewAchievementKid } from '../components/modalNewAchievementKid.js';
+modalNewAchievementKid();
