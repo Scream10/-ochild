@@ -13,8 +13,10 @@ class Adult::UsersController < ApplicationController
 
     # DISPLAY ALL SUGGESTED TASKS
     @tasks = Task.all
+    # NEW
     @achievement_new = Achievement.new
-    @achievement = Achievement.find(params[:id])
+    # EDIT
+    # @achievement = Achievement.find(params[:id])
     #@achievement_find = Achievement.find(params[:id])
 
     # DISPLAY ALL ACHIEVEMENTS DONE:TRUE
