@@ -22,13 +22,16 @@ class User < ApplicationRecord
     family.users.where(adult: true)
   end
 
-
   def achieved_achievements
     achievements.where(done: true, achieve: true)
   end
 
   def no_done_achievements
     achievements.where(done: false, achieve: false)
+  end
+
+  def done_achievements
+    achievements.where(done: true, achieve: false)
   end
 
   def total_goals_points
