@@ -158,8 +158,6 @@
 
           <!-- LIST OF ACHIEVEMENTS -->
           <% i = 0 %>
-
-
           <% @achievements.each do |achievement| %>
           <% i += 1 %>
                 <div class="achivement-done bd-highlight justify-content-between">
@@ -225,22 +223,29 @@
               <div class="modal-body">
                 <%= simple_form_for @achievement_new, url: adult_achievements_path, method: :post do |f| %>
                   <%= f.association :task, collection: @tasks, label_method: :name_of_method, value_method: :id %>
-                  <div class="find-task d-flex mt-1">
-                    <p><em>You didn't find a task? <%= link_to "Create a new task", new_adult_task_path %> </em></p>
+                  <div class="find-task flex-column mt-1">
+                    <p><em>You didn't find a task? <%= link_to "Create a new task", new_adult_task_path, class: 'btn-square-sand', "data-toggle" => "collapse", "data-target" => "#collapseExample", "aria-expanded" => "false", "aria-controls" => "collapseExample" %> </em></p>
                   </div>
                   <%= f.input :due_at, as: :date %>
-                  <p>Set a number of points for this task: </p>
-                  <div class="qty mt-5">
+                  <p class='d-flex justify-content-center mt-5'>Set a number of points for this task: </p>
                   <%= f.input :points, label: false  %>
-            <!-- <span class="minus bg-dark" id= "minus">-</span>
-                    <input type="number" class="count" name=achievement[points] id='points' value=0>
-                    <span class="plus bg-dark" id= "plus">+</span>
-                  </div> -->
-                <!-- <div id="input_div"> -->
                   <div class="d-flex justify-content-center mt-5 mb-3">
                     <%= f.submit "Create", class: "btn-tangerine" %>
                   </div>
                 <% end %>
+                <div class="collapse" id="collapseExample">
+                  <div class="card card-body d-flex justify-content-center">
+                    <h4 class="mb-4">Create a new task</h4>
+                    <%= simple_form_for @task_new, remote: true, url: adult_tasks_path, method: :post do |f| %>
+                      <%= f.input :name %>
+                      <%= f.input :description %>
+                      <%= f.association :category %>
+                      <div class="d-flex justify-content-center mt-4">
+                        <%= f.submit "Add", class:'btn-tangerine' %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
