@@ -51,53 +51,13 @@ input.count {
   margin: 0 13px;
 }
 
-// PLUS-MINUS-DESIGN
+// .modal-content p {
+//   font-weight: bold;
+//   font-size: 40px !important;
+//   line-height: 60px;
+//   color: #9FA2B4 !important;
+// }
 
-// .qty .count {
-//     color: #000;
-//     display: inline-block;
-//     vertical-align: top;
-//     font-size: 25px;
-//     font-weight: 700;
-//     line-height: 30px;
-//     padding: 0 2px;
-//     min-width: 35px;
-//     text-align: center;
-// }
-// .qty .plus {
-//     cursor: pointer;
-//     display: inline-block;
-//     vertical-align: top;
-//     background-color: $sand !important;
-//     color: white;
-//     width: 30px;
-//     height: 30px;
-//     font: 30px/1 Arial,sans-serif;
-//     text-align: center;
-//     border-radius: 50%;
-//     }
-// .qty .minus {
-//     cursor: pointer;
-//     background-color: $sand !important;
-//     display: inline-block;
-//     vertical-align: top;
-//     color: white;
-//     width: 30px;
-//     height: 30px;
-//     font: 30px/1 Arial,sans-serif;
-//     text-align: center;
-//     border-radius: 50%;
-//     background-clip: padding-box;
-// }
-// div.qty {
-//     text-align: center;
-// }
-// .minus:hover{
-//     background-color: $tangerine !important;
-// }
-// .plus:hover{
-//     background-color: $tangerine !important;
-// }
 /*Prevent text selection*/
 span{
     -webkit-user-select: none;
