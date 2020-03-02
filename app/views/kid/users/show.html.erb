@@ -1,17 +1,22 @@
 <div class="container">
 
-  <!-- SPINNER -->
-   <%= render 'shared/spinning' %>
-  <!-- END SPINNER -->
-
-  <!-- GOAL -->
-  <div class="text-center mb-5">
-    <% @goals.each do |goal| %>
-      <h2>Goal: <%= goal.title %> - <strong><%= goal.total_points %> pts</strong></h2>
-      <p><em><%= goal.end_date %></em></p>
-    <% end %>
+  <div class="d-flex justify-content-center" id="position-absolute-greyshape">
+    <%= image_tag("BackgroundGreyShape.svg") %>
   </div>
-  <!-- END GOAL -->
+
+  <div class="">
+    <!-- SPINNER -->
+    <%= render 'shared/spinning' %>
+    <!-- END SPINNER -->
+    <!-- GOAL -->
+    <div class="text-center mb-5">
+      <% @goals.each do |goal| %>
+        <h2>Goal: <%= goal.title %> - <strong><%= goal.total_points %> pts</strong></h2>
+        <p><em><%= goal.end_date %></em></p>
+      <% end %>
+    </div>
+    <!-- END GOAL -->
+  </div>
 
   <!-- ONGLETS SUGGESTIONS / TASKS -->
   <nav>
