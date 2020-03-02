@@ -5,7 +5,6 @@ class Adult::TasksController < ApplicationController
   end
 
   def create
-    @achievement = Achievement.find(params[:id])
     @task = Task.new(task_params)
     # @task.achievement = @achievment
     if @task.save

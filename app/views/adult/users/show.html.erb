@@ -66,7 +66,11 @@
             <button class="btn-modal task-id" data-task-id=<%= task.id %>>
               <div class="card-task-suggested">
                 <div class="img-icon">
-                  <%= image_tag task.photo %>
+                  <% if task.photo.attachment.nil? %>
+                    <%= image_tag 'housekeeping.png' %>
+                  <% else %>
+                    <%= image_tag task.photo %>
+                  <% end %>
                 </div>
                 <div class="card-task-infos">
                   <h2><%= task.name %></h2>
@@ -236,7 +240,7 @@
                 <div class="collapse" id="collapseExample">
                   <div class="card card-body d-flex justify-content-center">
                     <h4 class="mb-4">Create a new task</h4>
-                    <%= simple_form_for @task_new, remote: true, url: adult_tasks_path, method: :post do |f| %>
+                    <%= simple_form_for @task_new, url: adult_tasks_path, method: :post do |f| %>
                       <%= f.input :name %>
                       <%= f.input :description %>
                       <%= f.association :category %>
