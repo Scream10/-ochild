@@ -5,9 +5,9 @@ class Adult::AchievementsController < ApplicationController
   end
 
   def create
-    @child = current_user.family.users.where(adult: false).first
+    @kid = current_user.family.users.where(adult: false).first
     @achievement = Achievement.new(achievement_params)
-    @achievement.user = @child
+    @achievement.user = @kid
     if @achievement.save
       redirect_to adult_user_path(current_user)
     else
@@ -22,7 +22,7 @@ class Adult::AchievementsController < ApplicationController
 
   def update
     @achievement = Achievement.find(params[:id])
-    @kid = @achievement.user
+    # @kid = @achievement.user
 
     if @achievement.update(achievement_params)
 
