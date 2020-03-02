@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :goals
   has_many :achievements
   has_many :tasks, through: :achievements
+  has_one_attached :photo
 
   validates :first_name, presence: true
   validates :last_name, presence: true
