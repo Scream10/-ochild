@@ -7,7 +7,8 @@
   top: 250px;
   left: 0;
   right: 0;
-  max-width: 400px;
+  max-width: 500px;
+  height: 500px;
   margin: 0 auto;
   padding: 40px;
   background: #fff;
@@ -19,7 +20,19 @@
   color: $black-purple;
   letter-spacing: 0.4px;
   font-weight: bold;
-  margin-bottom: 50px;
+  margin-bottom: 22px;
+}
+
+select#achievement_task_id_3 {
+  width: 350px;
+  font-size: 18px;
+  margin: 0 auto;
+  border: none;
+  outline: none;
+  outline-color: transparent;
+  text-align: center;
+  color: #2B2842 !important;
+  font-weight: 500;
 }
 
 // #achievement_task_id_2 {
@@ -53,7 +66,7 @@
   font-size: 16px;
   text-align: left;
   font-family: Raleway;
-  margin: 10px;
+  margin: 0 auto;
   // letter-spacing: 1.4px;
   // font-weight: bold;
 //   color: #F4F4F4
