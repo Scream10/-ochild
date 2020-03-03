@@ -12,7 +12,7 @@ class Adult::AchievementsController < ApplicationController
       redirect_to adult_user_path(current_user)
     else
       @tasks = Task.all
-      # render :new
+      render :new
     end
   end
 

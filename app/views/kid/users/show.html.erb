@@ -239,28 +239,20 @@
                 <span aria-hidden="true">&times;</span>
               </button>
           </div>
-
-
-            <div class="modal-body">
-              <%= simple_form_for @achievement, url: kid_achievements_path, method: :post do |f| %>
-                <%= f.association :task, collection: @tasks, label_method: :name_of_method, value_method: :id %>
-                <div class="find-task d-flex mt-1">
-                  <p><em>You didn't find a task? <%= link_to "Create a new task", new_kid_task_path %> </em></p>
-                </div>
-                <%= f.input :due_at %>
-                <%#= f.input :points, label: false  %>
-                <div class="qty mt-5">
-                  <span class="minus bg-dark" id= "minus">-</span>
-                  <input type="number" class="count" name=achievement[points] id='points' value= 0 >
-                  <span class="plus bg-dark" id= "plus">+</span>
-                </div>
-                <!-- <div id="input_div"> -->
-                <div class="d-flex justify-content-center mt-5 mb-3">
-                  <%= f.submit "Create", class: "btn-tangerine" %>
-                </div>
-                <div class="find-task d-flex justify-content-center mt-4">
-                </div>
-              <% end %>
+          <div class="modal-body">
+            <%= render 'kid/achievements/form', achievement: @achievement, tasks: @tasks, selected: :last %>
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body d-flex justify-content-center">
+                <h4 class="mb-4">Create a new task</h4>
+                <%= simple_form_for [:kid, @task], remote: true do |f| %>
+                  <%= f.input :name %>
+                  <%= f.input :description %>
+                  <%= f.association :category %>
+                  <div class="d-flex justify-content-center mt-4">
+                    <%= f.submit "Add", class:'btn-tangerine', id:'add-task-kid' %>
+                  </div>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
