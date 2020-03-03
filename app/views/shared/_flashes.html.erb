@@ -1,6 +1,5 @@
 <% if notice %>
-  <div class="alert alert-info alert-dismissible fade show m-1" role="alert">
-    <%= notice %>
+  <div class="alert alert-success alert-dismissible fade show m-1 text-center" role="alert">
     <%=image_tag("check.svg")%>
     <h1>NICE JOB !</h1>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -11,7 +10,6 @@
 
 <% if alert %>
   <div class="alert alert-success alert-dismissible fade show m-1 text-center" role="alert">
-    <%= alert %>
     <%=image_tag("check.svg")%>
     <h1>WELL SEND !</h1>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
