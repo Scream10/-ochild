@@ -169,8 +169,11 @@
                   </label>
                 </div>
                 <div class="link-todo">
+                  <button type="button" class="btn-square-turquoise" data-toggle="modal" data-target="#exampleModal-<%= achievement.id %>">
+                  </button>
                   <%= link_to achievement.due_at, edit_kid_achievement_path, class: "btn-square-turquoise" %>
                 </div>
+                <%#= render 'modal_update_achievement', achievement: @achievement %>
               </div>
               <% end %>
           <% end %>
@@ -185,7 +188,11 @@
                   </label>
                 </div>
                 <div class="link-todo">
-                  <%= link_to achievement.due_at, edit_kid_achievement_path, class: "btn-square-turquoise" %>
+                  <button type="button" class="btn-square-turquoise" data-toggle="modal" data-target="#exampleModal-<%= achievement.id %>">
+                    <%= achievement.due_at %>
+                  </button>
+                  <!-- <%#= link_to achievement.due_at, edit_kid_achievement_path, class: "btn-square-turquoise" %> -->
+                <%= render '/kid/achievements/modal_update_achievement', achievement: achievement %>
                 </div>
               </div>
               <% end %>
@@ -213,7 +220,7 @@
               <%= simple_form_for @achievement, url: kid_achievements_path, method: :post do |f| %>
                 <%= f.association :task, collection: @tasks, label_method: :name_of_method, value_method: :id %>
                 <div class="find-task d-flex mt-1">
-                  <p><em>You didn't find a task? <%= link_to "Create a new task", new_kid_task_path %> </em></p>
+                  <p><em>You didn't find a task? <%#= link_to "Create a new task", new_kid_task_path %> </em></p>
                 </div>
                 <%= f.input :due_at %>
                 <%#= f.input :points, label: false  %>
