@@ -1,45 +1,27 @@
-
-<!-- 2ème VERSION -->
-
-
-<div class="container form-size">
-  <h1 class= "modal-design mb-3" >Hey <span class= "achievement-name"><%= @achievement.user.first_name %></span>! Proud of you ?</h1>
-  <div class="card">
-    <div class="card-header">
-      <h5 class = "text-center"><%= @achievement.task.name %></h5>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-8 mt-3">
-        <%= simple_form_for @achievement, url: kid_achievement_path, method: :patch do |f| %>
-        <div class = "modal-design pdr-3">
-          <%= f.input :done, as: :radio_buttons %>
+<!-- <div class="modal fade" id="exampleModal-<%#= achievement.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ -->  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLongTitle"> Mark as finished</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+        <div class="modal-body">
+          <%= simple_form_for @achievement, url: kid_achievement_path, method: :patch do |f| %>
+            <div class = "modal-design pdr-3">
+              <%= f.input :done, as: :radio_buttons %>
+            </div>
+            <div class="d-flex justify-content-center mt-5 mb-3">
+              <%= f.submit "Update", class: "btn-tangerine" %>
+            </div>
+            <div class="find-task d-flex justify-content-center mt-4">
+            </div>
+          <% end %>
         </div>
-        <div class = "text-center">
-          <%= f.submit "Yes ! ", class:'btn-tangerine mb-3' %>
-           </div>
-        <% end %>
       </div>
     </div>
-  </div>
-</div>
+  <!-- </div> -->
 
 
-
-
-<!-- 1ère VERSION DU CODE -->
-
- <!--  <div class="row justify-content-center">
-    <div class="col-12 col-md-8">
-      <%#= simple_form_for @achievement, url: kid_achievement_path, method: :patch do |f| %>
-
-        <%#= f.input :done, as: :radio_buttons %>
-
-        <%#= f.submit "Add", class:'btn btn-primary' %>
-        <#% end %>
-    </div>
-  </div>
-</div> -->
-
-
-<!-- 3ème VERSION: MODALE-->
 
