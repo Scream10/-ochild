@@ -8,7 +8,7 @@ class Adult::UsersController < ApplicationController
                         .goals
                         .find_by(done: false)
     # @family = current_user.family
-    # @child = User.where(family: current_user.family, adult: false)
+    #@kid = User.where(family: current_user.family, adult: false)
     # @goal = Goal.where(user: @child, done: false).first
 
     # DISPLAY ALL SUGGESTED TASKS
@@ -28,10 +28,14 @@ class Adult::UsersController < ApplicationController
                                 .achievements
                                 .where(done: true, achieve: false)
 
-    @pourcent_goal_achieve = count_achievements
+    @achievements_true = current_user.family
+                                .users
+                                .where(adult: false)
+                                .first
+                                .achievements
+                                .where(done: true, achieve: true)
 
-    @count_achievement_accomplished = current_user.achievements.where(done: true, achieve: true)
-    @count_new_achievement = current_user.achievements.where(done: true, achieve: false)
+    @pourcent_goal_achieve = count_achievements
   end
 
   private
