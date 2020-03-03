@@ -3,7 +3,7 @@ class Kid::UsersController < ApplicationController
 
   def show
     @user = current_user
-    @goals = Goal.where(params[user: @user])
+    @goals = Goal.where(params[user: @user], done: false)
     @task = Task.new()
     @tasks = Task.all
     @achievement = Achievement.new()

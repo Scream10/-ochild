@@ -8,7 +8,7 @@ class Adult::GoalsController < ApplicationController
   def create
     @goal = Goal.new(goal_params)
     if @goal.save
-      redirect_to adult_user_path(current_user), notice: 'Goal was successfully created'
+      redirect_to adult_user_path(current_user)
     else
       @kids = current_user.kids
       render :new

@@ -15,7 +15,12 @@
       <h3><strong><%= @goal.total_points %> pts</strong></h3>
       <p><em><%= @goal.end_date %></em></p>
     </div>
+
+    <div class="link-todo-btn-adult">
+      <%= link_to "create a goal", new_adult_goal_path, class:'btn-tangerine' %>
+    </div>
     <!-- END GOAL -->
+
   </div>
 
   <!-- ONGLETS SUGGESTIONS / TASKS -->

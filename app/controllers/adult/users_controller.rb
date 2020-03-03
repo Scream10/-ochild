@@ -9,7 +9,8 @@ class Adult::UsersController < ApplicationController
                         .find_by(done: false)
     # @family = current_user.family
     #@kid = User.where(family: current_user.family, adult: false)
-    # @goal = Goal.where(user: @child, done: false).first
+    #@goals = Goal.where(adult: false, done: false)
+    #@goals = Goal.where(params[user: @user], done: false)
 
     # DISPLAY ALL SUGGESTED TASKS
     @tasks = Task.all
