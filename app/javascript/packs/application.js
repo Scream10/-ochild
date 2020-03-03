@@ -24,3 +24,5 @@ modalNewAchievementAdult();
 // KID :: MODAL NEW ACHIEVEMENT WITH TASK SUGGESTED
 import { modalNewAchievementKid } from '../components/modalNewAchievementKid.js';
 modalNewAchievementKid();
+
+import { spinning } from '../components/highcharts.js';

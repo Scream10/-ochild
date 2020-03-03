@@ -1,0 +1,18 @@
+#container {
+  width: 300px;
+}
+
+@media screen and (max-width: 768px) {
+  #container {
+    position: relative;
+    width: 200px;
+    height: 280px;
+  }
+  #position-absolute-greyshape {
+    top: 7%;
+  }
+}
+
+.display-none {
+  display: none;
+}
