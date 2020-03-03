@@ -76,3 +76,21 @@
   top: 33%;
   z-index: 0;
 }
+
+#position-absolute-greyshape {
+  position: absolute;
+  top: 3%;
+  left: 13%;
+  z-index: -10;
+}
+
+#position-absolute-greyshape img {
+  width: 900px;
+}
+
+@media screen and (max-width: 768px) {
+  #position-absolute-greyshape img {
+    width: 94%;
+  }
+}
+
