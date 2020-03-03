@@ -1,11 +1,13 @@
 <%= simple_form_for achievement, url: adult_achievements_path, method: :post do |f| %>
-  <%= f.association :task, collection: tasks, label_method: :name_of_method, value_method: :id, selected: selected %>
-  <div class="find-task flex-column mt-1">
-    <p><em>You didn't find a task? <%= link_to "Create a new task", new_adult_task_path, class: 'btn-square-sand', "data-toggle" => "collapse", "data-target" => "#collapseExample", "aria-expanded" => "false", "aria-controls" => "collapseExample" %> </em></p>
+  <div class="task-name">
+    <%= f.association :task, collection: tasks, label_method: :name_of_method, value_method: :id, selected: selected, label: false %>
   </div>
-  <%= f.input :due_at, as: :string, type: :text %>
-  <p class='d-flex justify-content-center mt-5'>Set a number of points for this task: </p>
-  <%= f.input :points, label: false  %>
+  <div class="find-task mt-2">
+    <%= link_to "You didn't find a task?", new_adult_task_path, class: 'btn-square-sand', "data-toggle" => "collapse", "data-target" => "#collapseExample", "aria-expanded" => "false", "aria-controls" => "collapseExample" %>
+  </div>
+<!--   <p class='d-flex justify-content-center mt-5'>Set a number of points for this task: </p> -->
+<%= f.input :points, label: false, placeholder: 'Set a number of points for this task:', class: 'mt-4'  %>
+  <%= f.input :due_at, as: :string, type: :text, label: false, placeholder: 'Date?' %>
   <div class="d-flex justify-content-center mt-5 mb-3">
     <%= f.submit "Create", class: "btn-tangerine" %>
   </div>
