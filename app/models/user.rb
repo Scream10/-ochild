@@ -43,6 +43,9 @@ class User < ApplicationRecord
     achieved_achievements.map(&:points).sum * 100.0 / total_goals_points
   end
 
+  def finish_goal
+    goals.find_by(done: true).update(done: true) if total_score >= 100
+
   # BIG SPINNING
 
   def achieved_achievements_chores

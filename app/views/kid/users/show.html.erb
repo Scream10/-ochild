@@ -15,7 +15,7 @@
         <% @goals.each do |goal| %>
           <h2 class="text-capitalize"><%= goal.title %></h2>
           <h3><strong><%= goal.total_points %> pts</strong></h3>
-          <p><em><%= goal.end_date %></em></p>
+          <p><em><%= goal.end_date.strftime('%a %m %B %y') %></em></p>
         <% end %>
       </div>
       <!-- END GOAL -->
@@ -203,7 +203,7 @@
                   </label>
                 </div>
                 <div class="date-todo-kid">
-                  <p><%= achievement.due_at %></p>
+                  <p><%= achievement.due_at.strftime(' %A %m %b %Y') %></p>
                 </div>
               </div>
               <!--  MODAL DONE 1 -->
