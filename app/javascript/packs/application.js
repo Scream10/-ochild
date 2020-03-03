@@ -20,16 +20,3 @@ import { spinning } from '../components/highcharts.js';
 import flatpickr from "flatpickr";
 import { toggleDateInput } from '../components/toggleDateInput.js';
 toggleDateInput();
-
-
-
-// // KID :: CHECKBOX ACHIEVEMENTS
-// import { validationAchievement } from '../components/validationAchievements.js';
-
-// const achievementElements = document.querySelectorAll('.achievement-id');
-
-// if (achievementElements) {
-//   achievementElements.forEach(achievementElement => {
-//     validationAchievement(achievementElement);
-//   })
-// };
