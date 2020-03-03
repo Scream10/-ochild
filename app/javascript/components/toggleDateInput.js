@@ -8,6 +8,9 @@ const toggleDateInput = () => {
     flatpickr(dateInput, {
       enableTime: false,
       minDate: 'today',
+      altInput: true,
+      altFormat: "F j, Y",
+      // dateFormat: "Y-m-d",
       dateFormat: 'd-m-Y',
       autoclose: true,
     });
@@ -16,6 +19,9 @@ const toggleDateInput = () => {
     flatpickr(dateInputTwo, {
       enableTime: false,
       minDate: 'today',
+      altInput: true,
+      altFormat: "F j, Y",
+      // dateFormat: "Y-m-d",
       dateFormat: 'd-m-Y',
       autoclose: true,
     });
@@ -24,6 +30,9 @@ const toggleDateInput = () => {
     flatpickr(dateInputThree, {
       enableTime: false,
       minDate: 'today',
+      altInput: true,
+      altFormat: "F j, Y",
+      // dateFormat: "Y-m-d",
       dateFormat: 'd-m-Y',
       autoclose: true,
     });
@@ -32,6 +41,9 @@ const toggleDateInput = () => {
     flatpickr(dateInputFour, {
       enableTime: false,
       minDate: 'today',
+      altInput: true,
+      altFormat: "F j, Y",
+      // dateFormat: "Y-m-d",
       dateFormat: 'd-m-Y',
       autoclose: true,
     });
