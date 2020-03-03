@@ -4,6 +4,7 @@ class Kid::UsersController < ApplicationController
   def show
     @user = current_user
     @goals = Goal.where(params[user: @user])
+    @task = Task.new()
     @tasks = Task.all
     @achievement = Achievement.new()
     # @achievement = Achievement.find(params[:id])

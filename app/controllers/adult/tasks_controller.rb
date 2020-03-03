@@ -7,7 +7,6 @@ class Adult::TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @achievement_new = Achievement.new()
-    # @task.achievement = @achievment
     if @task.save
       respond_to do |format|
         format.html { redirect_to adult_user_path(current_user) }
@@ -15,7 +14,7 @@ class Adult::TasksController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { render 'users/show' }
+        format.html { render 'adult/users/show' }
         format.js  # <-- idem
       end
     end

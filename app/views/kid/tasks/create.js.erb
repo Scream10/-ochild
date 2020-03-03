@@ -1,0 +1,10 @@
+const addTaskKid = () => {
+  const form = document.getElementById('new_achievement')
+  const collapse = document.getElementById('collapseExample');
+  // const modal = document.querySelector(".modal-body")
+  collapse.classList.remove('show');
+  form.innerHTML = ""
+  form.insertAdjacentHTML('beforeend', "<%= j render 'kid/achievements/form', achievement: @achievement, tasks: Task.all, selected: @task.id %>")
+}
+
+addTaskKid();
