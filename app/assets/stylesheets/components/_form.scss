@@ -37,7 +37,7 @@ button.close {
 /* CREATE TASK CSS */
 .create-new-task {
   border-radius: 8px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  // box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     & h1 {
   color: #2B2842;
   font-size: 1.5rem;
@@ -66,6 +66,8 @@ button.close {
 /* LULU */
 .form-control {
   border-radius: 0px;
+  border: none;
+  border-bottom: 1px solid #dee2e6;
   &:focus {
     outline:none;
     box-shadow: none;
@@ -74,18 +76,21 @@ button.close {
 
 .select.form-control {
   border-radius: 0px !important;
+  // border: none;
+  border-bottom: 1px solid #dee2e6;
+  margin-top: 10px;
 }
 
 #achievement_points {
   width: 350px;
-  margin-top: 28px !important;
+  margin-top: 0px !important;
   margin: auto;
   border: none;
   border-bottom: 1px solid #dee2e6;
   border-radius: 0px !important;
   outline: none;
   outline-color: transparent;
-  text-align: center;
+  // text-align: center;
   color: $black-purple !important;
   font-weight: 500;
   font-size: 16px;
@@ -142,6 +147,19 @@ input#achievement_due_at {
 input#achievement_due_at::placeholder {
   color: #C5C7CD;
   font-weight: normal;
+}
+
+.form-control[readonly] {
+  background-color: transparent !important;
+  opacity: 1;
+  border: none;
+  border-bottom: 1px solid #dee2e6;
+  width: 350px;
+  margin: 0px 54px 0px;
+}
+
+textarea#task_description {
+  height: 36px;
 }
 
 
