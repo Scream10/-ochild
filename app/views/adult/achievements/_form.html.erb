@@ -1,0 +1,12 @@
+<%= simple_form_for achievement, url: adult_achievements_path, method: :post do |f| %>
+  <%= f.association :task, collection: tasks, label_method: :name_of_method, value_method: :id, selected: selected %>
+  <div class="find-task flex-column mt-1">
+    <p><em>You didn't find a task? <%= link_to "Create a new task", new_adult_task_path, class: 'btn-square-sand', "data-toggle" => "collapse", "data-target" => "#collapseExample", "aria-expanded" => "false", "aria-controls" => "collapseExample" %> </em></p>
+  </div>
+  <%= f.input :due_at, as: :string, type: :text %>
+  <p class='d-flex justify-content-center mt-5'>Set a number of points for this task: </p>
+  <%= f.input :points, label: false  %>
+  <div class="d-flex justify-content-center mt-5 mb-3">
+    <%= f.submit "Create", class: "btn-tangerine" %>
+  </div>
+<% end %>

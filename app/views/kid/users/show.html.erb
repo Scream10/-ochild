@@ -11,9 +11,9 @@
       <!-- SPINNER -->
       <div id="container" style="max-width:300px;"></div>
       <!-- END SPINNER -->
-      <div class="mt-5">
+      <div>
         <% @goals.each do |goal| %>
-          <h2>Goal: <%= goal.title %></h2>
+          <h2 class="text-capitalize"><%= goal.title %></h2>
           <h3><strong><%= goal.total_points %> pts</strong></h3>
           <p><em><%= goal.end_date %></em></p>
         <% end %>
@@ -28,7 +28,7 @@
     <div class="d-flex justify-content-center align-items-center">
       <div class="card-goal-succed my-5 text-center d-flex justify-content-center align-items-center flex-column">
          <% @goals.each do |goal| %>
-          <h2 class="text-capitalize"><%= goal.title %></h2>
+          <h2 class="text-capitalize" style="color: #2B2842"><%= goal.title %></h2>
           <div class="card-goal-succed-img">
             <%= image_tag "goalsuccess.svg" %>
           </div>
@@ -96,7 +96,11 @@
               <button class="btn-modal task-id" data-task-id=<%= task.id %>>
                 <div class="card-task-suggested">
                   <div class="img-icon">
-                    <%= image_tag task.photo %>
+                    <% if task.photo.attachment.nil? %>
+                      <%= image_tag 'housekeeping.png' %>
+                    <% else %>
+                      <%= image_tag task.photo %>
+                    <% end %>
                   </div>
                   <div class="card-task-infos">
                     <h2><%= task.name %></h2>
@@ -118,7 +122,7 @@
                   <%= simple_form_for @achievement, url: kid_achievements_path, html: { method: :post, id: :new_achievement_3 } do |f| %>
                     <%= f.association :task, input_html: { id: 'achievement_task_id_3' }, label: false  %>
                     <%= f.input :points, as: :integer, input_html: { id: 'achievement_points_id_3' }, label: false, placeholder: "Points" %>
-                    <%= f.input :due_at, as: :date, input_html: { id: 'achievement_due_at_id_3' } %>
+                    <%= f.input :due_at, as: :string, type: :text, input_html: { id: 'achievement_due_at_id_3' } %>
                     <div class="d-flex justify-content-center mt-5 mb-3">
                       <%= f.submit "Create", class: "btn-tangerine" %>
                     </div>
@@ -187,41 +191,94 @@
         </div>
 
           <!-- LIST OF ACHIEVEMENTS -->
+          <% j = 0 %>
           <% @achievements.each do |achievement| %>
+            <% j += 1 %>
             <% unless achievement.done %>
               <div class="achivement-done bd-highlight justify-content-between">
                 <div class="achievement-checkbox d-inline-flex">
                   <label class="container-checkbox"><%= achievement.task.description.capitalize %>
-                    <input class='achievement-id' type="checkbox" name="done" value= '<%= achievement.done %>' data-achievement-id=<%= achievement.id %> <%= 'checked' if achievement.done %>>
+                    <input class='achievement-id' type="checkbox" data-target="#exampleModalCenter_<%= j %>" data-toggle='modal' value='<%= achievement.done %>' data-achievement-id=<%= achievement.id %> <%= 'checked' if achievement.done %>>
                     <span class="checkmark"></span>
                   </label>
                 </div>
-                <div class="link-todo">
-                  <%= link_to achievement.due_at, edit_kid_achievement_path, class: "btn-square-turquoise" %>
+                <div class="date-todo-kid">
+                  <p><%= achievement.due_at %></p>
                 </div>
               </div>
+              <!--  MODAL DONE 1 -->
+              <div class="modal fade" id="exampleModalCenter_<%= j %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle"><%= achievement.task.name %></h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <%= simple_form_for achievement, url: kid_achievement_path(achievement), method: :patch do |f| %>
+                      <div class = "modal-design pdr-3">
+                        <%= f.input :done, as: :radio_buttons %>
+                      </div>
+                      <div class = "text-center">
+                        <%= f.submit "Yes ! ", class:'btn-tangerine mb-3' %>
+                         </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- END MODAL DONE 1 -->
               <% end %>
           <% end %>
 
+          <% m = 0 %>
           <% @achievements.each do |achievement| %>
+            <% m += 1 %>
             <% if achievement.done && !achievement.achieve %>
               <div class="achivement-done bd-highlight justify-content-between">
                 <div class="achievement-checkbox d-inline-flex">
                   <label class="container-checkbox"><%= achievement.task.description.capitalize %>
-                    <input class='achievement-id' type="checkbox" name="done" value= '<%= achievement.done %>' data-achievement-id=<%= achievement.id %> <%= 'checked' if achievement.done %>>
+                    <input class='achievement-id' type="checkbox" data-target="#exampleModalCenter_<%= m %>" data-toggle='modal' value='<%= achievement.done %>' data-achievement-id=<%= achievement.id %> <%= 'checked' if achievement.done %>>
                     <span class="checkmark"></span>
                   </label>
                 </div>
-                <div class="link-todo">
-                  <%= link_to achievement.due_at, edit_kid_achievement_path, class: "btn-square-turquoise" %>
+                <div class="date-todo-kid">
+                  <p><%= achievement.due_at %></p>
                 </div>
               </div>
+              <!--  MODAL DONE 2 -->
+              <div class="modal fade" id="exampleModalCenter_<%= m %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle"><%= achievement.task.name %></h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <%= simple_form_for achievement, url: kid_achievement_path(achievement), method: :patch do |f| %>
+                      <div class = "modal-design pdr-3">
+                        <%= f.input :done, as: :radio_buttons %>
+                      </div>
+                      <div class = "text-center">
+                        <%= f.submit "Yes ! ", class:'btn-tangerine mb-3' %>
+                         </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- END MODAL DONE 2 -->
               <% end %>
           <% end %>
           <!-- END LIST OF ACHIEVEMENTS -->
         </div>
       </div>
     </div>
+
 
 
 
@@ -235,28 +292,20 @@
                 <span aria-hidden="true">&times;</span>
               </button>
           </div>
-
-
-            <div class="modal-body">
-              <%= simple_form_for @achievement, url: kid_achievements_path, method: :post do |f| %>
-                <%= f.association :task, collection: @tasks, label_method: :name_of_method, value_method: :id %>
-                <div class="find-task d-flex mt-1">
-                  <p><em>You didn't find a task? <%= link_to "Create a new task", new_kid_task_path %> </em></p>
-                </div>
-                <%= f.input :due_at %>
-                <%#= f.input :points, label: false  %>
-                <div class="qty mt-5">
-                  <span class="minus bg-dark" id= "minus">-</span>
-                  <input type="number" class="count" name=achievement[points] id='points' value= 0 >
-                  <span class="plus bg-dark" id= "plus">+</span>
-                </div>
-                <!-- <div id="input_div"> -->
-                <div class="d-flex justify-content-center mt-5 mb-3">
-                  <%= f.submit "Create", class: "btn-tangerine" %>
-                </div>
-                <div class="find-task d-flex justify-content-center mt-4">
-                </div>
-              <% end %>
+          <div class="modal-body">
+            <%= render 'kid/achievements/form', achievement: @achievement, tasks: @tasks, selected: :last %>
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body d-flex justify-content-center">
+                <h4 class="mb-4">Create a new task</h4>
+                <%= simple_form_for [:kid, @task], remote: true do |f| %>
+                  <%= f.input :name %>
+                  <%= f.input :description %>
+                  <%= f.association :category %>
+                  <div class="d-flex justify-content-center mt-4">
+                    <%= f.submit "Add", class:'btn-tangerine', id:'add-task-kid' %>
+                  </div>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>

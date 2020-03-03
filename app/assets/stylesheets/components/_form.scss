@@ -38,7 +38,8 @@
   color: $stormy-grey !important;
 }
 .find-task a {
-  color: $tangerine;
+  // color: $tangerine;
+  margin-left: 14px;
 }
 
 button.close {
@@ -62,4 +63,21 @@ button.close {
 .optional {
   color: $stormy-grey !important;
 }
+
+/* CARD COLLAPSE FORM */
+
+.card-body {
+  width: 400px;
+  border-radius: 8px;
+  padding: 28px;
+  margin: 29px;
+  & h4 {
+    color: $black-purple;
+  }
+}
+
+
+
+
+
 

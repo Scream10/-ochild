@@ -17,15 +17,15 @@ class Kid::AchievementsController < ApplicationController
   end
 
   def edit
-    @achievement = Achievement.find(params[:id])
+    @achievement_find = Achievement.find(params[:id])
   end
 
   def update
-    @achievement = Achievement.find(params[:id])
+    @achievement_find = Achievement.find(params[:id])
     # @kid = @achievement.user
-    @achievement.update(achievement_params)
+    @achievement_find.update(achievement_params)
 
-    redirect_to kid_user_path(current_user)
+    redirect_to kid_user_path(current_user), notice:""
   end
 
   private

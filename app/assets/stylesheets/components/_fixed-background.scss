@@ -73,8 +73,17 @@
 #position-absolute-sitting {
   position: absolute;
   left: 77%;
-  top: 33%;
+  top: 29.2%;
   z-index: 0;
+}
+
+@media screen and (max-width: 768px) {
+  #position-absolute-sitting {
+    position: absolute;
+    left: 77%;
+    top: 23.2%;
+    z-index: 0;
+  }
 }
 
 #position-absolute-greyshape {

@@ -9,9 +9,8 @@ class Adult::AchievementsController < ApplicationController
     @achievement = Achievement.new(achievement_params)
     @achievement.user = @kid
     if @achievement.save
-      redirect_to adult_user_path(current_user)
+      redirect_to adult_user_path(current_user), alert: ""
     else
-      @tasks = Task.all
       render :new
     end
   end
@@ -25,7 +24,6 @@ class Adult::AchievementsController < ApplicationController
     # @kid = @achievement.user
 
     if @achievement.update(achievement_params)
-
       redirect_to adult_user_path(current_user)
     else
       render :edit
