@@ -1,13 +1,10 @@
 const Highcharts = require('highcharts');
 // const SolidGauge = require('solid-gauge');
-
 // Load module after Highcharts is loaded
 require('highcharts/modules/exporting')(Highcharts);
 // require('highcharts/modules/exporting')(SolidGauge);
 import highchartsMore from "highcharts/highcharts-more.js";
 import solidGauge from "highcharts/modules/solid-gauge.js";
-
-
 
 function renderIcons() {
 
@@ -156,7 +153,7 @@ const spinning = () => {
             color: Highcharts.getOptions().colors[0],
             radius: '112%',
             innerRadius: '88%',
-            y: 80
+            y: parseInt(container.dataset.choretotal)
         }]
     }, {
         name: 'Reading',
@@ -164,7 +161,7 @@ const spinning = () => {
             color: Highcharts.getOptions().colors[1],
             radius: '87%',
             innerRadius: '63%',
-            y: 65
+            y: parseInt(container.dataset.readingtotal)
         }]
     }, {
         name: 'Grade',
@@ -172,7 +169,7 @@ const spinning = () => {
             color: Highcharts.getOptions().colors[2],
             radius: '62%',
             innerRadius: '38%',
-            y: 50
+            y: parseInt(container.dataset.gradetotal)
         }]
     }]
 })};
