@@ -8,12 +8,12 @@
     <div class="d-flex align-items-center my-5">
       <!-- SPINNER -->
         <%= render 'shared/spinning' %>
-
       <!-- END SPINNER -->
+
       <!-- GOAL -->
       <div>
         <% @goals.each do |goal| %>
-          <h2>Goal: <%= goal.title %></h2>
+          <h2 class="text-capitalize"><%= goal.title %></h2>
           <h3><strong><%= goal.total_points %> pts</strong></h3>
           <p><em><%= goal.end_date %></em></p>
         <% end %>
@@ -32,7 +32,6 @@
           <div class="card-goal-succed-img">
             <%= image_tag "goalsuccess.svg" %>
           </div>
-          <%= link_to "Start new goal", "#" ,class: "btn-tangerine mt-3" %>
         <% end %>
       </div>
     </div>
