@@ -77,16 +77,26 @@
                 x
               </button>
               <h3>New achievement</h3>
-              <%= simple_form_for @achievement_new, url: adult_achievements_path, html: { method: :post, id: :new_achievement_2 } do |f| %>
-                <%= f.association :task, input_html: { id: 'achievement_task_id_2' }, label: false  %>
-                <%= f.input :points, as: :integer, input_html: { id: 'achievement_points_id_2' }, label: false, placeholder: "Points" %>
-                <%= f.input :due_at, as: :string, type: :text, input_html: { id: 'achievement_due_at_adult' } %>
-                <div class="d-flex justify-content-center mt-5 mb-3">
-                   <div class="d-flex justify-content-center mt-5 mb-3">
-                    <%= f.submit "Create", class: "btn-tangerine" %>
+              <hr>
+              <div class="kid-new-modal d-flex justify-content-center">
+                <%= simple_form_for @achievement_new, url: adult_achievements_path, html: { method: :post, id: :new_achievement_2 } do |f| %>
+                  <div class="kid-achievement-suggested-task mt-5 mb-5">
+                    <p>TASK:</p>
+                    <%= f.association :task, input_html: { id: 'achievement_task_id_2' }, label: false  %>
                   </div>
-                </div>
-              <% end %>
+                  <div class="kid-achiement-suggested-points mt-5">
+                    <p>SET YOUR POINTS FOR THIS TASK: </p>
+                    <%= f.input :points, as: :integer, input_html: { id: 'achievement_points_id_2' }, label: false %>
+                  </div>
+                   <div class="kid-achievement-suggested-date mt-5">
+                    <p>DATE:</p>
+                    <%= f.input :due_at, as: :string, type: :text, input_html: { id: 'achievement_due_at_adult' }, label: false %>
+                  </div>
+                  <div class="d-flex justify-content-center mt-5 mb-2">
+                      <%= f.submit "Create", class: "btn-tangerine" %>
+                  </div>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
