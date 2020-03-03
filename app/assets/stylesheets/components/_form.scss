@@ -144,6 +144,12 @@ input#achievement_due_at::placeholder {
   font-weight: normal;
 }
 
-
+.form-control[readonly] {
+  background-color: transparent !important;
+  opacity: 1;
+  border: none;
+  border-bottom: 1px solid #dee2e6;
+  width: 320px;
+}
 
 
