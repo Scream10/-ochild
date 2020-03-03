@@ -1,22 +1,21 @@
 <div class="container d-flex justify-content-center flex-column">
 
-  <div class="text-center mb-5">
-    <h1><%= @goal.title.upcase %> - <%= @goal.total_points %>pts</h1>
-
-    <% @goal.proportions.each do |proportion| %>
-      <p> <strong><%= proportion.category.name %></strong>: <%= proportion.percent %>%</p>
-    <% end %>
+  <div class="d-flex justify-content-center" id="position-absolute-greyshape">
+    <%= image_tag("BackgroundGreyShape.svg") %>
   </div>
 
-  <div class="text-center mb-5">
-    <hr>
-    <h3>PROGRESSION OF MY CHILD</h3>
-    <hr>
-    <p>Total points = <strong><%= @goal.total_points %> pts</strong></p>
-    <% @achievements.each do |achievement| %>
-      <p>Total achievement points = <strong><%= achievement.points %> pts</strong></p>
-      <p>Progression of my child = <strong><%= @pourcent_goal_achieve %> %</strong></p>
-    <% end %>
+  <div class="d-flex align-items-center my-5">
+    <!-- SPINNER -->
+      <%= render 'shared/spinning_adult' %>
+    <!-- END SPINNER -->
+
+    <!-- GOAL -->
+    <div>
+      <h2><span class="text-capitalize"><%= @goal.title %></span></h2>
+      <h3><strong><%= @goal.total_points %> pts</strong></h3>
+      <p><em><%= @goal.end_date %></em></p>
+    </div>
+    <!-- END GOAL -->
   </div>
 
   <!-- ONGLETS SUGGESTIONS / TASKS -->
