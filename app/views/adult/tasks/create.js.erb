@@ -1,25 +1,10 @@
-// EXEMPLE COURS
-
-// const refreshForm = (innerHTML) => {
-//   const newReviewForm = document.getElementById('new_review');
-//   newReviewForm.innerHTML = innerHTML;
-// }
-
-// const addReview = (reviewHTML) => {
-//   const reviews = document.getElementById('reviews');
-//   reviews.insertAdjacentHTML('beforeend', reviewHTML);
-// }
-
-
-
-const addTask = (taskId) => {
-  const newTaskForm = document.getElementById('achievement_task_id');
-  const btnAddTask = document.getElementById('add-task-kid');
+const addTask = () => {
+  const form = document.getElementById('new_achievement')
   const collapse = document.getElementById('collapseExample');
-  btnAddTask.addEventListener('click', (event) => {
-    collapse.classList.remove('show');
-    newTaskForm.value = taskId;
-  });
+  // const modal = document.querySelector(".modal-body")
+  collapse.classList.remove('show');
+  form.innerHTML = ""
+  form.insertAdjacentHTML('beforeend', "<%= j render 'adult/achievements/form', achievement: @achievement_new, tasks: Task.all, selected: @task.id %>")
 }
 
-addTask(`<%= Task.all.last %>`);
+addTask();

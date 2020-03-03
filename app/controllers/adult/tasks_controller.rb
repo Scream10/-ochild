@@ -6,6 +6,7 @@ class Adult::TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @achievement_new = Achievement.new()
     # @task.achievement = @achievment
     if @task.save
       respond_to do |format|

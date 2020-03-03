@@ -225,22 +225,11 @@
               </div>
 
               <div class="modal-body">
-                <%= simple_form_for @achievement_new, url: adult_achievements_path, method: :post do |f| %>
-                  <%= f.association :task, collection: @tasks, label_method: :name_of_method, value_method: :id %>
-                  <div class="find-task flex-column mt-1">
-                    <p><em>You didn't find a task? <%= link_to "Create a new task", new_adult_task_path, class: 'btn-square-sand', "data-toggle" => "collapse", "data-target" => "#collapseExample", "aria-expanded" => "false", "aria-controls" => "collapseExample" %> </em></p>
-                  </div>
-                  <%= f.input :due_at, as: :date %>
-                  <p class='d-flex justify-content-center mt-5'>Set a number of points for this task: </p>
-                  <%= f.input :points, label: false  %>
-                  <div class="d-flex justify-content-center mt-5 mb-3">
-                    <%= f.submit "Create", class: "btn-tangerine" %>
-                  </div>
-                <% end %>
+                <%= render 'adult/achievements/form', achievement: @achievement_new, tasks: @tasks, selected: :last %>
                 <div class="collapse" id="collapseExample">
                   <div class="card card-body d-flex justify-content-center">
                     <h4 class="mb-4">Create a new task</h4>
-                    <%= simple_form_for @task, remote: true, url: adult_tasks_path, method: :post do |f| %>
+                    <%= simple_form_for [:adult, @task], remote: true do |f| %>
                       <%= f.input :name %>
                       <%= f.input :description %>
                       <%= f.association :category %>

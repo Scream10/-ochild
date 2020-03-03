@@ -96,7 +96,11 @@
               <button class="btn-modal task-id" data-task-id=<%= task.id %>>
                 <div class="card-task-suggested">
                   <div class="img-icon">
-                    <%= image_tag task.photo %>
+                    <% if task.photo.attachment.nil? %>
+                      <%= image_tag 'housekeeping.png' %>
+                    <% else %>
+                      <%= image_tag task.photo %>
+                    <% end %>
                   </div>
                   <div class="card-task-infos">
                     <h2><%= task.name %></h2>
