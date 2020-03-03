@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :goals
   has_many :achievements
   has_many :tasks, through: :achievements
+  has_one_attached :photo
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -22,13 +23,16 @@ class User < ApplicationRecord
     family.users.where(adult: true)
   end
 
-
   def achieved_achievements
     achievements.where(done: true, achieve: true)
   end
 
   def no_done_achievements
     achievements.where(done: false, achieve: false)
+  end
+
+  def done_achievements
+    achievements.where(done: true, achieve: false)
   end
 
   def total_goals_points
