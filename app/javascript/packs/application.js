@@ -1,16 +1,16 @@
 // A BOUGER DANS LE BON FICHIER MAIS JE SAIS PAS LEQUEL...
 import "bootstrap";
 
-// KID :: CHECKBOX ACHIEVEMENTS
-import { validationAchievement } from '../components/validationAchievements.js';
+// // KID :: CHECKBOX ACHIEVEMENTS
+// import { validationAchievement } from '../components/validationAchievements.js';
 
-const achievementElements = document.querySelectorAll('.achievement-id');
+// const achievementElements = document.querySelectorAll('.achievement-id');
 
-if (achievementElements) {
-  achievementElements.forEach(achievementElement => {
-    validationAchievement(achievementElement);
-  })
-};
+// if (achievementElements) {
+//   achievementElements.forEach(achievementElement => {
+//     validationAchievement(achievementElement);
+//   })
+// };
 
 // ADULT :: MODAL UPDATE ACHIEVEMENT + | -
 import { raiseCount, downCount } from '../components/plusMinus.js';

@@ -1,0 +1,20 @@
+.date-todo-kid p {
+  border-radius: 8px;
+  height: 24px;
+  width: 100px;
+  background-color: $turquoise;
+  border: 1px solid $turquoise;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 11px !important;
+  line-height: 16px;
+  padding: 3px 11px;
+  letter-spacing: 1px;
+  &:hover,:focus {
+    text-decoration: none;
+    background-color: white;
+    color: $turquoise;
+  }
+}

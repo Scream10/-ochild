@@ -191,41 +191,94 @@
         </div>
 
           <!-- LIST OF ACHIEVEMENTS -->
+          <% j = 0 %>
           <% @achievements.each do |achievement| %>
+            <% j += 1 %>
             <% unless achievement.done %>
               <div class="achivement-done bd-highlight justify-content-between">
                 <div class="achievement-checkbox d-inline-flex">
                   <label class="container-checkbox"><%= achievement.task.description.capitalize %>
-                    <input class='achievement-id' type="checkbox" name="done" value= '<%= achievement.done %>' data-achievement-id=<%= achievement.id %> <%= 'checked' if achievement.done %>>
+                    <input class='achievement-id' type="checkbox" data-target="#exampleModalCenter_<%= j %>" data-toggle='modal' value='<%= achievement.done %>' data-achievement-id=<%= achievement.id %> <%= 'checked' if achievement.done %>>
                     <span class="checkmark"></span>
                   </label>
                 </div>
-                <div class="link-todo">
-                  <%= link_to achievement.due_at, edit_kid_achievement_path, class: "btn-square-turquoise" %>
+                <div class="date-todo-kid">
+                  <p><%= achievement.due_at %></p>
                 </div>
               </div>
+              <!--  MODAL DONE 1 -->
+              <div class="modal fade" id="exampleModalCenter_<%= j %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle"><%= achievement.task.name %></h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <%= simple_form_for achievement, url: kid_achievement_path(achievement), method: :patch do |f| %>
+                      <div class = "modal-design pdr-3">
+                        <%= f.input :done, as: :radio_buttons %>
+                      </div>
+                      <div class = "text-center">
+                        <%= f.submit "Yes ! ", class:'btn-tangerine mb-3' %>
+                         </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- END MODAL DONE 1 -->
               <% end %>
           <% end %>
 
+          <% m = 0 %>
           <% @achievements.each do |achievement| %>
+            <% m += 1 %>
             <% if achievement.done && !achievement.achieve %>
               <div class="achivement-done bd-highlight justify-content-between">
                 <div class="achievement-checkbox d-inline-flex">
                   <label class="container-checkbox"><%= achievement.task.description.capitalize %>
-                    <input class='achievement-id' type="checkbox" name="done" value= '<%= achievement.done %>' data-achievement-id=<%= achievement.id %> <%= 'checked' if achievement.done %>>
+                    <input class='achievement-id' type="checkbox" data-target="#exampleModalCenter_<%= m %>" data-toggle='modal' value='<%= achievement.done %>' data-achievement-id=<%= achievement.id %> <%= 'checked' if achievement.done %>>
                     <span class="checkmark"></span>
                   </label>
                 </div>
-                <div class="link-todo">
-                  <%= link_to achievement.due_at, edit_kid_achievement_path, class: "btn-square-turquoise" %>
+                <div class="date-todo-kid">
+                  <p><%= achievement.due_at %></p>
                 </div>
               </div>
+              <!--  MODAL DONE 2 -->
+              <div class="modal fade" id="exampleModalCenter_<%= m %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle"><%= achievement.task.name %></h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <%= simple_form_for achievement, url: kid_achievement_path(achievement), method: :patch do |f| %>
+                      <div class = "modal-design pdr-3">
+                        <%= f.input :done, as: :radio_buttons %>
+                      </div>
+                      <div class = "text-center">
+                        <%= f.submit "Yes ! ", class:'btn-tangerine mb-3' %>
+                         </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- END MODAL DONE 2 -->
               <% end %>
           <% end %>
           <!-- END LIST OF ACHIEVEMENTS -->
         </div>
       </div>
     </div>
+
 
 
 
