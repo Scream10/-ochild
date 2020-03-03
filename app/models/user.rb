@@ -43,4 +43,30 @@ class User < ApplicationRecord
     achieved_achievements.map(&:points).sum * 100.0 / total_goals_points
   end
 
+  # BIG SPINNING
+
+  def achieved_achievements_chores
+    achievements.joins(:task).where(achieve: true, done: true).where(tasks: {category_id: 1})
+  end
+
+  def achieved_achievements_readings
+    achievements.joins(:task).where(achieve: true, done: true).where(tasks: {category_id: 2})
+  end
+
+  def achieved_achievements_grades
+    achievements.joins(:task).where(achieve: true, done: true).where(tasks: {category_id: 3})
+  end
+
+  def total_chores_score
+    achieved_achievements_chores.map(&:points).sum * 100.0 / total_goals_points
+  end
+
+  def total_readings_score
+    achieved_achievements_readings.map(&:points).sum * 100.0 / total_goals_points
+  end
+
+  def total_grades_score
+    achieved_achievements_grades.map(&:points).sum * 100.0 / total_goals_points
+  end
+
 end
