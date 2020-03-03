@@ -3,7 +3,7 @@
   <div class="find-task d-flex mt-1">
     <p><em>You didn't find a task? <%= link_to "Create a new task", new_kid_task_path, class: 'btn-square-sand', "data-toggle" => "collapse", "data-target" => "#collapseExample", "aria-expanded" => "false", "aria-controls" => "collapseExample" %> </em></p>
   </div>
-  <%= f.input :due_at, as: :date %>
+  <%= f.input :due_at, as: :string, type: :text %>
   <p class='d-flex justify-content-center mt-5'>Set a number of points for this task: </p>
   <%= f.input :points, label: false  %>
   <div class="d-flex justify-content-center mt-5 mb-3">
