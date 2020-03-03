@@ -7,27 +7,7 @@ require('highcharts/modules/exporting')(Highcharts);
 import highchartsMore from "highcharts/highcharts-more.js";
 import solidGauge from "highcharts/modules/solid-gauge.js";
 
-highchartsMore(Highcharts);
-solidGauge(Highcharts);
 
-if (!Highcharts.theme) {
-    Highcharts.setOptions({
-        chart: {
-            backgroundColor: 'transparent'
-        },
-        colors: ['#F19259', '#77CFDB', '#B7E6FE'],
-        title: {
-            style: {
-                color: 'transparent'
-            }
-        },
-        tooltip: {
-            style: {
-                color: '$light-grey'
-            }
-        }
-    });
-}
 
 function renderIcons() {
 
@@ -90,7 +70,8 @@ function renderIcons() {
     );
 }
 
-const spinning = Highcharts.chart('container', {
+const spinning = () => {
+    Highcharts.chart('container', {
 
     chart: {
         type: 'solidgauge',
@@ -194,14 +175,40 @@ const spinning = Highcharts.chart('container', {
             y: 50
         }]
     }]
-});
+})};
 
-const divHamburger = document.querySelector(".highcharts-button-box");
-const hamburger = document.querySelector(".highcharts-button-symbol");
-const credits = document.querySelector(".highcharts-credits");
 
-divHamburger.classList.add("display-none");
-hamburger.classList.add("display-none");
-credits.classList.add("display-none");
+const myCharts = () => {
+  highchartsMore(Highcharts);
+  solidGauge(Highcharts);
 
-export { spinning };
+  if (!Highcharts.theme) {
+      Highcharts.setOptions({
+          chart: {
+              backgroundColor: 'transparent'
+          },
+          colors: ['#F19259', '#77CFDB', '#B7E6FE'],
+          title: {
+              style: {
+                  color: 'transparent'
+              }
+          },
+          tooltip: {
+              style: {
+                  color: '$light-grey'
+              }
+          }
+      });
+  }
+
+  spinning();
+  const divHamburger = document.querySelector(".highcharts-button-box");
+  const hamburger = document.querySelector(".highcharts-button-symbol");
+  const credits = document.querySelector(".highcharts-credits");
+
+  divHamburger.classList.add("display-none");
+  hamburger.classList.add("display-none");
+  credits.classList.add("display-none");
+}
+
+export { myCharts };

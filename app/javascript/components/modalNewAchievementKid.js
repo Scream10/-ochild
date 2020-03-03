@@ -1,36 +1,39 @@
 const modalNewAchievementKid = () => {
-  const taskElements = document.querySelectorAll('.btn-modal');
-  const taskInput = document.getElementById('achievement_task_id_3');
-  const taskName = document.getElementById("task-name");
+  const adult = document.getElementById('adult');
+  if (true) {
+      const taskElements = document.querySelectorAll('.btn-modal');
+      const taskInput = document.getElementById('achievement_task_id_3');
+      const taskName = document.getElementById("task-name");
 
-  taskElements.forEach(taskElement => {
-    taskElement.addEventListener('click', (event) => {
-      taskInput.value = taskElement.dataset.taskId;
+      taskElements.forEach(taskElement => {
+        taskElement.addEventListener('click', (event) => {
+          taskInput.value = taskElement.dataset.taskId;
 
-    })
-  });
+        })
+      });
 
-  const overlay = document.getElementById('overlay');
-  const modal = document.getElementById('modal-task');
+      const overlay = document.getElementById('overlay');
+      const modal = document.getElementById('modal-task');
 
-  taskElements.forEach(taskElement => {
-    taskElement.addEventListener('click', (event) => {
-      overlay.classList.add('is-visible');
-      modal.classList.add('is-visible');
-    })
-  });
+      taskElements.forEach(taskElement => {
+        taskElement.addEventListener('click', (event) => {
+          overlay.classList.add('is-visible');
+          modal.classList.add('is-visible');
+        })
+      });
 
-  const closeBtn = document.getElementById('close-btn');
+      const closeBtn = document.getElementById('close-btn');
 
-  closeBtn.addEventListener('click', (event) => {
-    overlay.classList.remove('is-visible');
-    modal.classList.remove('is-visible');
-  });
+      closeBtn.addEventListener('click', (event) => {
+        overlay.classList.remove('is-visible');
+        modal.classList.remove('is-visible');
+      });
 
-  overlay.addEventListener('click', (event) => {
-    overlay.classList.remove('is-visible');
-    modal.classList.remove('is-visible');
-  });
+      overlay.addEventListener('click', (event) => {
+        overlay.classList.remove('is-visible');
+        modal.classList.remove('is-visible');
+      });
+  }
 };
 
 export { modalNewAchievementKid };
