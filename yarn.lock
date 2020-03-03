@@ -3235,6 +3235,16 @@ hex-color-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
 
+highcharts-solid-gauge.map@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/highcharts-solid-gauge.map/-/highcharts-solid-gauge.map-0.1.7.tgz#8e906e72c38f373a7a723f75ba0601f5dd29c536"
+  integrity sha1-jpBucsOPNzp6cj91ugYB9d0pxTY=
+
+highcharts@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-8.0.1.tgz#b34b8b8df50ae2864fa699559259f3d5c65f6d9c"
+  integrity sha512-qxEJQIk/G8tPt8crGsuXRjE0apJG4LBZxDmzTklpUvoQU12VG9fRnOlPOqGfuVl0Pz+GibVLWrJRAU3HpB2wuw==
+
 hmac-drbg@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/hmac-drbg/-/hmac-drbg-1.0.1.tgz#d2745701025a6c775a6c545793ed502fc0c649a1"

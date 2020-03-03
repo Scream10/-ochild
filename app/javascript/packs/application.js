@@ -14,6 +14,8 @@ modalNewAchievementAdult();
 import { modalNewAchievementKid } from '../components/modalNewAchievementKid.js';
 modalNewAchievementKid();
 
+import { spinning } from '../components/highcharts.js';
+
 // KID :: FLATPICKR CALENDAR
 import flatpickr from "flatpickr";
 import { toggleDateInput } from '../components/toggleDateInput.js';

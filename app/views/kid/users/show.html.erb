@@ -5,12 +5,12 @@
       <%= image_tag("BackgroundGreyShape.svg") %>
     </div>
 
-    <div class="d-flex align-items-center my-5">
-      <!-- SPINNER -->
-        <%= render 'shared/spinning' %>
-      <!-- END SPINNER -->
 
+    <div class="d-flex align-items-center my-5">
       <!-- GOAL -->
+      <!-- SPINNER -->
+      <div id="container" style="max-width:300px;"></div>
+      <!-- END SPINNER -->
       <div>
         <% @goals.each do |goal| %>
           <h2 class="text-capitalize"><%= goal.title %></h2>

@@ -4,6 +4,8 @@
   "dependencies": {
     "@rails/webpacker": "4.2.2",
     "bootstrap": "^4.4.1",
+    "highcharts": "^8.0.1",
+    "highcharts-solid-gauge.map": "^0.1.7",
     "flatpickr": "^4.6.3",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.1"
