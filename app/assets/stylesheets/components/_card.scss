@@ -1,3 +1,4 @@
+/* HOMEPAGE */
 .card-info-home {
   background: white;
   position: relative;
@@ -38,6 +39,7 @@
   height: 100%;
 }
 
+/* TASKS SUGGESTED */
 .card-task-suggested {
   overflow: hidden;
   min-height: 75px; //120px
@@ -85,6 +87,7 @@
   padding: 16px;
   text-align: left;
 }
+
 
 .card-registration {
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
