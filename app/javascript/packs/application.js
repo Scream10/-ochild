@@ -31,4 +31,3 @@ toggleDateInput();
 //     validationAchievement(achievementElement);
 //   })
 // };
-
