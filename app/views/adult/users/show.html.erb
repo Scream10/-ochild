@@ -13,7 +13,7 @@
     <div>
       <h2><span class="text-capitalize"><%= @goal.title %></span></h2>
       <h3><strong><%= @goal.total_points %> pts</strong></h3>
-      <p><em><%= @goal.end_date.strftime('%a %m %B %y') %></em></p>
+      <p><em><%= @goal.end_date.strftime('%a, %e %b %Y') %></em></p>
     </div>
     <!-- END GOAL -->
   </div>
@@ -29,8 +29,6 @@
   </nav>
 
   <div class="tab-content" id="nav-tabContent">
-
-
 
     <!-- ONGLET SUGGESTIONS -->
     <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">

@@ -132,14 +132,14 @@ parent = User.new(first_name: "nono", last_name: "dupont", adult: true, date_of_
 parent.photo.attach(io: File.open('./app/assets/images/avatarAdult.png'), filename: 'avatarAdult.png')
 
 
-goal = Goal.new(title: "anniversaire Camille", end_date: "2020-03-03", total_points: 500, done: false, user: child)
+goal = Goal.new(title: "Anniversaire Camille", end_date: "2020-03-30", total_points: 500, done: false, user: child)
 
 proportion_one = Proportion.new(percent: 70, goal: goal, category: chores)
 proportion_two = Proportion.new(percent: 30, goal: goal, category: grades)
 
-achievement_one = Achievement.new(due_at: "2020-02-28", achieve: false, done: false, user: child, task: task_one, points: 25)
-achievement_two = Achievement.new(due_at: "2020-03-01", achieve: false, done: true, user: child, task: task_two, points: 35)
-achievement_three = Achievement.new(due_at: "2020-03-01", achieve: false, done: true, user: child, task: task_three, points: 18)
+achievement_one = Achievement.new(due_at: "Fri, 20 Mar 2020", achieve: false, done: false, user: child, task: task_one, points: 25)
+achievement_two = Achievement.new(due_at: "Fri, 10 Mar 2020", achieve: false, done: true, user: child, task: task_two, points: 35)
+achievement_three = Achievement.new(due_at: "Fri, 8 Mar 2020", achieve: false, done: true, user: child, task: task_three, points: 18)
 
 family.save
 child.save

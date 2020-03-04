@@ -24,10 +24,8 @@ body {
 
 .banner {
   width: 100%;
-  height: 60vh;
-  top: 66px;
-  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url(asset-path('background-home.jpg'));
-  background-size: cover;
+  height: 100%;
+  background: url(asset-path('BannerImg.svg'));
   background-position: center;
 }
 
@@ -35,8 +33,8 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  color: white;
-  padding: 200px 170px;
+  color: $black-purple;
+  padding: 23px 479px;
   height: 100%;
   position: relative;
   -webkit-animation: linear;
@@ -44,7 +42,59 @@ body {
   -webkit-animation-duration: 0.6s;
 }
 
+h1 {
+  color: $black-purple;
+}
+
+h4 {
+  color: $black-purple;
+}
+
+.display-4 {
+  text-shadow: $stormy-grey 1.5px 1.5px 3px;
+}
+
 @-webkit-keyframes run {
   0% { left: -30%; opacity: 0.3;}
   100%{ left: 0%; opacity: 1;}
 }
+
+@media screen and (min-width: 800px) {
+  .banner {
+    width: 100%;
+    height: 80vh;
+    background-size: cover;
+  }
+}
+
+@media screen and (width: 768px) {
+  .banner {
+    padding: 0px 80px;
+  }
+  .banner-text {
+    padding: 80px 167px;
+  }
+  .display-4 {
+    font-size: 2.5rem;
+  }
+  p {
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .banner {
+    background-size: cover;
+  }
+  .banner-text {
+    padding: 78px 85px;
+  }
+  .display-4 {
+    font-size: 1.5rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
