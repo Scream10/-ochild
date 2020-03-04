@@ -25,7 +25,7 @@ class Kid::AchievementsController < ApplicationController
     # @kid = @achievement.user
     @achievement_find.update(achievement_params)
 
-    redirect_to kid_user_path(current_user), notice:""
+    redirect_to kid_user_path(current_user), nicejob:""
   end
 
   private
