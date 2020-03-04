@@ -1,0 +1,21 @@
+<h3>New achievement</h3>
+<hr>
+<div class="kid-new-modal d-flex justify-content-center">
+  <%= simple_form_for @achievement, url: kid_achievements_path, html: { method: :post, id: :new_achievement_3 } do |f| %>
+    <div class="kid-achievement-suggested-task mt-5 mb-5">
+      <p>TASK:</p>
+      <%= f.association :task, input_html: { id: 'achievement_task_id_3' }, label: false  %>
+    </div>
+    <div class="kid-achiement-suggested-points mt-5">
+      <p>SET YOUR POINTS FOR THIS TASK: </p>
+      <%= f.input :points, as: :integer, input_html: { id: 'achievement_points_id_3' }, label: false %>
+    </div>
+    <div class="kid-achievement-suggested-date mt-5">
+      <p>DATE:</p>
+      <%= f.input :due_at, as: :string, type: :text, input_html: { id: 'achievement_due_at_id_3' }, label: false %>
+    </div>
+    <div class="d-flex justify-content-center mt-5 mb-2">
+      <%= f.submit "Create", class: "btn-tangerine" %>
+    </div>
+  <% end %>
+</div>

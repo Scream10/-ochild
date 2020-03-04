@@ -1,7 +1,7 @@
 class Adult::AchievementsController < ApplicationController
   def new
-    @achievement = Achievement.new
     @tasks = Task.all
+    @achievement = Achievement.new
   end
 
   def create
@@ -12,7 +12,6 @@ class Adult::AchievementsController < ApplicationController
       redirect_to adult_user_path(current_user), wellsend: ""
     else
       @tasks = Task.all
-      @achievement = Achievement.new
       render :new
     end
   end
