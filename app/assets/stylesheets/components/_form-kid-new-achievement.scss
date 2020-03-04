@@ -138,3 +138,30 @@
     height: 18px;
     }
 }
+
+.number-points {
+  font-family: Poppins;
+  color: $black-purple;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 48px;
+  display: flex;
+  // align-items: center;
+  text-align: center;
+  letter-spacing: 1px;
+  & p {
+    width: 458px;
+  }
+}
+
+.satisfied {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: 0.4px;
+  color: #9FA2B4;
+}

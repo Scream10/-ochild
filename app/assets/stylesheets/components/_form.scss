@@ -14,11 +14,17 @@
   color: $stormy-grey !important;
 }
 
+.modal-header h5 {
+  font-family: Poppins;
+  font-weight: bold;
+}
+
 .modal-body {
   margin-right: 5px;
   margin-left: 5px;
   margin-bottom: 5px;
 }
+
 .modal-content {
   border-radius: 8px;
   border: none;
