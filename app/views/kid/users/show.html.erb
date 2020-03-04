@@ -228,14 +228,21 @@
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body d-flex justify-content-center flex-column">
                       <%= simple_form_for achievement, url: kid_achievement_path(achievement), method: :patch do |f| %>
-                      <div class = "modal-design pdr-3">
-                        <%= f.input :done, as: :radio_buttons %>
+                        <%#= f.input :done, as: :radio_buttons %>
+                      <div class="btn-switch d-flex justify-content-center">
+                          <input type="radio" id="yes-<%= j %>" name="achievement[done]" value="true"/>
+                          <input type="radio" id="no-<%= j %>" name="achievement[done]" value="false" <%= 'checked' unless achievement.done %>/>
+                        <div class="switch">
+                          <label for="yes-<%= j %>">Yes</label>
+                          <label for="no-<%= j %>">No</label>
+                          <span></span>
+                        </div>
                       </div>
-                      <div class = "text-center">
-                        <%= f.submit "Yes ! ", class:'btn-tangerine mb-3' %>
-                         </div>
+                      <div class = "text-center mt-5">
+                        <%= f.submit "Confirm", class:'btn-tangerine' %>
+                      </div>
                       <% end %>
                     </div>
                   </div>
@@ -270,14 +277,21 @@
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body d-flex justify-content-center flex-column">
                       <%= simple_form_for achievement, url: kid_achievement_path(achievement), method: :patch do |f| %>
-                      <div class = "modal-design pdr-3">
-                        <%= f.input :done, as: :radio_buttons %>
+                        <%#= f.input :done, as: :radio_buttons %>
+                      <div class="btn-switch d-flex justify-content-center">
+                        <input type="radio" id="yes-<%= m %>" name="achievement[done]" value="true" <%= 'checked' if achievement.done %>/>
+                        <input type="radio" id="no-<%= m %>" name="achievement[done]" value="false"/>
+                        <div class="switch">
+                          <label for="yes-<%= m %>">Yes</label>
+                          <label for="no-<%= m %>">No</label>
+                          <span></span>
+                        </div>
                       </div>
-                      <div class = "text-center">
-                        <%= f.submit "Yes ! ", class:'btn-tangerine mb-3' %>
-                         </div>
+                      <div class = "text-center mt-5">
+                        <%= f.submit "Confirm", class:'btn-tangerine' %>
+                      </div>
                       <% end %>
                     </div>
                   </div>
