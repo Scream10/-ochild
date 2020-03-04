@@ -16,6 +16,7 @@ readings = Category.create(name: "readings")
 grades = Category.create(name: "grades")
 
 
+
 puts "Creating family..."
 
 family = Family.new(name: "dupont")

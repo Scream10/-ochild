@@ -6,18 +6,13 @@ import { raiseCount, downCount } from '../components/plusMinus.js';
 raiseCount();
 downCount();
 
-// ADULT :: MODAL NEW ACHIEVEMENT WITH TASK SUGGESTED
-import { modalNewAchievementAdult } from '../components/modalNewAchievementAdult.js';
-modalNewAchievementAdult();
-
-// KID :: MODAL NEW ACHIEVEMENT WITH TASK SUGGESTED
-import { modalNewAchievementKid } from '../components/modalNewAchievementKid.js';
-modalNewAchievementKid();
-
-import { myCharts } from '../components/highcharts.js';
-myCharts();
+// KID & ADULT :: MODAL NEW ACHIEVEMENT WITH TASK SUGGESTED
+import { modalNewAchievement } from '../components/modalNewAchievement.js';
+modalNewAchievement();
 
 // KID :: FLATPICKR CALENDAR
-import flatpickr from "flatpickr";
 import { toggleDateInput } from '../components/toggleDateInput.js';
 toggleDateInput();
+
+// import { myCharts } from '../components/highcharts.js';
+// myCharts();
