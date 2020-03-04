@@ -9,8 +9,10 @@
     <div class="d-flex align-items-center my-5">
       <!-- GOAL -->
       <!-- SPINNER -->
-      <div id="container" data-choretotal="<%= current_user.total_chores_score %>" data-readingtotal="<%= current_user.total_readings_score %>" data-gradetotal="<%= current_user.total_grades_score %>" style="max-width:300px;"></div>
-      <!-- END SPINNER -->
+<!--       <div id="container" data-choretotal="<%# current_user.total_chores_score %>" data-readingtotal="<%# current_user.total_readings_score %>" data-gradetotal="<%# current_user.total_grades_score %>" style="max-width:300px;"></div>
+ -->      <!-- END SPINNER -->
+      <%= render "shared/spinning" %>
+
       <div>
         <% @goals.each do |goal| %>
           <h2 class="text-capitalize"><%= goal.title %></h2>

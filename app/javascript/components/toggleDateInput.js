@@ -1,3 +1,6 @@
+import flatpickr from "flatpickr";
+import 'flatpickr/dist/flatpickr.css'
+
 const toggleDateInput = () => {
   const dateInput = document.getElementById('achievement_due_at');
   const dateInputTwo = document.getElementById('achievement_due_at_id_2');
