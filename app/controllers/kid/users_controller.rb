@@ -7,7 +7,7 @@ class Kid::UsersController < ApplicationController
     @task = Task.new()
     @tasks = Task.all
     @achievement = Achievement.new()
-    @achievement_find = Achievement.find(params[:id])
+    # @achievement_find = Achievement.find(params[:id])
     # @achievement = Achievement.find(params[:id])
     @achievements = Achievement.all
   end

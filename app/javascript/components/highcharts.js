@@ -66,74 +66,67 @@ function renderIcons() {
     );
 }
 
-const frontCircles = (score) => {
-  const chore = (parseInt(container.dataset.choretotal) > 0) ? {
-        name: 'Chore',
+const constructCircle = (name, color, category) => {
+  const serie = {
+        name: name,
         data: [{
-            color: Highcharts.getOptions().colors[0],
-            radius: '112%',
-            innerRadius: '88%',
-            y: parseInt(container.dataset.choretotal)
+            color: color,
+            y: parseInt(category)
         }]
-    } : {
-        name: 'Chore',
-        data: [{
-            color: Highcharts.color(Highcharts.getOptions().colors[0])
-                .setOpacity(0)
-                .get(),
-            radius: '112%',
-            innerRadius: '88%',
-            y: parseInt(container.dataset.choretotal)
-        }]
-    };
+    }
 
-  const reading = (parseInt(container.dataset.readingtotal) > 0) ? {
-        name: 'Reading',
-        data: [{
-            color: Highcharts.getOptions().colors[1],
-            radius: '87%',
-            innerRadius: '63%',
-            y: parseInt(container.dataset.readingtotal)
-        }]
-    } : {
-        name: 'Reading',
-        data: [{
-            color: Highcharts.color(Highcharts.getOptions().colors[1])
-                .setOpacity(0)
-                .get(),
-            radius: '87%',
-            innerRadius: '63%',
-            y: parseInt(container.dataset.readingtotal)
-        }]
-    };
+  const background = {
+        backgroundColor: Highcharts.color(color)
+            .setOpacity(0.3)
+            .get(),
+        borderWidth: 0
+    }
 
-  const grade = (parseInt(container.dataset.gradetotal) > 0) ? {
-        name: 'Grade',
-        data: [{
-            color: Highcharts.getOptions().colors[2],
-            radius: '62%',
-            innerRadius: '38%',
-            y: parseInt(container.dataset.gradetotal)
-        }]
-    } : {
-        name: 'Grade',
-        data: [{
-            color: Highcharts.color(Highcharts.getOptions().colors[2])
-                .setOpacity(0)
-                .get(),
-            radius: '62%',
-            innerRadius: '38%',
-            y: parseInt(container.dataset.gradetotal)
-        }]
-    };
+  return { serie: serie, background: background }
+}
 
 
-  const series = [ chore, reading, grade ]
-  return series
+const frontCircles = () => {
+  const series = [];
+  const backgrounds = [];
+  // if (parseInt(container.dataset.gradetotal) > 0) {
+    const circle0 = constructCircle("Grade", Highcharts.getOptions().colors[2], parseInt(container.dataset.gradetotal));
+    series.push(circle0.serie)
+    backgrounds.push(circle0.background)
+  // }
+
+  if (parseInt(container.dataset.readingtotal) > 0) {
+    const circle1 = constructCircle("Reading", Highcharts.getOptions().colors[1], parseInt(container.dataset.readingtotal));
+    series.push(circle1.serie)
+    backgrounds.push(circle1.background)
+  }
+
+  if (parseInt(container.dataset.choretotal) > 0) {
+    const circle2 = constructCircle("Chore", Highcharts.getOptions().colors[0], parseInt(container.dataset.choretotal));
+    series.push(circle2.serie)
+    backgrounds.push(circle2.background)
+  }
+
+  let i = 0
+
+  // console.dir(backgrounds);
+
+  series.forEach((serie) => {
+    serie.data[0].radius = `${ 38 + 25 * (i + 1) - 1 }%`;
+    serie.data[0].innerRadius = `${ 38 + 25 * i }%`;
+    backgrounds[i].outerRadius = `${ 38 + 25 * (i + 1) - 1 }%`;
+    backgrounds[i].innerRadius = `${ 38 + 25 * i }%`;
+    i ++
+  });
+  // console.dir(series);
+  // const series = [ chore, reading, grade ]
+  return {series: series, backgrounds: backgrounds}
 }
 
 
 const spinning = () => {
+    const circles = frontCircles();
+    // console.dir(circles);
     Highcharts.chart('container', {
 
     chart: {
@@ -171,29 +164,7 @@ const spinning = () => {
     pane: {
         startAngle: 0,
         endAngle: 360,
-        background: [
-        { // Track for Chore
-            outerRadius: '112%',
-            innerRadius: '88%',
-            backgroundColor: Highcharts.color(Highcharts.getOptions().colors[0])
-                .setOpacity(0.3)
-                .get(),
-            borderWidth: 0
-        }, { // Track for Reading
-            outerRadius: '87%',
-            innerRadius: '63%',
-            backgroundColor: Highcharts.color(Highcharts.getOptions().colors[1])
-                .setOpacity(0.3)
-                .get(),
-            borderWidth: 0
-        }, { // Track for Grade
-            outerRadius: '62%',
-            innerRadius: '38%',
-            backgroundColor: Highcharts.color(Highcharts.getOptions().colors[2])
-                .setOpacity(0.3)
-                .get(),
-            borderWidth: 0
-        }]
+        background: circles.backgrounds
     },
 
     yAxis: {
@@ -214,7 +185,7 @@ const spinning = () => {
         }
     },
 
-    series: frontCircles(container.dataset.score)
+    series: circles.series
 })};
 
 

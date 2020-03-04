@@ -134,8 +134,9 @@ parent.photo.attach(io: File.open('./app/assets/images/avatarAdult.png'), filena
 
 goal = Goal.new(title: "anniversaire Camille", end_date: "2020-03-03", total_points: 500, done: false, user: child)
 
-proportion_one = Proportion.new(percent: 70, goal: goal, category: chores)
+proportion_one = Proportion.new(percent: 50, goal: goal, category: chores)
 proportion_two = Proportion.new(percent: 30, goal: goal, category: grades)
+proportion_tree = Proportion.new(percent: 20, goal: goal, category: readings)
 
 achievement_one = Achievement.new(due_at: "2020-02-28", achieve: false, done: false, user: child, task: task_one, points: 25)
 achievement_two = Achievement.new(due_at: "2020-03-01", achieve: false, done: true, user: child, task: task_two, points: 35)
@@ -147,6 +148,7 @@ parent.save
 goal.save
 proportion_one.save
 proportion_two.save
+proportion_tree.save
 achievement_one.save
 achievement_two.save
 achievement_three.save
