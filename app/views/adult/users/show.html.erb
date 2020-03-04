@@ -189,9 +189,13 @@
                     <div class="modal-body">
                       <%= simple_form_for achievement, url: adult_achievement_path(achievement), method: :patch do |f| %>
                         <%#= f.input :points, label: false  %>
-                        <p><%= achievement.points %> points</p>
-                        <p>Are you satisfied with it?</p>
-                        <div class="qty mt-5">
+                        <div class="number-points">
+                          <p><%= achievement.points %> points</p>
+                        </div>
+                        <div class="satisfied">
+                          <p>Are you satisfied with it?</p>
+                        </div>
+                        <div class="qty mt-4">
                           <span class="minus minus-upate-adult"><%= image_tag "minus_btn.svg" %></span>
                           <input type="number" class="count points-update-adult" name=achievement[points] value=<%= achievement.points %>>
                           <span class="plus plus-update-adult"><%= image_tag "plus_btn.svg" %></span>
