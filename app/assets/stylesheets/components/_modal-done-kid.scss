@@ -1,0 +1,86 @@
+.switch {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  margin: -30px 0 0 -75px;
+  background: $turquoise;
+  transition: all 0.2s ease;
+  border-radius: 25px;
+  span {
+    position: absolute;
+    width: 20px;
+    height: 4px;
+    top: 50%;
+    left: 50%;
+    margin: -2px 0px 0px -4px;
+    background: white;
+    display: block;
+    transform: rotate(-45deg);
+    transition: all .2s ease;
+    border-radius: 2px;
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 4px;
+      height: 12px;
+      margin-top: -8px;
+      background: white;
+      transition: all .2s ease;
+      border-radius: 2px;
+    }
+  }
+}
+
+input[type=radio] {
+  display: none;
+}
+
+.switch label {
+  cursor: pointer;
+  color: rgba(#000, .2);
+  width: 60px;
+  line-height: 50px;
+  transition: all 0.2s ease;
+}
+
+label[for^=yes] {
+  position: absolute;
+  left: 0px;
+  height: 20px;
+}
+
+label[for^=no] {
+  position: absolute;
+  right: 0px;
+}
+
+input[id^=no]:checked ~ .switch {
+  background: $tangerine;
+}
+
+input[id^=no]:checked ~ .switch span {
+  background: white;
+  margin-left: -8px;
+  &:after {
+    background: white;
+    height: 20px;
+    margin-top: -8px;
+    margin-left: 8px;
+  }
+}
+
+input[id^=yes]:checked ~ .switch label[for^=yes] {
+  color: white;
+}
+
+input[id^=no]:checked ~ .switch label[for^=no] {
+  color: white;
+}
+
+.btn-switch {
+  height: 100px;
+}
