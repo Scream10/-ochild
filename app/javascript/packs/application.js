@@ -7,16 +7,16 @@ raiseCount();
 downCount();
 
 // ADULT :: MODAL NEW ACHIEVEMENT WITH TASK SUGGESTED
-import { modalNewAchievementAdult } from '../components/modalNewAchievementAdult.js';
-modalNewAchievementAdult();
-
+// import { modalNewAchievementAdult } from '../components/modalNewAchievementAdult.js';
 // KID :: MODAL NEW ACHIEVEMENT WITH TASK SUGGESTED
-import { modalNewAchievementKid } from '../components/modalNewAchievementKid.js';
-modalNewAchievementKid();
+import { modalNewAchievement } from '../components/modalNewAchievement.js';
 
-// import { myCharts } from '../components/highcharts.js';
-// myCharts();
+const adult = document.getElementById('adult');
+modalNewAchievement();
 
 // KID :: FLATPICKR CALENDAR
 import { toggleDateInput } from '../components/toggleDateInput.js';
 toggleDateInput();
+
+// import { myCharts } from '../components/highcharts.js';
+// myCharts();

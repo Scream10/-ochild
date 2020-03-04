@@ -43,7 +43,7 @@
         <div class="row my-3 d-flex justify-content-center">
         </div>
         <div class="d-flex align-items-center flex-column">
-
+          <div id="adult"><% true %></div>
           <% @tasks.each do |task| %>
             <%#= link_to new_adult_achievement_path do %>
             <button class="btn-modal task-id" data-task-id=<%= task.id %>>
@@ -70,7 +70,7 @@
             <div class="overlay" id="overlay">
             </div>
             <div class="modal-new-achievement-with-task-id" id="modal-task">
-              <button class="modal-close-btn" id="close-btn">
+              <button class="modal-close-btn close-btn">
                 x
               </button>
               <h3>New achievement</h3>
