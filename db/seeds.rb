@@ -132,7 +132,7 @@ parent = User.new(first_name: "nono", last_name: "dupont", adult: true, date_of_
 parent.photo.attach(io: File.open('./app/assets/images/avatarAdult.png'), filename: 'avatarAdult.png')
 
 
-goal = Goal.new(title: "anniversaire Camille", end_date: "2020-03-03", total_points: 500, done: false, user: child)
+goal = Goal.new(title: "Anniversaire Camille", end_date: "2020-03-30", total_points: 500, done: false, user: child)
 
 proportion_one = Proportion.new(percent: 70, goal: goal, category: chores)
 proportion_two = Proportion.new(percent: 30, goal: goal, category: grades)
