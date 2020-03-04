@@ -11,6 +11,8 @@ class Adult::AchievementsController < ApplicationController
     if @achievement.save
       redirect_to adult_user_path(current_user), wellsend: ""
     else
+      @tasks = Task.all
+      @achievement = Achievement.new
       render :new
     end
   end
