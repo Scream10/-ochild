@@ -6,12 +6,8 @@ import { raiseCount, downCount } from '../components/plusMinus.js';
 raiseCount();
 downCount();
 
-// ADULT :: MODAL NEW ACHIEVEMENT WITH TASK SUGGESTED
-// import { modalNewAchievementAdult } from '../components/modalNewAchievementAdult.js';
-// KID :: MODAL NEW ACHIEVEMENT WITH TASK SUGGESTED
+// KID & ADULT :: MODAL NEW ACHIEVEMENT WITH TASK SUGGESTED
 import { modalNewAchievement } from '../components/modalNewAchievement.js';
-
-const adult = document.getElementById('adult');
 modalNewAchievement();
 
 // KID :: FLATPICKR CALENDAR
