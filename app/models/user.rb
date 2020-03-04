@@ -45,9 +45,9 @@ class User < ApplicationRecord
 
   def finish_goal
     goals.find_by(done: true).update(done: true) if total_score >= 100
-  # BIG SPINNING
   end
 
+  # Achievements
 
   def achieved_achievements_chores
     achievements.joins(:task).where(achieve: true, done: true).where(tasks: {category_id: 1})
@@ -61,6 +61,8 @@ class User < ApplicationRecord
     achievements.joins(:task).where(achieve: true, done: true).where(tasks: {category_id: 3})
   end
 
+  # Pourcent_Total
+
   def total_chores_score
     achieved_achievements_chores.map(&:points).sum * 100.0 / total_goals_points
   end
@@ -71,6 +73,18 @@ class User < ApplicationRecord
 
   def total_grades_score
     achieved_achievements_grades.map(&:points).sum * 100.0 / total_goals_points
+  end
+
+  # Category_Pourcent
+
+  def chore_category_pourcent
+    Proportion.where(goal_id: last_goal)
+  end
+
+  # Last_Goal
+
+  def last_goal
+    goals.last
   end
 
 end

@@ -6,7 +6,7 @@
 
   <div class="d-flex align-items-center my-5">
     <!-- SPINNER -->
-      <%= render 'shared/spinning_adult' %>
+    <div id="container" data-choretotal="<%= current_user.total_chores_score %>" data-readingtotal="<%= current_user.total_readings_score %>" data-gradetotal="<%= current_user.total_grades_score %>" style="max-width:300px;"></div>
     <!-- END SPINNER -->
 
     <!-- GOAL -->

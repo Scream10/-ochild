@@ -1,8 +1,7 @@
 const Highcharts = require('highcharts');
-// const SolidGauge = require('solid-gauge');
 // Load module after Highcharts is loaded
 require('highcharts/modules/exporting')(Highcharts);
-// require('highcharts/modules/exporting')(SolidGauge);
+
 import highchartsMore from "highcharts/highcharts-more.js";
 import solidGauge from "highcharts/modules/solid-gauge.js";
 
@@ -67,7 +66,67 @@ function renderIcons() {
     );
 }
 
+const constructCircle = (name, color, category) => {
+  const serie = {
+        name: name,
+        data: [{
+            color: color,
+            y: parseInt(category)
+        }]
+    }
+
+  const background = {
+        backgroundColor: Highcharts.color(color)
+            .setOpacity(0.3)
+            .get(),
+        borderWidth: 0
+    }
+
+  return { serie: serie, background: background }
+}
+
+
+const frontCircles = () => {
+  const series = [];
+  const backgrounds = [];
+  // if (parseInt(container.dataset.gradetotal) > 0) {
+    const circle0 = constructCircle("Grade", Highcharts.getOptions().colors[2], parseInt(container.dataset.gradetotal));
+    series.push(circle0.serie)
+    backgrounds.push(circle0.background)
+  // }
+
+  if (parseInt(container.dataset.readingtotal) > 0) {
+    const circle1 = constructCircle("Reading", Highcharts.getOptions().colors[1], parseInt(container.dataset.readingtotal));
+    series.push(circle1.serie)
+    backgrounds.push(circle1.background)
+  }
+
+  if (parseInt(container.dataset.choretotal) > 0) {
+    const circle2 = constructCircle("Chore", Highcharts.getOptions().colors[0], parseInt(container.dataset.choretotal));
+    series.push(circle2.serie)
+    backgrounds.push(circle2.background)
+  }
+
+  let i = 0
+
+  // console.dir(backgrounds);
+
+  series.forEach((serie) => {
+    serie.data[0].radius = `${ 38 + 25 * (i + 1) - 1 }%`;
+    serie.data[0].innerRadius = `${ 38 + 25 * i }%`;
+    backgrounds[i].outerRadius = `${ 38 + 25 * (i + 1) - 1 }%`;
+    backgrounds[i].innerRadius = `${ 38 + 25 * i }%`;
+    i ++
+  });
+  // console.dir(series);
+  // const series = [ chore, reading, grade ]
+  return {series: series, backgrounds: backgrounds}
+}
+
+
 const spinning = () => {
+    const circles = frontCircles();
+    // console.dir(circles);
     Highcharts.chart('container', {
 
     chart: {
@@ -105,28 +164,7 @@ const spinning = () => {
     pane: {
         startAngle: 0,
         endAngle: 360,
-        background: [{ // Track for Move
-            outerRadius: '112%',
-            innerRadius: '88%',
-            backgroundColor: Highcharts.color(Highcharts.getOptions().colors[0])
-                .setOpacity(0.3)
-                .get(),
-            borderWidth: 0
-        }, { // Track for Exercise
-            outerRadius: '87%',
-            innerRadius: '63%',
-            backgroundColor: Highcharts.color(Highcharts.getOptions().colors[1])
-                .setOpacity(0.3)
-                .get(),
-            borderWidth: 0
-        }, { // Track for Stand
-            outerRadius: '62%',
-            innerRadius: '38%',
-            backgroundColor: Highcharts.color(Highcharts.getOptions().colors[2])
-                .setOpacity(0.3)
-                .get(),
-            borderWidth: 0
-        }]
+        background: circles.backgrounds
     },
 
     yAxis: {
@@ -147,31 +185,7 @@ const spinning = () => {
         }
     },
 
-    series: [{
-        name: 'Chore',
-        data: [{
-            color: Highcharts.getOptions().colors[0],
-            radius: '112%',
-            innerRadius: '88%',
-            y: parseInt(container.dataset.choretotal)
-        }]
-    }, {
-        name: 'Reading',
-        data: [{
-            color: Highcharts.getOptions().colors[1],
-            radius: '87%',
-            innerRadius: '63%',
-            y: parseInt(container.dataset.readingtotal)
-        }]
-    }, {
-        name: 'Grade',
-        data: [{
-            color: Highcharts.getOptions().colors[2],
-            radius: '62%',
-            innerRadius: '38%',
-            y: parseInt(container.dataset.gradetotal)
-        }]
-    }]
+    series: circles.series
 })};
 
 

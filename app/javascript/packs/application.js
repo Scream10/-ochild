@@ -14,8 +14,8 @@ modalNewAchievementAdult();
 import { modalNewAchievementKid } from '../components/modalNewAchievementKid.js';
 modalNewAchievementKid();
 
-// import { myCharts } from '../components/highcharts.js';
-// myCharts();
+import { myCharts } from '../components/highcharts.js';
+myCharts();
 
 // KID :: FLATPICKR CALENDAR
 import flatpickr from "flatpickr";
