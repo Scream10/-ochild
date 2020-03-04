@@ -127,6 +127,35 @@
   text-align: center;
 }
 
+.btn-square-tangerine {
+  border-radius: 8px;
+  height: 24px;
+  background-color: $tangerine;
+  border: 1px solid $tangerine;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 16px;
+  padding: 3px 11px;
+  letter-spacing: 1px;
+  &:hover,:focus {
+    text-decoration: none;
+    background-color: white;
+    color: $tangerine;
+  }
+}
+.btn-square-tangerine a {
+  position: absolute;
+  height: 14px;
+  left: 10px;
+  right: 10px;
+  top: calc(50% - 14px/2);
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
 
 
 

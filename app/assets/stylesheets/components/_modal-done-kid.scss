@@ -6,7 +6,7 @@
   height: 50px;
   text-align: center;
   margin: -30px 0 0 -75px;
-  background: green;
+  background: $turquoise;
   transition: all 0.2s ease;
   border-radius: 25px;
   span {
@@ -59,7 +59,7 @@ label[for^=no] {
 }
 
 input[id^=no]:checked ~ .switch {
-  background: red;
+  background: $tangerine;
 }
 
 input[id^=no]:checked ~ .switch span {
