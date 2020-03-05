@@ -89,19 +89,19 @@ const constructCircle = (name, color, category) => {
 const frontCircles = () => {
   const series = [];
   const backgrounds = [];
-  // if (parseInt(container.dataset.gradetotal) > 0) {
+  if (parseInt(container.dataset.gradepercent) > 0) {
     const circle0 = constructCircle("Grade", Highcharts.getOptions().colors[2], parseInt(container.dataset.gradetotal));
     series.push(circle0.serie)
     backgrounds.push(circle0.background)
-  // }
+  }
 
-  if (parseInt(container.dataset.readingtotal) > 0) {
+  if (parseInt(container.dataset.readingpercent) > 0) {
     const circle1 = constructCircle("Reading", Highcharts.getOptions().colors[1], parseInt(container.dataset.readingtotal));
     series.push(circle1.serie)
     backgrounds.push(circle1.background)
   }
 
-  if (parseInt(container.dataset.choretotal) > 0) {
+  if (parseInt(container.dataset.chorepercent) > 0) {
     const circle2 = constructCircle("Chore", Highcharts.getOptions().colors[0], parseInt(container.dataset.choretotal));
     series.push(circle2.serie)
     backgrounds.push(circle2.background)

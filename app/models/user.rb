@@ -75,16 +75,25 @@ class User < ApplicationRecord
     achieved_achievements_grades.map(&:points).sum * 100.0 / total_goals_points
   end
 
+
   # Category_Pourcent
 
   def chore_category_pourcent
-    Proportion.where(goal_id: last_goal)
+    Proportion.joins(:category).where(goal_id: last_goal_id).where(categories: {name: "chores"})[0].percent
   end
 
-  # Last_Goal
+  def reading_category_pourcent
+    Proportion.joins(:category).where(goal_id: last_goal_id).where(categories: {name: "readings"})[0].percent
+  end
 
-  def last_goal
-    goals.last
+  def grade_category_pourcent
+    Proportion.joins(:category).where(goal_id: last_goal_id).where(categories: {name: "grades"})[0].percent
+  end
+
+  private
+
+  def last_goal_id
+    goals.last.id
   end
 
 end
