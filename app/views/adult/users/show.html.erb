@@ -4,7 +4,7 @@
     <%= image_tag("BackgroundGreyShape.svg") %>
   </div>
 
-  <div class="d-flex align-items-center my-5">
+  <div class="d-flex align-items-center mt-2 mb-5">
 
     <!-- SPINNER -->
     <!-- /!\ WARNING : IT IS NOT THE SAME FOR KID, DON'T COPY PASTE /!\-->
@@ -12,7 +12,7 @@
     <!-- END SPINNER -->
 
     <!-- GOAL -->
-    <div>
+    <div class="mt-5">
       <h2><span class="text-capitalize"><%= @goal.title %></span></h2>
       <h3><strong><%= @goal.total_points %> pts</strong></h3>
       <p><em><%= @goal.end_date.strftime('%a, %e %b %Y') %></em></p>
