@@ -120,7 +120,7 @@
                   <h3>New achievement</h3>
                   <hr>
                   <div class="kid-new-modal d-flex justify-content-center">
-                    <%= simple_form_for @achievement, url: kid_achievements_path, html: { method: :post, id: :new_achievement_3 } do |f| %>
+                    <%= simple_form_for @achievement, url: kid_achievements_path, html: { id: :new_achievement_3 } do |f| %>
                       <div class="kid-achievement-suggested-task mt-5 mb-5">
                         <p>TASK:</p>
                         <%= f.association :task, input_html: { id: 'achievement_task_id_3' }, label: false  %>
