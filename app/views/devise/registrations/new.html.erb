@@ -6,11 +6,7 @@
     <%= f.error_notification %>
       <div class="form-inputs">
         <div class="text-center">
-          <%= f.input :adult,
-                      as: :boolean,
-                      checked_value: true,
-                      unchecked_value: false,
-                      required: true %>
+          <%= f.input :adult, as: :boolean %>
         </div>
         <%= f.association :family %>
         <%= f.input :family_name %>
@@ -50,3 +46,5 @@
     </div>
   </div>
 </div>
+
+
