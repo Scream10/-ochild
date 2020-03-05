@@ -2,6 +2,8 @@ const Highcharts = require('highcharts');
 // Load module after Highcharts is loaded
 require('highcharts/modules/exporting')(Highcharts);
 
+const container = document.querySelector('#container');
+
 import highchartsMore from "highcharts/highcharts-more.js";
 import solidGauge from "highcharts/modules/solid-gauge.js";
 
