@@ -96,7 +96,6 @@
   background: white;
 }
 
-
 .card-info-show {
   background: white;
   position: relative;
@@ -152,5 +151,19 @@
   height: 100%;
 }
 
-
+.card-congrats {
+  border-radius: 8px;
+  background-color: white;
+  width: 350px;
+  height: 120px;
+  padding-top: 28px;
+  margin: 20px;
+  position: relative;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  transition: .3s ease;
+  &:hover {
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+    bottom: 5px;
+  };
+}
 
