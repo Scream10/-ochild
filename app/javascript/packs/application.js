@@ -276,3 +276,10 @@ if (container) {
   // export { myCharts };
   myCharts()
 }
+
+
+// REGISTRATION LISTENER
+import { family_id } from '../components/registration_input.js';
+family_id();
+
+

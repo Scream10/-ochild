@@ -159,5 +159,26 @@
   text-align: center;
 }
 
+.btn-creation-new-goal {
+  text-decoration: none;
+  color: white;
+  background-color: $tangerine;
+  border: 1px solid $tangerine;
+  border-radius: 50px;
+  padding: 15px 28px;
+  font-weight: 500;
+  font-size: 30px;
+  height: 80px;
+  font-family: Poppins;
+  text-decoration: none;
+  outline: none;
+  &:hover,:focus {
+    text-decoration: none;
+    background-color: white;
+    color: $tangerine;
+    text-decoration: none;
+    outline: none;
+  }
+}
 
 

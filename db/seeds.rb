@@ -142,7 +142,9 @@ achievement_two = Achievement.new(due_at: "Fri, 10 Mar 2020", achieve: false, do
 achievement_three = Achievement.new(due_at: "Fri, 8 Mar 2020", achieve: false, done: true, user: child, task: task_three, points: 18)
 
 family.save
+child.family_name = child.family.name
 child.save
+parent.family_name = parent.family.name
 parent.save
 goal.save
 proportion_one.save

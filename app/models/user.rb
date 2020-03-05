@@ -76,7 +76,7 @@ class User < ApplicationRecord
   end
 
   def finish_goal
-    goals.find_by(done: true).update(done: true) if total_score >= 100
+    goals.find_by(done: false).update(done: true) if total_score >= 100
   end
 
   # Achievements
