@@ -11,14 +11,14 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active d-flex align-items-center">
-          <% if current_user[:adult] == false %>
-            <%= link_to "MY PROFILE", kid_user_path(current_user), class: "nav-link" %>
-          <% else %>
-            <%= link_to "MY PROFILE", adult_user_path(current_user), class: "nav-link" %>
-          <% end %>
+
         </li>
+          <% if current_user[:adult] == false %>
+            <%= image_tag ("avatarKid.png"), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag ("avatarAdult.png"), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
         <li class="nav-item dropdown">
-          <%#= image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item text-right" %>
           </div>
