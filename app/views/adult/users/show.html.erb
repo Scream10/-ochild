@@ -6,7 +6,10 @@
 
   <div class="d-flex align-items-center my-5">
 
-    <%= render "shared/spinning_adult" %>
+    <!-- SPINNER -->
+    <!-- /!\ WARNING : IT IS NOT THE SAME FOR KID, DON'T COPY PASTE /!\-->
+    <div id="container" data-choretotal="<%= current_user.total_chores_score_adult %>" data-chorepercent="<%= current_user.chore_category_pourcent_adult %>" data-readingtotal="<%= current_user.total_readings_score_adult %>" data-readingpercent="<%= current_user.reading_category_pourcent_adult %>" data-gradetotal="<%= current_user.total_grades_score_adult %>" data-gradepercent="<%= current_user.grade_category_pourcent_adult %>" style="max-width:300px;"></div>
+    <!-- END SPINNER -->
 
     <!-- GOAL -->
     <div>
