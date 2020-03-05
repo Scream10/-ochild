@@ -4,11 +4,21 @@
     <%= image_tag("BackgroundGreyShape.svg") %>
   </div>
 
-  <div class="d-flex align-items-center mt-2 mb-5">
-
-    <% if current_user.kids == [] %>
-
-    <% else %>
+  <div class="d-flex justify-content-center">
+    <div class="card-congrats text-center">
+      <h4>Congrats!</h4>
+      <p><%= current_user.kids.first.first_name.capitalize %> succeded in achieving her goal!</p>
+    </div>
+  </div>
+  
+<% if current_user.kids == [] %>
+<% else %>
+ <% if @goal.nil? %>
+  <div class="btn-new-goal d-flex justify-content-center align-items-center mt-5 mb-5">
+    <%= link_to 'Launch a new project', new_adult_goal_path, class: 'btn-creation-new-goal' %>
+  </div>
+  <% else %>
+    <div class="d-flex align-items-center mt-2 mb-5">
       <!-- SPINNER -->
       <!-- /!\ WARNING : IT IS NOT THE SAME FOR KID, DON'T COPY PASTE /!\-->
         <div id="container" data-choretotal="<%= current_user.total_chores_score_adult %>" data-chorepercent="<%= current_user.chore_category_pourcent_adult %>" data-readingtotal="<%= current_user.total_readings_score_adult %>" data-readingpercent="<%= current_user.reading_category_pourcent_adult %>" data-gradetotal="<%= current_user.total_grades_score_adult %>" data-gradepercent="<%= current_user.grade_category_pourcent_adult %>" style="max-width:300px;"></div>
@@ -20,8 +30,7 @@
       <h3><strong><%= @goal&.total_points %> pts</strong></h3>
       <p><em><%= @goal&.end_date&.strftime('%a, %e %b %Y') %></em></p>
     </div>
-    <!-- END GOAL -->
-  </div>
+  <% end %>
 
   <!-- ONGLETS SUGGESTIONS / TASKS -->
   <nav>
