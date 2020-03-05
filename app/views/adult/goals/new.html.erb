@@ -1,14 +1,66 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <h4>Add a goal</h4>
-      <%= simple_form_for @goal, url: adult_goals_path, method: :post do |f| %>
-       <%= f.input :title, placeholder: "Name of the goal" %>
-       <%= f.input :end_date, as: :date, html5: true, placeholder: "When is it due ?" %>
-       <%= f.input :total_points, as: :integer, placeholder: "How many points are necessary ?" %>
-       <%= f.association :user, collection: @kids, label_method: :first_name, value_method: :id %>
-       <%= f.submit "Create Goal" %> <!-- <i class="fas fa-bullseye"></i> %><%# end %> -->
-      <% end %>
+  <h1 class="text-center">Create a new goal</h1>
+    <div class="row">
+      <div class="col-md-8 offset-2">
+
+        <%= simple_form_for [:adult, @goal] do |f| %>
+          <div class="kid-achiement-suggested-points mt-5">
+            <p>FOR WHICH KID? </p>
+            <%= f.association :user, collection: @kids, label_method: :first_name, value_method: :id, label: false %>
+          </div>
+          <div class="kid-achievement-suggested-task mt-5 mb-5">
+            <p>GOAL:</p>
+            <%= f.input :title, label: false %>
+          </div>
+          <div class="kid-achievement-suggested-date mt-5">
+            <p>WHEN IS IT HAPPENING ?</p>
+            <%= f.input :end_date, as: :string, type: :text, label: false %>
+          </div>
+          <div class="kid-achiement-suggested-points mt-5">
+            <p>SET YOUR POINTS FOR THIS GOAL: </p>
+            <%= f.input :total_points, as: :integer, label: false %>
+          </div>
+
+          <%= f.simple_fields_for :proportions, Proportion.new do |f2| %>
+            <div class="kid-achiement-suggested-points mt-5">
+              <p>CATEGORY: </p>
+              <%= f2.association :category, selected: 1, label: false, value_method: :id %>
+            </div>
+            <div class="kid-achiement-suggested-points mt-5">
+              <p>WHICH PERCENTAGE FOR THIS CATEGORY: </p>
+              <%= f2.input :percent, label: false, input_html: {value: 0} %>
+            </div>
+          <% end %>
+
+          <%= f.simple_fields_for :proportions, Proportion.new do |f2| %>
+            <div class="kid-achiement-suggested-points mt-5">
+              <p>CATEGORY: </p>
+              <%= f2.association :category, selected: 2, label: false, value_method: :id %>
+            </div>
+            <div class="kid-achiement-suggested-points mt-5">
+              <p>WHICH PERCENTAGE FOR THIS CATEGORY: </p>
+              <%= f2.input :percent, label: false, input_html: {value: 0} %>
+            </div>
+          <% end %>
+
+          <%= f.simple_fields_for :proportions, Proportion.new do |f2| %>
+            <div class="kid-achiement-suggested-points mt-5">
+              <p>CATEGORY: </p>
+              <%= f2.association :category, selected: 3, label: false, value_method: :id %>
+            </div>
+            <div class="kid-achiement-suggested-points mt-5">
+              <p>WHICH PERCENTAGE FOR THIS CATEGORY: </p>
+              <%= f2.input :percent, label: false, input_html: {value: 0} %>
+            </div>
+          <% end %>
+
+          <div class="d-flex justify-content-center mt-5 mb-2">
+            <%= f.submit "Create Goal", class: "btn-tangerine" %> <!-- <i class="fas fa-bullseye"></i> %><%# end %> -->
+          </div>
+        <% end %>
+
+        <br>
+        <br>
+      </div>
     </div>
-  </div>
 </div>

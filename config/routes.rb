@@ -13,5 +13,6 @@ Rails.application.routes.draw do
     resources :tasks, only: [ :new, :create ]
     resources :users, only: [ :show ]
     resources :goals, only: [ :create, :new ]
+    # resources :proportions, only: [ :new, :create ]
   end
 end
