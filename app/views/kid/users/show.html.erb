@@ -1,6 +1,7 @@
 <div class="container">
 
-  <%# if current_user.total_score < 100 %>
+<% if current_user.goals == [] %>
+<% else %>
   <% if @goal.nil? %>
     <div class="pyro">
       <div class="before"></div>
@@ -37,7 +38,6 @@
       <!-- END GOAL -->
     </div>
   <% end %>
-
   <!-- ONGLETS SUGGESTIONS / TASKS -->
   <nav>
     <div id="nav-menu" class="nav justify-content-around mt-5" id="nav-tab" role="tablist">
