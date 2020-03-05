@@ -3,7 +3,7 @@
   border: 1px solid #DFE0EB;
   box-sizing: border-box;
   border-radius: 8px;
-  width: 600px;
+  width: 650px;
   min-height: 280px;
   margin: auto;
 }
@@ -31,9 +31,12 @@
 .link-pending {
   display: flex;
   align-items: center;
+  text-decoration: none;
+  outline: none;
   & button {
     text-decoration: none;
     outline: none;
+    box-shadow: none !important;
   }
 }
 
@@ -57,7 +60,7 @@
   border: 1px solid #DFE0EB;
   box-sizing: border-box;
   border-radius: 8px;
-  width: 600px;
+  width: 650px;
   min-height: 280px;
 }
 
