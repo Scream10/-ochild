@@ -15,8 +15,6 @@ chores = Category.create(name: "chores")
 readings = Category.create(name: "readings")
 grades = Category.create(name: "grades")
 
-
-
 puts "Creating family..."
 
 family = Family.new(name: "dupont")
@@ -132,7 +130,6 @@ child.photo.attach(io: File.open('./app/assets/images/avatarKid.png'), filename:
 
 parent = User.new(first_name: "nono", last_name: "dupont", adult: true, date_of_birth: "1987-12-01", family: family, email: "test2@test.com", password: "azerty")
 parent.photo.attach(io: File.open('./app/assets/images/avatarAdult.png'), filename: 'avatarAdult.png')
-
 
 goal = Goal.new(title: "Anniversaire Camille", end_date: "2020-03-30", total_points: 500, done: false, user: child)
 

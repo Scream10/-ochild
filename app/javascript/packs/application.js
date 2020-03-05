@@ -14,5 +14,5 @@ modalNewAchievement();
 import { toggleDateInput } from '../components/toggleDateInput.js';
 toggleDateInput();
 
-// import { myCharts } from '../components/highcharts.js';
-// myCharts();
+import { myCharts } from '../components/highcharts.js';
+myCharts();
