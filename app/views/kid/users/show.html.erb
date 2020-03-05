@@ -1,10 +1,27 @@
 <div class="container">
 
-  <% if current_user.total_score < 100 %>
+  <%# if current_user.total_score < 100 %>
+  <% if @goal.nil? %>
+    <div class="pyro">
+      <div class="before"></div>
+        <div class="after"></div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="card-goal-succed my-5 text-center d-flex justify-content-center align-items-center flex-column">
+          <h2 class="text-capitalize" style="color: #2B2842"><%= @goals.last.title %></h2>
+          <div class="card-goal-succed-img">
+            <%= image_tag "goalsuccess.svg" %>
+          </div>
+      </div>
+    </div>
+    <div class="pyro">
+      <div class="before"></div>
+      <div class="after"></div>
+    </div>
+  <% else %>
     <div class="d-flex justify-content-center" id="position-absolute-greyshape">
       <%= image_tag("BackgroundGreyShape.svg") %>
     </div>
-
 
     <div class="d-flex align-items-center mt-2 mb-5">
       <!-- GOAL -->
@@ -13,32 +30,11 @@
       <!-- END SPINNER -->
 
       <div class="mt-5">
-        <% @goals.each do |goal| %>
-          <h2 class="text-capitalize"><%= goal.title %></h2>
-          <h3><strong><%= goal.total_points %> pts</strong></h3>
-          <p><em><%= goal.end_date.strftime('%a, %e %b %Y') %></em></p>
-        <% end %>
+          <h2 class="text-capitalize"><%= @goal.title %></h2>
+          <h3><strong><%= @goal.total_points %> pts</strong></h3>
+          <p><em><%= @goal.end_date.strftime('%a, %e %b %Y') %></em></p>
       </div>
       <!-- END GOAL -->
-    </div>
-  <% else %>
-    <div class="pyro">
-      <div class="before"></div>
-      <div class="after"></div>
-    </div>
-    <div class="d-flex justify-content-center align-items-center">
-      <div class="card-goal-succed my-5 text-center d-flex justify-content-center align-items-center flex-column">
-         <% @goals.each do |goal| %>
-          <h2 class="text-capitalize" style="color: #2B2842"><%= goal.title %></h2>
-          <div class="card-goal-succed-img">
-            <%= image_tag "goalsuccess.svg" %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="pyro">
-      <div class="before"></div>
-      <div class="after"></div>
     </div>
   <% end %>
 
