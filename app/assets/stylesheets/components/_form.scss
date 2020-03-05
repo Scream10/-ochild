@@ -168,7 +168,28 @@ textarea#task_description {
   height: 36px;
 }
 
+#user_email {
+  text-align: center;
+}
 
-
-
-
+.render-new-sign-up a {
+    border-radius: 8px;
+  height: 24px;
+  background-color: $sand;
+  border: 1px solid $sand;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 16px;
+  padding: 3px 11px;
+  letter-spacing: 1px;
+  outline: none;
+  &:hover,:focus {
+    text-decoration: none;
+    background-color: white;
+    color: $sand;
+    outline: none;
+  }
+}
