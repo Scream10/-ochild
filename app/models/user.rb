@@ -89,7 +89,6 @@ class User < ApplicationRecord
     achieved_achievements_grades.map(&:points).sum * 100.0 / total_goals_points_for_grade
   end
 
-
   # Category_Pourcent
 
   def chore_category_pourcent
