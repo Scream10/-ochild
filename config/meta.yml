@@ -1,0 +1,5 @@
+meta_product_name: "O'Child"
+meta_title: "O'Child - Your personnal mediator"
+meta_description: "O'child helps parents and children build an easy communication based on mutual help"
+meta_image: "banner.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
