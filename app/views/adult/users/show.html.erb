@@ -12,10 +12,9 @@
       <p><%= current_user&.kids&.first&.first_name&.capitalize %> succeded in achieving her goal!</p>
     </div>
   </div>
-
-    <div class="btn-new-goal d-flex justify-content-center align-items-center mt-5 mb-5">
-      <%= link_to 'Launch a new project', new_adult_goal_path, class: 'btn-creation-new-goal' %>
-    </div>
+  <div class="btn-new-goal d-flex justify-content-center align-items-center mt-5 mb-5">
+    <%= link_to 'Launch a new project', new_adult_goal_path, class: 'btn-creation-new-goal' %>
+  </div>
   <% else %>
     <div class="d-flex align-items-center mt-2 mb-5">
       <!-- SPINNER -->

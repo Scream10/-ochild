@@ -13,7 +13,8 @@ class Kid::UsersController < ApplicationController
     @achievement = Achievement.new()
     # @achievement_find = Achievement.find(params[:id])
     # @achievement = Achievement.find(params[:id])
-    @achievements = Achievement.all
+    # @achievements = Achievement.all
+    @achievements = current_user&.achievements&.where(done: false, achieve: false)
   end
 
 end
