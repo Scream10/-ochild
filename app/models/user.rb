@@ -35,8 +35,22 @@ class User < ApplicationRecord
     achievements.where(done: true, achieve: false)
   end
 
+  # Goal
+
   def total_goals_points
     goals.map(&:total_points).sum
+  end
+
+  def total_goals_points_for_chore
+    goals.map(&:total_points).sum * chore_category_pourcent * 0.01
+  end
+
+  def total_goals_points_for_reading
+    goals.map(&:total_points).sum * reading_category_pourcent * 0.01
+  end
+
+  def total_goals_points_for_grade
+    goals.map(&:total_points).sum * grade_category_pourcent * 0.01
   end
 
   def total_score
@@ -64,15 +78,15 @@ class User < ApplicationRecord
   # Pourcent_Total
 
   def total_chores_score
-    achieved_achievements_chores.map(&:points).sum * 100.0 / total_goals_points
+    achieved_achievements_chores.map(&:points).sum * 100.0 / total_goals_points_for_chore
   end
 
   def total_readings_score
-    achieved_achievements_readings.map(&:points).sum * 100.0 / total_goals_points
+    achieved_achievements_readings.map(&:points).sum * 100.0 / total_goals_points_for_reading
   end
 
   def total_grades_score
-    achieved_achievements_grades.map(&:points).sum * 100.0 / total_goals_points
+    achieved_achievements_grades.map(&:points).sum * 100.0 / total_goals_points_for_grade
   end
 
 
