@@ -14,6 +14,10 @@ modalNewAchievement();
 import { toggleDateInput } from '../components/toggleDateInput.js';
 toggleDateInput();
 
+// REGISTRATION LISTENER
+import { family_id } from '../components/registration_input.js';
+family_id();
+
 // Code très moche :
 
 
