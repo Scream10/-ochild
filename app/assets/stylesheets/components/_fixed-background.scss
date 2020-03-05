@@ -127,18 +127,21 @@
 
 #position-absolute-greyshape {
   position: absolute;
-  top: 2.5%;
-  left: 13%;
+  top: 7%;
+  left: 21%;
   z-index: -10;
 }
 
 #position-absolute-greyshape img {
-  width: 900px;
+  width: 800px;
 }
 
 @media screen and (max-width: 768px) {
   #position-absolute-greyshape img {
     width: 94%;
+  }
+  #position-absolute-greyshape {
+    left: 14%;
   }
 }
 

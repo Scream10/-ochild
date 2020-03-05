@@ -85,24 +85,48 @@ const constructCircle = (name, color, category) => {
   return { serie: serie, background: background }
 }
 
+let gradetotal;
+
+if(parseInt(container.dataset.gradetotal) < 101) {
+  gradetotal = parseInt(container.dataset.gradetotal);
+} else {
+  gradetotal = 100;
+}
+
+let readingtotal;
+
+if(parseInt(container.dataset.readingtotal) < 101) {
+  readingtotal = parseInt(container.dataset.readingtotal);
+} else {
+  readingtotal = 100;
+}
+
+let choretotal;
+
+if(parseInt(container.dataset.choretotal) < 101) {
+  choretotal = parseInt(container.dataset.choretotal);
+} else {
+  choretotal = 100;
+}
+
 
 const frontCircles = () => {
   const series = [];
   const backgrounds = [];
   if (parseInt(container.dataset.gradepercent) > 0) {
-    const circle0 = constructCircle("Grade", Highcharts.getOptions().colors[2], parseInt(container.dataset.gradetotal));
+    const circle0 = constructCircle("Grade", Highcharts.getOptions().colors[2], gradetotal);
     series.push(circle0.serie)
     backgrounds.push(circle0.background)
   }
 
   if (parseInt(container.dataset.readingpercent) > 0) {
-    const circle1 = constructCircle("Reading", Highcharts.getOptions().colors[1], parseInt(container.dataset.readingtotal));
+    const circle1 = constructCircle("Reading", Highcharts.getOptions().colors[1], readingtotal);
     series.push(circle1.serie)
     backgrounds.push(circle1.background)
   }
 
   if (parseInt(container.dataset.chorepercent) > 0) {
-    const circle2 = constructCircle("Chore", Highcharts.getOptions().colors[0], parseInt(container.dataset.choretotal));
+    const circle2 = constructCircle("Chore", Highcharts.getOptions().colors[0], choretotal);
     series.push(circle2.serie)
     backgrounds.push(circle2.background)
   }
