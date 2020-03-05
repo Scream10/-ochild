@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  belongs_to :family
+  belongs_to :family, optional: :true
   has_many :goals
   has_many :achievements
   has_many :tasks, through: :achievements
@@ -11,15 +11,30 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validates :family_name, presence: true
   # validates :adult, presence: true
   # we need to include true or false
   validates :date_of_birth, presence: true
+
+  after_create :create_family
+
+
+  def first_child
+    family.users
+          .where(adult: false)
+          .first
+  end
+
+  def create_family
+    family = Family.find_or_create_by(name: self.family_name)
+    self.update(family: family)
+  end
 
   def kids
     family.users.where(adult: false)
   end
 
-  def adult
+  def adult2
     family.users.where(adult: true)
   end
 

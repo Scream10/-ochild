@@ -6,6 +6,7 @@ const toggleDateInput = () => {
   const dateInputTwo = document.getElementById('achievement_due_at_id_2');
   const dateInputThree = document.getElementById('achievement_due_at_id_3');
   const dateInputFour = document.getElementById('achievement_due_at_adult');
+  const dateInputUser = document.getElementById('user_date_of_birth');
 
   if (dateInput) {
     flatpickr(dateInput, {
@@ -44,6 +45,16 @@ const toggleDateInput = () => {
     flatpickr(dateInputFour, {
       enableTime: false,
       minDate: 'today',
+      altInput: true,
+      altFormat: "F j, Y",
+      // dateFormat: "Y-m-d",
+      dateFormat: 'd-m-Y',
+      autoclose: true,
+    });
+  }
+  if (dateInputUser) {
+    flatpickr(dateInputUser, {
+      enableTime: false,
       altInput: true,
       altFormat: "F j, Y",
       // dateFormat: "Y-m-d",
