@@ -1,0 +1,31 @@
+#position-absolute-standing-goal {
+  position: absolute;
+  bottom: 4%;
+  left: 2%;
+  z-index: -1000;
+}
+#position-absolute-standing-goal img {
+ width: 380px;
+ // z-index: -10;
+ // height: 450px;
+}
+
+#position-absolute-standing-mum {
+  position: absolute;
+  bottom: 5%;
+  left: 77%;
+  z-index: -1000;
+}
+#position-absolute-standing-mum img {
+ width: 300px;
+ // z-index: -10;
+ // height: 450px;
+}
+input.form-control.string.required.input {
+  background-color: transparent !important;
+  opacity: 1;
+  border: none;
+  border-bottom: 1px solid #dee2e6;
+  width: 300px;
+  margin: 0px 0px 0px;
+}

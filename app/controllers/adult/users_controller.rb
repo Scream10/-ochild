@@ -4,7 +4,7 @@ class Adult::UsersController < ApplicationController
     @goal = current_user.first_child&.goals&.find_by(done: false)
 
     # @family = current_user.family
-    #@kid = User.where(family: current_user.family, adult: false)
+    # @kid = User.where(family: current_user.family, adult: false)
     # @goal = Goal.where(user: @child, done: false).first
 
     # DISPLAY ALL SUGGESTED TASKS

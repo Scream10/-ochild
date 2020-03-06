@@ -1,47 +1,45 @@
 <div class="container">
 
-  <% if current_user.total_score < 100 %>
-    <div class="d-flex justify-content-center" id="position-absolute-greyshape">
-      <%= image_tag("BackgroundGreyShape.svg") %>
-    </div>
-
-
-    <div class="d-flex align-items-center mt-2 mb-5">
-      <!-- GOAL -->
-      <!-- SPINNER -->
-      <div id="container" data-choretotal="<%= current_user.total_chores_score %>" data-chorepercent="<%= current_user.chore_category_pourcent %>" data-readingtotal="<%= current_user.total_readings_score %>" data-readingpercent="<%= current_user.reading_category_pourcent %>" data-gradetotal="<%= current_user.total_grades_score %>" data-gradepercent="<%= current_user.grade_category_pourcent %>" style="max-width:300px;"></div>
-      <!-- END SPINNER -->
-
-      <div class="mt-5">
-        <% @goals.each do |goal| %>
-          <h2 class="text-capitalize"><%= goal.title %></h2>
-          <h3><strong><%= goal.total_points %> pts</strong></h3>
-          <p><em><%= goal.end_date.strftime('%a, %e %b %Y') %></em></p>
-        <% end %>
-      </div>
-      <!-- END GOAL -->
-    </div>
+  <% if current_user.goals == [] %>
   <% else %>
-    <div class="pyro">
-      <div class="before"></div>
-      <div class="after"></div>
-    </div>
-    <div class="d-flex justify-content-center align-items-center">
-      <div class="card-goal-succed my-5 text-center d-flex justify-content-center align-items-center flex-column">
-         <% @goals.each do |goal| %>
-          <h2 class="text-capitalize" style="color: #2B2842"><%= goal.title %></h2>
-          <div class="card-goal-succed-img">
-            <%= image_tag "goalsuccess.svg" %>
-          </div>
-        <% end %>
+    <% if @goal.nil? %>
+      <div class="pyro">
+        <div class="before"></div>
+          <div class="after"></div>
       </div>
-    </div>
-    <div class="pyro">
-      <div class="before"></div>
-      <div class="after"></div>
-    </div>
-  <% end %>
+      <div class="d-flex justify-content-center align-items-center">
+        <div class="card-goal-succed my-5 text-center d-flex justify-content-center align-items-center flex-column">
+            <h2 class="text-capitalize" style="color: #2B2842"><%= @goals.last.title %></h2>
+            <div class="card-goal-succed-img">
+              <%= image_tag "goalsuccess.svg" %>
+            </div>
+        </div>
+      </div>
+      <div class="pyro">
+        <div class="before"></div>
+        <div class="after"></div>
+      </div>
+    <% else %>
+      <div class="d-flex justify-content-center" id="position-absolute-greyshape">
+        <%= image_tag("BackgroundGreyShape.svg") %>
+      </div>
 
+      <div class="d-flex align-items-center mt-2 mb-5">
+        <!-- GOAL -->
+        <!-- SPINNER -->
+        <div id="container" data-choretotal="<%= current_user.total_chores_score %>" data-chorepercent="<%= current_user.chore_category_pourcent %>" data-readingtotal="<%= current_user.total_readings_score %>" data-readingpercent="<%= current_user.reading_category_pourcent %>" data-gradetotal="<%= current_user.total_grades_score %>" data-gradepercent="<%= current_user.grade_category_pourcent %>" style="max-width:300px;">
+        </div>
+        <!-- END SPINNER -->
+
+        <div class="mt-5">
+            <h1 class="text-capitalize" style="color: #2B2842"><strong><%= @goal.title %></strong></h1>
+            <h3><strong><%= @goal.total_points %> pts</strong></h3>
+            <p><em><%= @goal.end_date.strftime('%a, %e %b %Y') %></em></p>
+        </div>
+        <!-- END GOAL -->
+      </div>
+    <% end %>
+  <% end %>
   <!-- ONGLETS SUGGESTIONS / TASKS -->
   <nav>
     <div id="nav-menu" class="nav justify-content-around mt-5" id="nav-tab" role="tablist">

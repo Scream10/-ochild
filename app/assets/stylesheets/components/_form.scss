@@ -168,12 +168,12 @@ textarea#task_description {
   height: 36px;
 }
 
-#user_email {
-  text-align: center;
-}
+
+
+// FORM SIGN-UP
 
 .render-new-sign-up a {
-    border-radius: 8px;
+  border-radius: 8px;
   height: 24px;
   background-color: $sand;
   border: 1px solid $sand;
@@ -192,4 +192,130 @@ textarea#task_description {
     color: $sand;
     outline: none;
   }
+}
+
+.form-sign-up {
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+   & h2 {
+    color: $black-purple !important;
+    border-bottom: 1px solid #dee2e6;
+    padding: 1rem;
+    font-family: Poppins;
+    font-weight: bold;
+   }
+   & p {
+    color: #B0B0B0;
+    font-weight: 500;
+    letter-spacing: 2.6px;
+    height: 30px;
+    font-family: Raleway;
+    font-size: 10px !important;
+    height: 14px;
+   }
+}
+
+.checkbox-signup {
+  font-size: 12px;
+}
+
+.sign-up {
+  p {
+    color: #B0B0B0;
+    font-weight: 500;
+    letter-spacing: 2.6px;
+    height: 30px;
+    font-family: Raleway;
+    font-size: 14px !important;
+    height: 18px;
+  }
+}
+#user_family_name {
+  width: 350px;
+  margin-top: 0px !important;
+  border: none;
+  border-bottom: 1px solid #dee2e6;
+  border-radius: 0px !important;
+  outline: none;
+  outline-color: transparent;
+  color: #2B2842 !important;
+  font-weight: 500;
+  font-size: 16px;
+}
+#user_first_name {
+  width: 350px;
+  margin-top: 0px !important;
+  border: none;
+  border-bottom: 1px solid #dee2e6;
+  border-radius: 0px !important;
+  outline: none;
+  outline-color: transparent;
+  color: #2B2842 !important;
+  font-weight: 500;
+  font-size: 16px;
+}
+#user_last_name {
+  width: 350px;
+  margin-top: 0px !important;
+  border: none;
+  border-bottom: 1px solid #dee2e6;
+  border-radius: 0px !important;
+  outline: none;
+  outline-color: transparent;
+  color: #2B2842 !important;
+  font-weight: 500;
+  font-size: 16px;
+}
+#user_date_of_birth {
+  width: 350px;
+  margin-top: 0px !important;
+  border: none;
+  border-bottom: 1px solid #dee2e6;
+  border-radius: 0px !important;
+  outline: none;
+  outline-color: transparent;
+  color: #2B2842 !important;
+  font-weight: 500;
+  font-size: 16px;
+}
+#user_email {
+  width: 350px;
+  margin-top: 0px !important;
+  border: none;
+  border-bottom: 1px solid #dee2e6;
+  border-radius: 0px !important;
+  outline: none;
+  outline-color: transparent;
+  color: #2B2842 !important;
+  font-weight: 500;
+  font-size: 16px;
+}
+#user_password {
+  width: 350px;
+  margin-top: 0px !important;
+  border: none;
+  border-bottom: 1px solid #dee2e6;
+  border-radius: 0px !important;
+  outline: none;
+  outline-color: transparent;
+  color: #2B2842 !important;
+  font-weight: 500;
+  font-size: 16px;
+}
+#user_password_confirmation {
+  width: 350px;
+  margin-top: 0px !important;
+  border: none;
+  border-bottom: 1px solid #dee2e6;
+  border-radius: 0px !important;
+  outline: none;
+  outline-color: transparent;
+  color: #2B2842 !important;
+  font-weight: 500;
+  font-size: 16px;
+}
+.form-text {
+  font-size: 8px;
 }
