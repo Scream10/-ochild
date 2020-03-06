@@ -11,9 +11,9 @@ Category.destroy_all
 
 puts "Creating categories..."
 
-chores = Category.create(name: "Chores")
-readings = Category.create(name: "Readings")
-grades = Category.create(name: "Grades")
+chores = Category.create(name: "chores")
+readings = Category.create(name: "readings")
+grades = Category.create(name: "grades")
 
 puts "Creating family..."
 
