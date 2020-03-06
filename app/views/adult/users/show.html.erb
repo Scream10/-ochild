@@ -5,6 +5,10 @@
   </div>
 
   <% if current_user.kids == [] %>
+  <% elsif current_user.kids.first.goals == [] %>
+    <div class="btn-new-goal d-flex justify-content-center align-items-center mt-5 mb-5">
+      <%= link_to 'Launch a new project', new_adult_goal_path, class: 'btn-creation-new-goal' %>
+    </div>
   <% elsif @goal.nil? %>
   <div class="d-flex justify-content-center">
     <div class="card-congrats text-center">
