@@ -69,7 +69,7 @@
                   <% if task.photo.attachment.nil? %>
                     <%= image_tag 'housekeeping.png' %>
                   <% else %>
-                    <%= cl_image_tag task.photo %>
+                    <%= image_tag task.photo %>
                   <% end %>
                 </div>
                 <div class="card-task-infos">
