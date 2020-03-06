@@ -83,13 +83,13 @@
 
 #position-absolute-standing-8 {
   position: absolute;
-  bottom: 1.35%;
-  left: 5%;
+  bottom: 3%;
+  left: 3%;
   z-index: -10;
 }
 
 #position-absolute-standing-8 img {
-  width: 270px;
+  width: 290px;
   opacity: .8;
 }
 
@@ -108,12 +108,12 @@
 #position-absolute-sitting {
   position: absolute;
   left: 74%;
-  top: 13.7%;
+  top: 20.5%;
   z-index: 0;
 }
 
 #position-absolute-sitting img {
-  width: 214px;
+  width: 230px;
 }
 
 @media screen and (max-width: 768px) {
