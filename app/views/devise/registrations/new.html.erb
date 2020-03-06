@@ -1,49 +1,90 @@
 <div class="container d-flex justify-content-center">
-  <div class="col-lg-6">
-    <h2 class="mb-5 text-center" style="color: $black-purple">Sign up</h2>
+  <div class="form-sign-up my-3 col-lg-6">
+    <h2 class="mb-4 text-center" style="color: $black-purple">Sign up</h2>
+    <p class="mb-0 text-center"><em>After creating a parent profile,</em></p>
+    <p class="mb-3 text-center"><em>think about creating a child profile</em></p>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
       <div class="form-inputs">
-        <div class="text-center">
-          <%= f.input :adult, as: :boolean %>
-        </div>
-        <%= f.association :family %>
-        <%= f.input :family_name %>
 
-        <%= f.input :first_name,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "first_name" }%>
-        <%= f.input :last_name,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "last_name" }%>
-        <%= f.input :date_of_birth,
-                    as: :string,
-                    type: :text,
-                    discard_day: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "last_name" }%>
-        <%= f.input :email,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "email" }%>
-        <%= f.input :password,
-                    required: true,
-                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                    input_html: { autocomplete: "new-password" } %>
-        <%= f.input :password_confirmation,
-                    required: true,
-                    input_html: { autocomplete: "new-password" } %>
+        <div class="checkbox-signup my-4 text-center">
+          <%= f.input :adult,
+                      as: :boolean,
+                      label: "Check if you are an adult" %>
+        </div>
+
+        <div class="sign-up mt-3 text-align-left">
+            <p class="mb-0">Adult: Write your family nickname</p>
+          <%= f.input :family_name,
+                      label: false %>
+        </div>
+
+        <div class="sign-up mt-5 text-align-left">
+          <p class="mb-0">Kid: Choose your family nickname</p>
+          <%= f.association :family,
+                      label: false %>
+        </div>
+
+        <div class="sign-up mt-5 text-align-left">
+          <p class="mb-0">First-name</p>
+          <%= f.input :first_name,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "first_name" },
+                      label: false %>
+        <div>
+
+        <div class="sign-up mt-5 text-align-left">
+          <p class="mb-0">Last-name</p>
+          <%= f.input :last_name,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "last_name" },
+                      label: false %>
+        </div>
+
+        <div class="sign-up mt-5 text-align-left">
+          <p class="mb-0">Date-of-birth</p>
+          <%= f.input :date_of_birth,
+                      as: :string,
+                      type: :text,
+                      discard_day: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "last_name" },
+                      label: false %>
+        </div>
+
+        <div class="sign-up mt-5 text-align-left">
+          <p class="mb-0">E-mail</p>
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" },
+                      label: false %>
+        </div>
+
+        <div class="sign-up mt-5 text-align-left">
+          <p class="mb-0">Password</p>
+          <%= f.input :password,
+                      required: true,
+                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      input_html: { autocomplete: "new-password" },
+                      label: false %>
+        </div>
+
+        <div class="sign-up mt-5 text-align-left">
+          <p class="mb-0">Password confirmation</p>
+          <%= f.input :password_confirmation,
+                      required: true,
+                      input_html: { autocomplete: "new-password" },
+                      label: false %>
+        </div>
       </div>
       <div class="form-actions mt-4 text-center">
         <%= f.button :submit, "Sign up", class:"btn-tangerine" %>
       </div>
     <% end %>
-    <div class="render-new-sign-up mt-3 text-center">
-      <%= render "devise/shared/links" %>
-    </div>
   </div>
 </div>
 
