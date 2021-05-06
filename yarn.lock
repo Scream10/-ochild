@@ -3240,10 +3240,10 @@ highcharts-solid-gauge.map@^0.1.7:
   resolved "https://registry.yarnpkg.com/highcharts-solid-gauge.map/-/highcharts-solid-gauge.map-0.1.7.tgz#8e906e72c38f373a7a723f75ba0601f5dd29c536"
   integrity sha1-jpBucsOPNzp6cj91ugYB9d0pxTY=
 
-highcharts@^8.0.1:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-8.0.1.tgz#b34b8b8df50ae2864fa699559259f3d5c65f6d9c"
-  integrity sha512-qxEJQIk/G8tPt8crGsuXRjE0apJG4LBZxDmzTklpUvoQU12VG9fRnOlPOqGfuVl0Pz+GibVLWrJRAU3HpB2wuw==
+highcharts@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-9.0.0.tgz#2e5d382481f71c50ac7f086e7bdead394fab71d4"
+  integrity sha512-MJCtidFytGSQvsV3OEM+vFTLpjUcp7jmFpLn8h3oL4WKp0gxUOQg6Nw00sqMWGdiadst0gOZO4804zynTcYjZQ==
 
 hmac-drbg@^1.0.0:
   version "1.0.1"
